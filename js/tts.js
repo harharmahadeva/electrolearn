@@ -2,17 +2,21 @@ const TTS = (() => {
   let enabled = true;
   let lang = 'en-US';
 
-  // Ranked preference list — warmest / most natural voices first
+  // Female voices only — ranked warmest / most natural first
   const PREFERRED_EN = [
-    // iOS / macOS neural voices (very natural)
-    'Samantha', 'Karen', 'Moira', 'Tessa',
-    // Windows natural voices (online neural, excellent quality)
+    // iOS / macOS — Apple neural female voices
+    'Samantha', 'Karen', 'Moira', 'Tessa', 'Victoria', 'Allison', 'Ava', 'Susan',
+    // Windows online neural female (best quality on Windows)
     'Microsoft Aria Online (Natural)', 'Microsoft Jenny Online (Natural)',
     'Microsoft Aria', 'Microsoft Jenny', 'Microsoft Zira',
-    // Chrome desktop
+    'Microsoft Eva', 'Microsoft Hazel', 'Microsoft Susan',
+    // Chrome / Android female
     'Google UK English Female',
-    // Android fallback
-    'English (United States)',
+  ];
+  // Male voice names to skip — we never want these
+  const MALE_NAMES = [
+    'David', 'Mark', 'George', 'James', 'Daniel', 'Alex',
+    'Fred', 'Tom', 'Lee', 'Rishi', 'Aaron', 'Arthur',
   ];
   const PREFERRED_HI = [
     'Microsoft Swara Online (Natural)', 'Microsoft Swara',
@@ -29,10 +33,14 @@ const TTS = (() => {
       const v = voices.find(v => v.name.includes(name));
       if (v) return v;
     }
-    // 2. any local service voice in the right language
-    const local = voices.find(v => v.lang.startsWith(langCode) && v.localService);
-    if (local) return local;
-    // 3. any voice in the right language
+    // 2. any local female-sounding voice (exclude known male names)
+    const isMale = v => MALE_NAMES.some(m => v.name.includes(m));
+    const localFemale = voices.find(v => v.lang.startsWith(langCode) && v.localService && !isMale(v));
+    if (localFemale) return localFemale;
+    // 3. any non-male voice in the right language
+    const anyFemale = voices.find(v => v.lang.startsWith(langCode) && !isMale(v));
+    if (anyFemale) return anyFemale;
+    // 4. absolute fallback — any voice in the language
     return voices.find(v => v.lang.startsWith(langCode)) || null;
   }
 
