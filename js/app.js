@@ -304,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     body.innerHTML = '';
     body.scrollTop = 0;
     body.appendChild(buildStepEl(step));
+    renderStepNav(step);
 
     // auto-speak
     const txt = getSpokenText(step);
@@ -432,7 +433,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="quiz-feedback" style="display:none"></div>
           </div>`;
-
         wrap.querySelectorAll('.quiz-opt').forEach(btn => {
           btn.addEventListener('click', () => {
             const chosen = parseInt(btn.dataset.idx);
@@ -442,15 +442,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const isRight = chosen === correct;
             const fb = wrap.querySelector('.quiz-feedback');
             fb.className = 'quiz-feedback ' + (isRight ? 'good' : 'bad');
-            const prefix = isRight ? randFrom(CORRECT_LINES) : randFrom(WRONG_LINES);
-            fb.textContent = prefix + ' ' + feedback;
+            fb.textContent = (isRight ? randFrom(CORRECT_LINES) : randFrom(WRONG_LINES)) + ' ' + feedback;
             fb.style.display = 'block';
             speak((isRight ? 'Correct! ' : 'Not quite. ') + feedback);
             setTimeout(() => advanceStep(), 2400);
           });
         });
-        // no nav for quiz — auto-advances
-        return wrap;
+        break;
       }
 
       case 'tryit': {
@@ -472,54 +470,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="xp-badge">+${step.xp} XP</div>
             <p>${s.msg}</p>
           </div>`;
-        // complete nav: back to home + optional next lesson
-        const nav = document.createElement('div');
-        nav.className = 'step-nav';
-        const homeBtn = document.createElement('button');
-        homeBtn.className = 'btn btn-ghost';
-        homeBtn.textContent = lang === 'hi' ? '🏠 होम' : '🏠 Home';
-        homeBtn.onclick = () => {
-          Storage.setLessonDone(currentMod.id, currentLessonIdx);
-          Storage.addXP(step.xp || 0);
-          Storage.clearResume();
-          stopSpeak();
-          goHome();
-        };
-        nav.appendChild(homeBtn);
-        if (currentLessonIdx < currentMod.lessons.length - 1) {
-          const nextBtn = document.createElement('button');
-          nextBtn.className = 'btn btn-green';
-          nextBtn.textContent = lang === 'hi' ? 'अगला →' : 'Next lesson →';
-          nextBtn.onclick = () => {
-            Storage.setLessonDone(currentMod.id, currentLessonIdx);
-            Storage.addXP(step.xp || 0);
-            stopSpeak();
-            openLesson(currentMod, currentLessonIdx + 1);
-          };
-          nav.appendChild(nextBtn);
-        }
-        wrap.appendChild(nav);
-        return wrap;
+        break;
       }
     }
-
-    // standard nav for non-quiz, non-complete steps
-    const lesson = currentMod.lessons[currentLessonIdx];
-    const nav = document.createElement('div');
-    nav.className = 'step-nav';
-    if (currentStepIdx > 0) {
-      const backBtn = document.createElement('button');
-      backBtn.className = 'btn btn-ghost';
-      backBtn.textContent = t('back');
-      backBtn.onclick = () => { stopSpeak(); currentStepIdx--; renderStep(); };
-      nav.appendChild(backBtn);
-    }
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'btn btn-primary';
-    nextBtn.textContent = currentStepIdx < lesson.steps.length - 1 ? t('next') : t('finish');
-    nextBtn.onclick = () => advanceStep();
-    nav.appendChild(nextBtn);
-    wrap.appendChild(nav);
 
     // wire up play buttons
     setTimeout(() => {
@@ -529,6 +482,57 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 0);
 
     return wrap;
+  }
+
+  function renderStepNav(step) {
+    const nav = $('lesson-nav');
+    nav.innerHTML = '';
+    const lesson = currentMod.lessons[currentLessonIdx];
+    const navRow = document.createElement('div');
+    navRow.className = 'step-nav';
+
+    if (step.type === 'complete') {
+      const homeBtn = document.createElement('button');
+      homeBtn.className = 'btn btn-ghost';
+      homeBtn.textContent = lang === 'hi' ? '🏠 होम' : '🏠 Home';
+      homeBtn.onclick = () => {
+        Storage.setLessonDone(currentMod.id, currentLessonIdx);
+        Storage.addXP(step.xp || 0);
+        Storage.clearResume();
+        stopSpeak();
+        goHome();
+      };
+      navRow.appendChild(homeBtn);
+      if (currentLessonIdx < currentMod.lessons.length - 1) {
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'btn btn-green';
+        nextBtn.textContent = lang === 'hi' ? 'अगला पाठ →' : 'Next lesson →';
+        nextBtn.onclick = () => {
+          Storage.setLessonDone(currentMod.id, currentLessonIdx);
+          Storage.addXP(step.xp || 0);
+          stopSpeak();
+          openLesson(currentMod, currentLessonIdx + 1);
+        };
+        navRow.appendChild(nextBtn);
+      }
+    } else if (step.type === 'quiz') {
+      // quiz auto-advances — show empty nav bar so layout stays consistent
+    } else {
+      if (currentStepIdx > 0) {
+        const backBtn = document.createElement('button');
+        backBtn.className = 'btn btn-ghost';
+        backBtn.textContent = t('back');
+        backBtn.onclick = () => { stopSpeak(); currentStepIdx--; renderStep(); };
+        navRow.appendChild(backBtn);
+      }
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'btn btn-primary';
+      nextBtn.textContent = currentStepIdx < lesson.steps.length - 1 ? t('next') : t('finish');
+      nextBtn.onclick = () => advanceStep();
+      navRow.appendChild(nextBtn);
+    }
+
+    nav.appendChild(navRow);
   }
 
   function escAttr(str) {
