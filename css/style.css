@@ -24,18 +24,34 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .screen.hidden { opacity: 0; pointer-events: none; transform: translateY(16px); }
 .hidden { display: none !important; }
 
-/* ── TOAST ── */
-.toast { position: fixed; top: 80px; left: 50%; transform: translateX(-50%); background: #1c1400; border: 1.5px solid var(--accent); border-radius: 20px; padding: 10px 18px; font-size: 13px; font-weight: 700; color: var(--accent); z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
+/* ── TOAST ── sits below KITT which is at top */
+.toast { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 58px); left: 50%; transform: translateX(-50%); background: #1c1400; border: 1.5px solid var(--accent); border-radius: 20px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: var(--accent); z-index: 299; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; max-width: calc(100vw - 40px); text-align: center; }
 .toast.show { opacity: 1; }
 
 /* ── SPARK SPEAKING INDICATOR — KITT ── */
-.spark-speaking { position: fixed; bottom: 90px; left: 50%; transform: translateX(-50%); background: #100c00; border: 1.5px solid #3d2d00; border-radius: 32px; padding: 10px 18px; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.35s; min-width: 220px; }
+/* sits at TOP so it never overlaps bottom nav or step buttons */
+.spark-speaking {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #100c00;
+  border: 1.5px solid #3d2d00;
+  border-radius: 32px;
+  padding: 8px 16px;
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s;
+  min-width: 200px;
+  max-width: calc(100vw - 40px);
+}
 .spark-speaking.show { opacity: 1; }
-.kitt-wrap { display: flex; align-items: center; gap: 12px; }
+.kitt-wrap { display: flex; align-items: center; gap: 10px; }
 .kitt-label { font-size: 9px; font-weight: 900; letter-spacing: 2.5px; color: var(--accent); flex-shrink: 0; }
-.kitt-track { flex: 1; height: 16px; border-radius: 8px; background: #0d0900; border: 1px solid #2a1e00; position: relative; overflow: hidden; width: 150px; }
-.kitt-eye { position: absolute; top: 0; left: 0; width: 40px; height: 100%; background: radial-gradient(ellipse at center, #ffd700 0%, #ff8c00 45%, transparent 80%); animation: kitt-scan 0.9s cubic-bezier(0.45,0,0.55,1) infinite alternate; }
-@keyframes kitt-scan { from { left: 0; } to { left: calc(100% - 40px); } }
+.kitt-track { flex: 1; height: 14px; border-radius: 8px; background: #0d0900; border: 1px solid #2a1e00; position: relative; overflow: hidden; min-width: 100px; }
+.kitt-eye { position: absolute; top: 0; left: 0; width: 36px; height: 100%; background: radial-gradient(ellipse at center, #ffd700 0%, #ff8c00 45%, transparent 80%); animation: kitt-scan 0.9s cubic-bezier(0.45,0,0.55,1) infinite alternate; }
+@keyframes kitt-scan { from { left: 0; } to { left: calc(100% - 36px); } }
 
 /* ══════════════ LOGIN ══════════════ */
 #screen-login {
@@ -134,7 +150,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .home-header {
   background: #100e00;
   border-bottom: 2px solid #2a2000;
-  padding: 44px 16px 14px;
+  padding: calc(env(safe-area-inset-top, 0px) + 44px) 16px 14px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -208,7 +224,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 
 /* ══════════════ LESSON ══════════════ */
 #screen-lesson { background: var(--bg); }
-.lesson-header { display: flex; align-items: center; gap: 12px; padding: 52px 16px 12px; background: var(--surface); border-bottom: 1px solid #2a2000; }
+.lesson-header { display: flex; align-items: center; gap: 12px; padding: calc(env(safe-area-inset-top, 0px) + 48px) 16px 12px; background: var(--surface); border-bottom: 1px solid #2a2000; }
 .back-btn { width: 40px; height: 40px; border-radius: 50%; background: #1c1200; border: 1.5px solid #3d2d00; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 20px; font-weight: 700; flex-shrink: 0; transition: all 0.15s; color: var(--accent); user-select: none; }
 .back-btn:active { transform: scale(0.93); }
 .lesson-header-info { flex: 1; }
@@ -296,7 +312,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 
 /* ══════════════ GLOSSARY ══════════════ */
 #screen-glossary { background: var(--bg); }
-.glossary-header { padding: 52px 16px 12px; background: var(--surface); border-bottom: 1px solid #2a2000; }
+.glossary-header { padding: calc(env(safe-area-inset-top, 0px) + 48px) 16px 12px; background: var(--surface); border-bottom: 1px solid #2a2000; }
 .glossary-header h2 { font-size: 18px; font-weight: 800; margin-bottom: 10px; }
 .glossary-search { width: 100%; background: #181200; border: 1.5px solid #2a2000; border-radius: 10px; padding: 11px 14px; color: var(--text); font-size: 14px; font-family: inherit; outline: none; transition: border-color 0.2s; }
 .glossary-search:focus { border-color: var(--accent); }
@@ -311,7 +327,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .gi-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
 
 /* ══════════════ BOTTOM NAV ══════════════ */
-.bottom-nav { display: flex; background: #0d0c00; border-top: 1.5px solid #2a2000; padding: 8px 0 calc(8px + env(safe-area-inset-bottom, 0px)); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
+.bottom-nav { display: flex; background: #0d0c00; border-top: 1.5px solid #2a2000; padding: 8px 0 calc(10px + env(safe-area-inset-bottom, 0px)); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
 .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; padding: 4px 0; transition: all 0.15s; }
 .nav-item .nav-icon { font-size: 22px; }
 .nav-item .nav-label { font-size: 10px; font-weight: 700; color: var(--text2); }
@@ -347,48 +363,156 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 ::-webkit-scrollbar-thumb { background: rgba(255,140,0,0.15); border-radius: 99px; }
 
 /* ══════════════ RESPONSIVE ══════════════ */
-@media (min-width: 600px) {
-  .screen { align-items: center; }
-  .screen > * { width: 100%; max-width: 560px; }
 
-  #screen-login { justify-content: center; }
-  #screen-login > * { max-width: 420px; }
+/* ── Tiny phones (< 360px) ── */
+@media (max-width: 359px) {
+  .card h3 { font-size: 15px; }
+  .quiz-card h3 { font-size: 13px; }
+  .pin-key { height: 48px; font-size: 19px; }
+  .module-grid { gap: 5px; }
+  .login-logo-svg { width: 76px; height: 76px; }
+  .login-title { font-size: 26px; }
+  .home-name { font-size: 22px; }
+  .home-controls { gap: 5px; }
+  .lang-toggle, .mute-btn, .logout-btn { font-size: 10px; padding: 3px 9px; }
+}
+
+/* ── Small phones (360–480px) — default styles already target this ── */
+@media (max-width: 480px) {
+  .login-inner { padding: 16px 16px 32px; }
+  .home-body { padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+  .lesson-body { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ── Tablets & large phones portrait (480–768px) — iPad mini, Galaxy Tab ── */
+@media (min-width: 480px) and (max-width: 767px) {
+  .login-inner { max-width: 380px; margin: 0 auto; padding: 24px 20px 40px; }
+  .login-logo-svg { width: 108px; height: 108px; }
+  .login-title { font-size: 34px; }
+  .pin-key { height: 60px; font-size: 24px; }
+  .module-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .mc-name { font-size: 12px; }
+  .home-name { font-size: 28px; }
+  .home-body { max-width: 480px; margin: 0 auto; padding: 10px 16px calc(70px + env(safe-area-inset-bottom, 0px)); }
+  .home-header { padding-top: calc(env(safe-area-inset-top, 0px) + 36px); }
+}
+
+/* ── iPad portrait / large tablet (768–1024px) ── */
+@media (min-width: 768px) {
+  .screen { align-items: center; }
+
+  #screen-login { justify-content: center; overflow-y: auto; }
+  .login-inner { max-width: 420px; padding: 32px 24px 48px; }
+  .login-logo-svg { width: 112px; height: 112px; }
+  .login-title { font-size: 36px; }
+  .pin-keypad { gap: 11px; }
+  .pin-key { height: 64px; font-size: 26px; border-radius: 14px; }
 
   #screen-home { align-items: stretch; }
-  .home-header { max-width: 100%; padding: 36px 16px 16px; display: flex; flex-direction: column; align-items: center; }
-  .home-prog-row { width: 100%; max-width: 480px; }
-  .home-name { font-size: 30px; }
-  .home-body { max-width: 560px; margin: 0 auto; width: 100%; padding: 12px 0 80px; }
-
+  .home-header { padding: calc(env(safe-area-inset-top, 0px) + 32px) 24px 18px; display: flex; flex-direction: column; align-items: center; }
+  .home-greeting { font-size: 13px; }
+  .home-name { font-size: 32px; }
+  .home-prog-row { width: 100%; max-width: 520px; }
+  .home-body { max-width: 680px; margin: 0 auto; width: 100%; padding: 14px 0 calc(80px + env(safe-area-inset-bottom, 0px)); }
   .module-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .mc-name { font-size: 12px; }
+  .mc-name { font-size: 13px; }
+  .mc-phase { font-size: 9px; }
+  .module-card { padding: 12px 12px 10px; }
+
+  #screen-lesson .lesson-header { padding: calc(env(safe-area-inset-top, 0px) + 32px) 20px 14px; max-width: 680px; margin: 0 auto; width: 100%; }
+  #screen-lesson .lesson-prog { max-width: 680px; margin: 0 auto; width: 100%; }
+  #screen-lesson .lesson-body { max-width: 680px; margin: 0 auto; width: 100%; padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)); }
+
+  #screen-glossary .glossary-header { padding: calc(env(safe-area-inset-top, 0px) + 32px) 20px 14px; max-width: 680px; margin: 0 auto; width: 100%; }
+  #screen-glossary .glossary-body { max-width: 680px; margin: 0 auto; width: 100%; }
+
+  .bottom-nav { justify-content: center; }
+  .nav-item { max-width: 140px; }
+  .nav-item .nav-icon { font-size: 24px; }
+  .nav-item .nav-label { font-size: 11px; }
+
+  .spark-speaking { top: calc(env(safe-area-inset-top, 0px) + 10px); min-width: 240px; padding: 10px 20px; }
+  .kitt-track { min-width: 140px; }
+
+  .card { padding: 22px 24px; }
+  .card h3 { font-size: 18px; }
+  .card p { font-size: 15px; }
+  .quiz-card h3 { font-size: 16px; }
+  .btn { font-size: 16px; padding: 15px 22px; }
+}
+
+/* ── iPad landscape / laptop (1024px+) ── */
+@media (min-width: 1024px) {
+  body { font-size: 16px; }
+
+  #screen-login { justify-content: center; }
+  .login-inner { max-width: 440px; }
+
+  .home-header { padding-top: 36px; }
+  .home-name { font-size: 36px; }
+  .home-body { max-width: 780px; padding: 16px 0 88px; }
+  .module-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .module-card { padding: 14px 14px 10px; }
+  .mc-icon { font-size: 24px; }
+  .mc-name { font-size: 14px; }
+  .mc-phase { font-size: 9px; }
 
   #screen-lesson .lesson-header,
   #screen-lesson .lesson-prog,
-  #screen-lesson .lesson-body { max-width: 560px; margin-left: auto; margin-right: auto; width: 100%; }
-  #screen-lesson .lesson-header { padding-top: 56px; }
+  #screen-lesson .lesson-body { max-width: 780px; }
+  .lesson-body { padding: 20px 20px 96px; }
+  .card { padding: 24px 28px; margin-bottom: 16px; }
+  .card-icon { font-size: 42px; }
+  .card h3 { font-size: 20px; }
+  .card p { font-size: 15px; }
+  .spark-card { padding: 20px; }
+  .spark-msg-body p { font-size: 14px; }
+  .quiz-card { padding: 22px; }
+  .quiz-card h3 { font-size: 17px; }
+  .quiz-opt { padding: 14px 16px; font-size: 14px; }
 
   #screen-glossary .glossary-header,
-  #screen-glossary .glossary-body { max-width: 560px; margin-left: auto; margin-right: auto; width: 100%; }
-  #screen-glossary .glossary-header { padding-top: 56px; }
+  #screen-glossary .glossary-body { max-width: 780px; }
+  .glossary-item { padding: 14px 18px; }
+  .gi-en { font-size: 16px; }
+  .gi-desc { font-size: 13px; }
 
-  .bottom-nav { justify-content: center; }
-  .nav-item { max-width: 120px; }
-  .spark-speaking { bottom: 110px; }
+  .bottom-nav { height: 64px; }
+  .nav-item .nav-icon { font-size: 26px; }
+  .nav-item .nav-label { font-size: 12px; }
+
+  /* hover states only on pointer devices (not touch) */
+  .module-card:hover { border-color: rgba(255,140,0,0.4); background: var(--surface2); }
+  .quiz-opt:hover { border-color: rgba(255,140,0,0.4); background: #1c1600; }
+  .pin-key:hover { background: #1c1400; border-color: rgba(255,140,0,0.4); }
+  .resume-card:hover { border-color: var(--green); background: #0d1a00; }
+  .spark-home-card:hover { border-color: var(--accent); background: #181200; }
 }
 
-@media (min-width: 900px) {
-  .home-body { max-width: 620px; }
-  .module-grid { grid-template-columns: repeat(3, 1fr); }
-  .home-name { font-size: 34px; }
-  #screen-lesson .lesson-body,
+/* ── Large desktop (1280px+) ── */
+@media (min-width: 1280px) {
+  .home-body { max-width: 860px; }
+  .home-name { font-size: 40px; }
   #screen-lesson .lesson-header,
-  #screen-lesson .lesson-prog { max-width: 620px; }
+  #screen-lesson .lesson-prog,
+  #screen-lesson .lesson-body { max-width: 860px; }
+  #screen-glossary .glossary-header,
+  #screen-glossary .glossary-body { max-width: 860px; }
 }
 
-@media (max-width: 380px) {
-  .card h3 { font-size: 15px; }
-  .quiz-card h3 { font-size: 14px; }
-  .pin-key { height: 50px; font-size: 20px; }
-  .module-grid { gap: 5px; }
+/* ── No-hover touch devices: remove hover transforms ── */
+@media (hover: none) {
+  .module-card:hover,
+  .quiz-opt:hover,
+  .pin-key:hover,
+  .resume-card:hover,
+  .spark-home-card:hover { background: unset; border-color: unset; }
+}
+
+/* ── iOS standalone PWA: extra top padding for Dynamic Island / notch ── */
+@media (display-mode: standalone) {
+  .home-header { padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  .lesson-header { padding-top: calc(env(safe-area-inset-top, 0px) + 14px); }
+  .glossary-header { padding-top: calc(env(safe-area-inset-top, 0px) + 14px); }
+  .spark-speaking { top: calc(env(safe-area-inset-top, 0px) + 6px); }
 }
