@@ -312,10 +312,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getSpokenText(step) {
     const s = step[lang] || step.en || {};
+    const hi = lang === 'hi';
+
     if (step.type === 'spark') return s.text || '';
-    if (step.type === 'learn') return (s.title ? s.title + '. ' : '') + (s.body || '');
+    if (step.type === 'learn') return (s.title ? s.title + '. ' : '') + (s.body || '') + (s.list ? '. ' + s.list.join('. ') : '');
     if (step.type === 'fact') return s.text || '';
     if (step.type === 'complete') return s.msg || '';
+
+    if (step.type === 'diagram') {
+      const label = step.label || (hi ? 'आरेख' : 'diagram');
+      return hi
+        ? `यहाँ एक चित्र है — ${label}। इसे ध्यान से देखें।`
+        : `Here is a diagram — ${label}. Take a moment to study it carefully.`;
+    }
+
+    if (step.type === 'hindi') {
+      const pairs = step.pairs || [];
+      if (!pairs.length) return hi ? 'हिंदी में देखें।' : 'Study the Hindi terms.';
+      const intro = hi ? 'इन शब्दों को हिंदी में याद करें। ' : 'Learn these terms in Hindi. ';
+      return intro + pairs.map(p => `${p.en} — ${p.hi}`).join('. ');
+    }
+
+    if (step.type === 'tryit') {
+      const title = s.title || '';
+      const steps = s.steps || step.en?.steps || [];
+      const intro = hi ? `अब खुद करके देखें। ${title}. ` : `Now try it yourself. ${title}. `;
+      return intro + steps.map((st, i) => `${hi ? 'चरण' : 'Step'} ${i + 1}: ${st}`).join('. ');
+    }
+
+    if (step.type === 'quiz') {
+      return hi
+        ? 'अब इसका जवाब दें। नीचे दिए विकल्पों में से सही उत्तर चुनें।'
+        : 'Now let\'s see what you remember. Choose the correct answer below.';
+    }
+
     return '';
   }
 
