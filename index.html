@@ -10,10 +10,21 @@
   <meta name="theme-color" content="#0f1123">
   <title>ElectroLearn</title>
   <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="/css/style.css?v=1">
+  <link rel="stylesheet" href="/css/style.css?v=2">
 </head>
 <body>
 
+<!-- ── SPARK SPEAKING INDICATOR (KITT style) ── -->
+<div class="spark-speaking" id="spark-speaking">
+  <div class="kitt-wrap">
+    <div class="kitt-label">SPARK</div>
+    <div class="kitt-track">
+      <div class="kitt-eye"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST ── -->
 <div class="toast" id="toast"></div>
 
 <!-- ══════════════ LOGIN ══════════════ -->
@@ -72,30 +83,50 @@
 <!-- ══════════════ HOME ══════════════ -->
 <div class="screen hidden" id="screen-home">
   <div class="home-header">
-    <div class="home-greeting" id="home-greeting">Welcome back!</div>
-    <div class="home-name-row">
-      <div class="home-name" id="home-xp">0 XP</div>
-      <button class="lang-toggle" id="lang-toggle">हिंदी</button>
+    <div class="home-greeting" id="home-greeting">Good morning!</div>
+    <div class="home-name" id="home-name">Learner</div>
+    <div class="home-xp-row">
+      <div class="home-xp-pill" id="home-xp">0 XP</div>
+      <div class="home-streak-pill" id="home-streak">🔥 0 days</div>
     </div>
-    <div class="home-stats-row">
-      <div class="home-stat-pill">🔥 <span id="home-streak">0</span> day streak</div>
-      <div class="home-stat-pill">📚 <span id="home-lessons-done">0</span> lessons done</div>
+    <div class="home-prog-row">
+      <div class="home-prog-pct" id="home-prog-pct">0%</div>
+      <div class="progress-bar"><div class="progress-fill" id="home-prog-fill" style="width:0%"></div></div>
     </div>
     <div class="home-controls">
+      <button class="lang-toggle" id="lang-toggle">हिंदी</button>
       <button class="mute-btn" id="mute-btn">🔊 Mute Spark</button>
       <button class="logout-btn" id="logout-btn">Sign out</button>
     </div>
+    <div class="home-version" id="home-version">v1.0.0</div>
   </div>
+
   <div class="home-body">
+    <!-- Resume card -->
     <div class="resume-card" id="resume-card" style="display:none">
       <div class="resume-icon">▶</div>
       <div class="resume-info">
-        <div class="resume-label">Continue where you left off</div>
+        <div class="resume-label" id="resume-label">Continue where you left off</div>
         <div class="resume-text" id="resume-text"></div>
         <div class="resume-mod" id="resume-mod"></div>
       </div>
       <div class="resume-arrow">›</div>
     </div>
+
+    <!-- Spark card -->
+    <div class="spark-home-card" id="spark-home-card">
+      <div class="spark-home-avatar">
+        ⚡
+        <div class="spark-pulse"></div>
+      </div>
+      <div class="spark-home-text">
+        <h3 id="spark-card-title">Ask Spark</h3>
+        <p id="spark-card-sub">Your electronics guide — tap to hear intro</p>
+      </div>
+      <div class="spark-home-arrow">›</div>
+    </div>
+
+    <!-- Modules -->
     <div class="section-title" id="section-path-label">Your Learning Path</div>
     <div class="module-grid" id="module-grid"></div>
   </div>
@@ -124,20 +155,20 @@
 </div>
 
 <!-- ══════════════ BOTTOM NAV ══════════════ -->
-<div class="bottom-nav" id="bottom-nav">
+<div class="bottom-nav" id="bottom-nav" style="display:none">
   <div class="nav-item active" id="nav-home">
     <div class="nav-icon">🏠</div>
     <div class="nav-label">Home</div>
   </div>
   <div class="nav-item" id="nav-glossary">
     <div class="nav-icon">📖</div>
-    <div class="nav-label">Glossary</div>
+    <div class="nav-label" id="nav-glossary-label">Glossary</div>
   </div>
 </div>
 
-<script src="/js/storage.js?v=1"></script>
-<script src="/js/tts.js?v=1"></script>
-<script src="/js/lessons.js?v=1"></script>
-<script src="/js/app.js?v=1"></script>
+<script src="/js/storage.js?v=2"></script>
+<script src="/js/tts.js?v=2"></script>
+<script src="/js/lessons.js?v=2"></script>
+<script src="/js/app.js?v=2"></script>
 </body>
 </html>

@@ -1,5 +1,24 @@
 # ElectroLearn Changelog
 
+## v1.1.0 — 2026-06-30
+
+### UI aligned to Work Ready (Chhaya's app) — all changelog improvements applied
+
+- Time-aware greeting (Good morning / afternoon / evening / night) — bilingual
+- KITT Spark speaking indicator — shows when TTS is active, hides when done
+- Spark home card with pulse animation — tap for a random electronics tip (TTS)
+- Overall progress bar in home header (total lessons done / total)
+- Bottom nav stays visible during lessons — no longer hidden
+- Version number displayed in home header footer
+- Varied motivational feedback lines on quiz correct/wrong answers
+- Resume label updates on lang toggle
+- Section path label translates to Hindi on toggle
+- Mute/unmute button with toast confirmation
+- Module complete card: green border, gold XP badge
+- Toast moved to top (80px from top)
+- Desktop 3-column grid, max-width 620px, centered layout
+- Complete card auto-marks lesson done, XP awarded, resume cleared
+
 ## v1.0.0 — 2026-06-30
 
 ### Initial release
