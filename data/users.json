@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "test",
+      "name": "Learner",
+      "pin_hash": "4dea5c7cb70f50322ec9d734aa4aa078be9227c05251e18991c596f387552370",
+      "lang": "en",
+      "role": "learner"
+    }
+  ]
+}

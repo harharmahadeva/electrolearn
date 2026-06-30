@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="ElectroLearn">
+  <meta name="theme-color" content="#0f1123">
+  <title>ElectroLearn</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<!-- ══════════════ LOGIN ══════════════ -->
+<div class="screen" id="screen-login">
+  <div class="login-hero">
+    <div class="login-logo-icon">⚡</div>
+    <div class="login-title">ElectroLearn</div>
+    <div class="login-sub">Electronics from scratch · बिजली सीखो</div>
+  </div>
+  <div class="login-card">
+    <div class="pin-label">Enter your PIN</div>
+    <div class="pin-dots">
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+      <div class="pin-dot"></div>
+    </div>
+    <div class="pin-keypad">
+      <div class="pin-key" data-val="1">1</div>
+      <div class="pin-key" data-val="2">2</div>
+      <div class="pin-key" data-val="3">3</div>
+      <div class="pin-key" data-val="4">4</div>
+      <div class="pin-key" data-val="5">5</div>
+      <div class="pin-key" data-val="6">6</div>
+      <div class="pin-key" data-val="7">7</div>
+      <div class="pin-key" data-val="8">8</div>
+      <div class="pin-key" data-val="9">9</div>
+      <div class="pin-key hash" data-val="">#</div>
+      <div class="pin-key" data-val="0">0</div>
+      <div class="pin-key del" data-val="del">⌫</div>
+    </div>
+    <div class="login-error" id="pin-error"></div>
+  </div>
+</div>
+
+<!-- ══════════════ ONBOARDING ══════════════ -->
+<div class="screen hidden" id="screen-onboard">
+  <div class="onboard-slide">
+    <div class="onboard-emoji" id="ob-emoji">⚡</div>
+    <div class="onboard-title" id="ob-title">Welcome!</div>
+    <div class="onboard-text" id="ob-text"></div>
+    <div class="onboard-dots">
+      <div class="onboard-dot on"></div>
+      <div class="onboard-dot"></div>
+      <div class="onboard-dot"></div>
+      <div class="onboard-dot"></div>
+      <div class="onboard-dot"></div>
+    </div>
+  </div>
+  <div class="onboard-nav">
+    <button class="btn btn-primary" id="ob-next">Next →</button>
+    <button class="btn-skip" id="ob-skip">Skip to lessons</button>
+  </div>
+</div>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div class="screen hidden" id="screen-home">
+  <div class="home-header">
+    <div class="home-greeting" id="home-greeting">Welcome back!</div>
+    <div class="home-name-row">
+      <div class="home-name" id="home-xp">0 XP</div>
+      <button class="lang-toggle" id="lang-toggle">हिंदी</button>
+    </div>
+    <div class="home-stats-row">
+      <div class="home-stat-pill">🔥 <span id="home-streak">0</span> day streak</div>
+      <div class="home-stat-pill">📚 <span id="home-lessons-done">0</span> lessons done</div>
+    </div>
+    <div class="home-controls">
+      <button class="mute-btn" id="mute-btn">🔊 Mute Spark</button>
+      <button class="logout-btn" id="logout-btn">Sign out</button>
+    </div>
+  </div>
+  <div class="home-body">
+    <div class="resume-card" id="resume-card" style="display:none">
+      <div class="resume-icon">▶</div>
+      <div class="resume-info">
+        <div class="resume-label">Continue where you left off</div>
+        <div class="resume-text" id="resume-text"></div>
+        <div class="resume-mod" id="resume-mod"></div>
+      </div>
+      <div class="resume-arrow">›</div>
+    </div>
+    <div class="section-title" id="section-path-label">Your Learning Path</div>
+    <div class="module-grid" id="module-grid"></div>
+  </div>
+</div>
+
+<!-- ══════════════ LESSON ══════════════ -->
+<div class="screen hidden" id="screen-lesson">
+  <div class="lesson-header">
+    <div class="back-btn" id="lesson-back">‹</div>
+    <div class="lesson-header-info">
+      <h2 id="lesson-mod-name">Module</h2>
+      <p id="lesson-title">Lesson</p>
+    </div>
+  </div>
+  <div class="lesson-prog" id="lesson-prog"></div>
+  <div class="lesson-body" id="lesson-body"></div>
+</div>
+
+<!-- ══════════════ GLOSSARY ══════════════ -->
+<div class="screen hidden" id="screen-glossary">
+  <div class="glossary-header">
+    <h2>📖 Glossary · शब्दकोश</h2>
+    <input type="search" class="glossary-search" id="glossary-search" placeholder="Search components, terms...">
+  </div>
+  <div class="glossary-body" id="glossary-list"></div>
+</div>
+
+<!-- ══════════════ BOTTOM NAV ══════════════ -->
+<div class="bottom-nav" id="bottom-nav">
+  <div class="nav-item active" id="nav-home">
+    <div class="nav-icon">🏠</div>
+    <div class="nav-label">Home</div>
+  </div>
+  <div class="nav-item" id="nav-glossary">
+    <div class="nav-icon">📖</div>
+    <div class="nav-label">Glossary</div>
+  </div>
+</div>
+
+<script src="/js/storage.js?v=1"></script>
+<script src="/js/tts.js?v=1"></script>
+<script src="/js/lessons.js?v=1"></script>
+<script src="/js/app.js?v=1"></script>
+</body>
+</html>
