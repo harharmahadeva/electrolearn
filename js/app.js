@@ -26,7 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── KITT Spark indicator ──
+  let kittEnabled = false; // only show on home/lesson/glossary, not login/onboard
   function sparkSpeaking(on) {
+    if (!kittEnabled) return;
     $('spark-speaking').classList.toggle('show', on);
   }
 
@@ -122,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── ONBOARDING ──
   let obIdx = 0;
   function goOnboard() {
+    kittEnabled = false;
     showScreen('screen-onboard');
     hide('bottom-nav');
     obIdx = 0;
@@ -145,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── HOME ──
   function goHome() {
+    kittEnabled = true;
     showScreen('screen-home');
     $('bottom-nav').style.display = 'flex';
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -261,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── OPEN LESSON ──
   function openLesson(mod, lessonIdx) {
+    kittEnabled = true;
     currentMod = mod;
     currentLessonIdx = lessonIdx;
     currentStepIdx = 0;
