@@ -1,5 +1,30 @@
 # ElectroLearn Changelog
 
+## v2.7.0 — 2026-07-01
+
+### IC lesson rewrite (5 types) + analog multimeter photo + expanded multimeter lesson
+
+- **IC lesson completely rewritten** (transistors module, lesson 2 — now 10 min, 40 XP):
+  - What is inside an IC: transistors, resistors, capacitors, diodes, metal tracks — with analogy
+  - 5 real IC photos from Wikimedia CDN (auto-cached by service worker on first view):
+    - LM358 Analog IC (Op-Amp) — processes continuously changing signals
+    - 7400 Digital IC (NAND gate) — 0s and 1s, foundation of all computers
+    - NE555 Timer IC — world's most popular IC, 1 billion/year since 1972
+    - 7805 Voltage Regulator IC — 78xx series explained (7805=5V, 7812=12V)
+    - ATmega328P Microcontroller IC — the Arduino Uno brain, programmable
+  - NE555 pin layout SVG diagram updated: notch/dot marked, pin 1 dot highlighted, counterclockwise numbering explained
+  - IC packages explained: DIP, SOIC, QFP, BGA — with use cases
+  - Quiz updated: 7805 identification question
+- **Multimeter lesson 1 expanded** with real analog meter content:
+  - Added photo card: analog multimeter (`/img/multimeter_analog.jpg` — downloaded from Wikimedia)
+  - "Digital vs Analog" learn card rewritten with analog-specific guidance:
+    - Resistance scale runs RIGHT TO LEFT (∞ left, 0 right — opposite of voltage scale)
+    - Zero Ω adjuster: short probes before measuring resistance, zero the needle
+    - Parallax error: hold meter flat, read needle straight on
+- **SW cache** bumped to electrolearn-v15
+- **/img/multimeter_analog.jpg** added to ASSETS (pre-cached)
+- APP_VERSION → 2.7.0, assets at ?v=19
+
 ## v2.6.0 — 2026-07-01
 
 ### Multimeter deep-dive + component variations + quiz UX fix

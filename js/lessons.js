@@ -1,4 +1,4 @@
-const APP_VERSION = '2.6.0';
+const APP_VERSION = '2.7.0';
 
 const T = {
   en: {
@@ -846,70 +846,114 @@ const MODULES = [
         ]
       },
       {
-        en: { title: 'Integrated Circuits — many components in one', time: '5 min' },
-        hi: { title: 'Integrated Circuits — एक में कई पुर्जे', time: '5 मिनट' },
+        en: { title: 'Integrated Circuits — 5 types you must know', time: '10 min' },
+        hi: { title: 'Integrated Circuits — 5 types जो जानने जरूरी हैं', time: '10 मिनट' },
         steps: [
           {
             type: 'spark',
-            en: { text: "An Integrated Circuit — IC — is a complete circuit packed into a tiny chip. Instead of building 20 components on a breadboard, an IC puts them all inside one package the size of your thumbnail. Let's understand what's inside." },
-            hi: { text: "Integrated Circuit — IC — एक complete circuit है जो छोटी chip में पैक है। Breadboard पर 20 components बनाने की जगह, IC उन्हें अपने नाखून के आकार के package में रखती है।" }
+            en: { text: "An Integrated Circuit — IC — is a tiny machine. Give it power and an input signal, and it gives you a useful output. One small black chip can contain thousands of transistors, resistors, and capacitors — all working together. Today I will show you the 5 types of ICs you will see in every device you ever repair or build." },
+            hi: { text: "Integrated Circuit — IC — एक tiny machine है। इसे power और input signal दो, और यह useful output देती है। एक छोटी काली chip में हजारों transistors, resistors और capacitors हो सकते हैं — सब एक साथ काम करते हुए। आज मैं आपको 5 types की ICs दिखाऊँगा जो हर device में मिलती हैं।" }
           },
           {
             type: 'learn',
             icon: '🔲',
-            en: { title: 'What is an IC?', body: 'An IC (or chip) contains transistors, resistors, capacitors and more — all etched onto a tiny slice of silicon. The black plastic package just protects what\'s inside.', list: ['The 555 Timer IC — the world\'s most used IC ever', 'Op-Amp (741) — amplifies signals', 'Logic gates (AND, OR, NOT) — for digital decisions', 'Microcontrollers (Arduino) — programmable ICs', 'Each pin has a specific purpose — always check the datasheet!'] },
-            hi: { title: 'IC क्या है?', body: 'IC (या chip) में transistors, resistors, capacitors — सब silicon के टुकड़े पर etched। काला plastic package सिर्फ अंदर की चीजों की रक्षा करता है।', list: ['555 Timer IC — दुनिया की सबसे ज्यादा use होने वाली IC', 'Op-Amp (741) — signals amplify करती है', 'Logic gates (AND, OR, NOT) — digital decisions के लिए', 'Microcontrollers (Arduino) — programmable ICs', 'हर pin का specific purpose — datasheet जरूर देखें!'] }
+            en: { title: 'What is inside an IC?', body: 'An IC is a miniature circuit etched onto a tiny slice of silicon. The black plastic body just protects it. Think of it like a small automatic machine: Power + Input → IC → Output.', list: ['Transistors: tiny electronic switches (thousands inside one chip)', 'Resistors: limit current flow', 'Capacitors: store and release charge', 'Diodes: allow current in one direction', 'Metal tracks: connect everything together — like ultra-tiny wires', 'A modern phone processor has 10 BILLION transistors in one chip!'] },
+            hi: { title: 'IC के अंदर क्या है?', body: 'IC एक tiny circuit है जो silicon के टुकड़े पर etched है। काला plastic body सिर्फ रक्षा करती है। एक छोटी machine की तरह सोचो: Power + Input → IC → Output।', list: ['Transistors: tiny electronic switches (एक chip में हजारों)', 'Resistors: current flow सीमित करते हैं', 'Capacitors: charge store करते हैं', 'Diodes: एक दिशा में current', 'Metal tracks: सब जोड़ते हैं — ultra-tiny wires', 'Modern phone processor में 1000 करोड़ transistors — एक chip में!'] }
+          },
+          {
+            type: 'photo',
+            label: 'LM358 — Analog IC (Op-Amp)',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/LM358N.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'Type 1: ANALOG IC — The LM358 is an Op-Amp (Operational Amplifier). Analog ICs process continuously changing signals — like sound, temperature, or light. Used in: audio amplifiers, sensor circuits, microphone pre-amps. This is the type you will find connected to sensors in security systems and home automation.' },
+            hi: { caption: 'Type 1: ANALOG IC — LM358 एक Op-Amp (Operational Amplifier) है। Analog ICs continuously बदलते signals process करती हैं — जैसे sound, temperature, या light। Use: audio amplifiers, sensor circuits। Security systems और home automation में sensors के साथ मिलेगी।' }
+          },
+          {
+            type: 'photo',
+            label: '7400 — Digital IC (Logic Gate)',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/7400.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'Type 2: DIGITAL IC — The 7400 is a NAND Gate. Digital ICs work with only two states: 0 (off) and 1 (on). Used in: computers, calculators, digital clocks, any device that processes binary data. All computers, phones, and microcontrollers are built from billions of these logic gates.' },
+            hi: { caption: 'Type 2: DIGITAL IC — 7400 एक NAND Gate है। Digital ICs केवल दो states के साथ काम करती हैं: 0 (off) और 1 (on)। Use: computers, calculators, digital clocks। सभी computers, phones और microcontrollers अरबों logic gates से बने हैं।' }
+          },
+          {
+            type: 'photo',
+            label: 'NE555 — Timer IC',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/8/84/NE555P.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'Type 3: TIMER IC — The NE555 is the world\'s most popular IC ever made. Over 1 billion made every year since 1972! It creates time delays, pulses, and oscillations. Used in: LED flashers, buzzers, alarms, PWM motor control, pulse generators. Cost: about ₹5 in Indian markets.' },
+            hi: { caption: 'Type 3: TIMER IC — NE555 दुनिया की सबसे popular IC है। 1972 से हर साल 1 अरब से ज्यादा बनती है! Time delays, pulses और oscillations बनाती है। Use: LED flashers, buzzers, alarms, PWM motor control। कीमत: भारतीय बाजार में लगभग ₹5।' }
+          },
+          {
+            type: 'photo',
+            label: '7805 — Voltage Regulator IC',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Voltage_regulator_7805.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'Type 4: VOLTAGE REGULATOR IC — The 7805 gives a stable 5V output from any input between 7V and 35V. It is the "pressure controller" of your circuit. Used in: power supplies, Arduino circuits, sensor modules. Every USB charger and voltage converter uses a similar chip. 7805 = 5V, 7812 = 12V, 7815 = 15V.' },
+            hi: { caption: 'Type 4: VOLTAGE REGULATOR IC — 7805 किसी भी 7V-35V input से stable 5V output देती है। यह circuit का "pressure controller" है। Use: power supplies, Arduino circuits, sensor modules। हर USB charger में ऐसी ही chip होती है। 7805=5V, 7812=12V, 7815=15V।' }
+          },
+          {
+            type: 'photo',
+            label: 'ATmega328P — Microcontroller IC',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/ATmega328P-PU.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'Type 5: MICROCONTROLLER IC — The ATmega328P is the brain of Arduino Uno. A microcontroller is a complete tiny computer: processor + memory + input/output — all in one chip. You can program it! Used in: robots, washing machines, remote controls, Arduino projects, industrial automation. The chip inside every TV remote is a microcontroller.' },
+            hi: { caption: 'Type 5: MICROCONTROLLER IC — ATmega328P, Arduino Uno का brain है। Microcontroller एक complete tiny computer है: processor + memory + input/output — एक chip में। इसे program किया जा सकता है! Use: robots, washing machines, TV remotes, Arduino projects। हर TV remote के अंदर एक microcontroller होता है।' }
           },
           {
             type: 'diagram',
-            label: '555 Timer IC — Pin Layout',
-            svg: `<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
-  <rect width="300" height="180" fill="#1a1d35" rx="12"/>
+            label: 'NE555 Timer IC — Pin Layout (DIP-8)',
+            svg: `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="200" fill="#1a1d35" rx="12"/>
+  <text x="150" y="18" fill="#9ba3c8" font-size="10" text-anchor="middle" font-family="sans-serif">DIP package — notch/dot marks Pin 1 — count counterclockwise</text>
   <!-- IC body -->
-  <rect x="100" y="40" width="100" height="100" rx="6" fill="#1c1c1e" stroke="#8b5cf6" stroke-width="2"/>
-  <text x="150" y="88" fill="#c4b5fd" font-size="14" font-weight="bold" text-anchor="middle" font-family="monospace">555</text>
-  <text x="150" y="104" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="monospace">TIMER</text>
-  <!-- notch -->
-  <path d="M130,40 Q150,30 170,40" fill="#1a1d35" stroke="#8b5cf6" stroke-width="1.5"/>
+  <rect x="95" y="30" width="110" height="120" rx="6" fill="#1c1c1e" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="150" y="82" fill="#c4b5fd" font-size="16" font-weight="bold" text-anchor="middle" font-family="monospace">NE555</text>
+  <text x="150" y="100" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="monospace">TIMER</text>
+  <!-- notch at top -->
+  <path d="M125,30 Q150,20 175,30" fill="#1a1d35" stroke="#8b5cf6" stroke-width="1.5"/>
+  <!-- pin 1 dot -->
+  <circle cx="105" cy="42" r="4" fill="#f59e0b"/>
+  <text x="112" y="46" fill="#f59e0b" font-size="8" font-family="sans-serif">●pin1</text>
   <!-- Left pins 1-4 -->
-  <line x1="70" y1="55" x2="100" y2="55" stroke="#f59e0b" stroke-width="2"/>
-  <line x1="70" y1="73" x2="100" y2="73" stroke="#f59e0b" stroke-width="2"/>
-  <line x1="70" y1="91" x2="100" y2="91" stroke="#f59e0b" stroke-width="2"/>
-  <line x1="70" y1="109" x2="100" y2="109" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="55" y1="48" x2="95" y2="48" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="55" y1="70" x2="95" y2="70" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="55" y1="92" x2="95" y2="92" stroke="#ef4444" stroke-width="2.5"/>
+  <line x1="55" y1="114" x2="95" y2="114" stroke="#f59e0b" stroke-width="2"/>
   <!-- Right pins 5-8 -->
-  <line x1="200" y1="55" x2="230" y2="55" stroke="#10b981" stroke-width="2"/>
-  <line x1="200" y1="73" x2="230" y2="73" stroke="#10b981" stroke-width="2"/>
-  <line x1="200" y1="91" x2="230" y2="91" stroke="#10b981" stroke-width="2"/>
-  <line x1="200" y1="109" x2="230" y2="109" stroke="#10b981" stroke-width="2"/>
+  <line x1="205" y1="48" x2="245" y2="48" stroke="#10b981" stroke-width="2"/>
+  <line x1="205" y1="70" x2="245" y2="70" stroke="#10b981" stroke-width="2"/>
+  <line x1="205" y1="92" x2="245" y2="92" stroke="#10b981" stroke-width="2"/>
+  <line x1="205" y1="114" x2="245" y2="114" stroke="#f59e0b" stroke-width="2.5"/>
   <!-- Pin labels left -->
-  <text x="60" y="59" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">1 GND</text>
-  <text x="60" y="77" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">2 TRIG</text>
-  <text x="60" y="95" fill="#ef4444" font-size="8" text-anchor="end" font-family="sans-serif">3 OUT</text>
-  <text x="60" y="113" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">4 RST</text>
+  <text x="48" y="52" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">1 GND (−)</text>
+  <text x="48" y="74" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">2 TRIGGER</text>
+  <text x="48" y="96" fill="#ef4444" font-size="8" text-anchor="end" font-family="sans-serif">3 OUTPUT</text>
+  <text x="48" y="118" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">4 RESET</text>
   <!-- Pin labels right -->
-  <text x="240" y="59" fill="#9ba3c8" font-size="8" font-family="sans-serif">VCC 8</text>
-  <text x="240" y="77" fill="#9ba3c8" font-size="8" font-family="sans-serif">DIS 7</text>
-  <text x="240" y="95" fill="#9ba3c8" font-size="8" font-family="sans-serif">THR 6</text>
-  <text x="240" y="113" fill="#9ba3c8" font-size="8" font-family="sans-serif">CTL 5</text>
-  <!-- labels -->
-  <text x="150" y="160" fill="#8b5cf6" font-size="9" text-anchor="middle" font-family="sans-serif">8 pins — 25+ transistors inside</text>
-  <text x="150" y="173" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">makes timers, oscillators, pulse generators</text>
+  <text x="252" y="52" fill="#f59e0b" font-size="8" font-family="sans-serif">VCC (+) 8</text>
+  <text x="252" y="74" fill="#9ba3c8" font-size="8" font-family="sans-serif">DISCHARGE 7</text>
+  <text x="252" y="96" fill="#9ba3c8" font-size="8" font-family="sans-serif">THRESHOLD 6</text>
+  <text x="252" y="118" fill="#9ba3c8" font-size="8" font-family="sans-serif">CONTROL 5</text>
+  <text x="150" y="168" fill="#8b5cf6" font-size="9" text-anchor="middle" font-family="sans-serif">8 pins total — contains 25 transistors inside</text>
+  <text x="150" y="184" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Pin 8 = power (+), Pin 1 = ground (−), Pin 3 = output</text>
 </svg>`
           },
           {
-            type: 'fact',
-            en: { text: "The 555 Timer IC was invented in 1972 and has never stopped being used. Over 1 billion are still made every year. It can blink an LED, make sound, control a motor, or generate pulses — all for about ₹5!" },
-            hi: { text: "555 Timer IC 1972 में बना था और आज भी use हो रहा है। हर साल 1 अरब से ज्यादा बनते हैं। LED blink करना, आवाज बनाना, motor control करना — सब ₹5 में!" }
+            type: 'learn',
+            icon: '📦',
+            en: { title: 'IC packages — what shape they come in', body: 'The same IC circuit can come in different physical packages. You need to recognise these when looking at a PCB.', list: ['DIP (Dual In-line Package): two rows of pins — works on breadboard. Most common for learning.', 'SOIC (Small Outline IC): smaller surface-mount version of DIP — on consumer PCBs', 'QFP (Quad Flat Package): pins on all 4 sides — microcontrollers, phone chips', 'BGA (Ball Grid Array): tiny solder balls underneath — no visible pins — phone processors, RAM chips', 'The chip function is the same in all packages — only the physical shape changes'] },
+            hi: { title: 'IC packages — किस shape में आती हैं', body: 'Same IC circuit अलग-अलग physical packages में आ सकती है। PCB देखते समय इन्हें पहचानना जरूरी है।', list: ['DIP (Dual In-line Package): दो rows of pins — breadboard पर काम करता है। Learning के लिए सबसे common।', 'SOIC (Small Outline IC): DIP का छोटा surface-mount version — consumer PCBs पर', 'QFP (Quad Flat Package): चारों sides पर pins — microcontrollers, phone chips', 'BGA (Ball Grid Array): नीचे tiny solder balls — visible pins नहीं — phone processors, RAM chips', 'सभी packages में chip function एक जैसा — केवल physical shape बदलती है'] }
           },
           {
             type: 'quiz',
-            en: { question: 'What makes an IC different from individual components on a breadboard?', options: ['ICs only work with AC power', 'An IC contains many components integrated into one tiny chip', 'ICs cannot be used by beginners', 'ICs only contain resistors'], correct: 1, feedback: 'Integrated Circuit = many components (transistors, resistors, etc.) integrated into one small chip. Much smaller, more reliable, and cheaper than building the same circuit from individual parts.' },
-            hi: { question: 'IC को breadboard के individual components से अलग क्या बनाता है?', options: ['ICs केवल AC power से काम करते हैं', 'IC में कई components एक छोटी chip में integrated होते हैं', 'ICs beginners के लिए नहीं हैं', 'ICs में केवल resistors होते हैं'], correct: 1, feedback: 'Integrated Circuit = कई components (transistors, resistors आदि) एक छोटी chip में। बहुत छोटा, ज्यादा reliable, और individual parts से सस्ता।' }
+            en: { question: 'A 7805 IC is marked on a circuit board. What does it most likely do?', options: ['Amplify audio signals', 'Generate timing pulses', 'Provide a stable 5V power supply', 'Act as a digital logic gate'], correct: 2, feedback: '7805 is a voltage regulator IC. It takes an unregulated input (7V–35V) and outputs a stable 5V. The 78xx series all regulate voltage: 7805=5V, 7812=12V, 7815=15V. You will find one in almost every power supply circuit.' },
+            hi: { question: 'Circuit board पर 7805 IC marked है। यह सबसे likely क्या करती है?', options: ['Audio signals amplify करती है', 'Timing pulses generate करती है', 'Stable 5V power supply देती है', 'Digital logic gate का काम करती है'], correct: 2, feedback: '7805 एक voltage regulator IC है। यह unregulated input (7V-35V) लेकर stable 5V output देती है। 78xx series: 7805=5V, 7812=12V, 7815=15V। लगभग हर power supply circuit में एक मिलेगी।' }
           },
           {
-            type: 'complete', xp: 30,
-            en: { msg: "Transistors and ICs — done! You now understand the building blocks that make all modern electronics possible. Next: the mathematical law that ties everything together." },
-            hi: { msg: "Transistors और ICs — पूरे! आप अब उन building blocks को समझते हैं जो सभी modern electronics को possible बनाते हैं। अगला: वो mathematical law जो सब कुछ जोड़ती है।" }
+            type: 'complete', xp: 40,
+            en: { msg: "You now know the 5 types of ICs — Analog, Digital, Timer, Voltage Regulator, Microcontroller — and can identify their packages (DIP, SOIC, QFP, BGA). When you open any device, you can now look at the chips and know what role each one plays. That is the knowledge of a real electronics technician." },
+            hi: { msg: "अब आप 5 types की ICs जानते हैं — Analog, Digital, Timer, Voltage Regulator, Microcontroller — और उनके packages पहचान सकते हैं। जब भी कोई device खोलें, chips देखकर बता सकते हैं हर chip क्या करती है। यह real electronics technician का ज्ञान है।" }
           }
         ]
       }
@@ -985,6 +1029,93 @@ const MODULES = [
             type: 'complete', xp: 35,
             en: { msg: "You just learned Ohm's Law — V=IR — the single most important equation in electronics. Professional engineers use this every single day. You're thinking like an engineer now!" },
             hi: { msg: "आपने ओम का नियम सीखा — V=IR — इलेक्ट्रॉनिक्स का सबसे महत्वपूर्ण समीकरण। Professional engineers इसे हर रोज उपयोग करते हैं। आप अब engineer की तरह सोच रहे हैं!" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Calculate anything — practice problems', time: '8 min' },
+        hi: { title: 'कुछ भी calculate करो — practice problems', time: '8 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Now let's make Ohm's Law real. Three problems. Each one is a situation you will actually face when repairing or building circuits. Cover up the answer and try to solve it first." },
+            hi: { text: "अब ओम के नियम को असली बनाते हैं। तीन problems। हर एक ऐसी situation है जो repair या circuit बनाते समय सामने आएगी। पहले खुद solve करने की कोशिश करो।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔋',
+            en: { title: 'Problem 1 — What voltage do I need?', body: 'You have a 100Ω resistor and you need 0.05A (50mA) to flow through it. What voltage battery do you need?', list: ['Formula: V = I × R', 'V = 0.05A × 100Ω', 'V = 5 Volts', 'So a 5V USB power bank or phone charger output would be perfect!'] },
+            hi: { title: 'Problem 1 — कौन सी voltage चाहिए?', body: 'आपके पास 100Ω resistor है और 0.05A (50mA) current flow करवानी है। कौन सी battery चाहिए?', list: ['Formula: V = I × R', 'V = 0.05A × 100Ω', 'V = 5 Volts', 'तो 5V USB power bank या phone charger output बिल्कुल सही रहेगा!'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔌',
+            en: { title: 'Problem 2 — What resistor do I need?', body: 'You have a 5V supply (USB) and want to run an LED at 20mA (0.02A). LED uses 2V. What resistor?', list: ['Voltage for resistor = 5V − 2V = 3V', 'Formula: R = V ÷ I', 'R = 3V ÷ 0.02A = 150Ω', 'Use 150Ω or the next available: 180Ω (common in kits)', 'This is the REAL calculation behind every LED circuit!'] },
+            hi: { title: 'Problem 2 — कौन सा resistor चाहिए?', body: 'आपके पास 5V supply (USB) है और LED 20mA (0.02A) पर चलानी है। LED 2V use करती है। कौन सा resistor?', list: ['Resistor के लिए voltage = 5V − 2V = 3V', 'Formula: R = V ÷ I', 'R = 3V ÷ 0.02A = 150Ω', 'Use 150Ω या अगला available: 180Ω (kits में common)', 'यह हर LED circuit के पीछे की REAL calculation है!'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'Problem 3 — Is this safe? (check current)', body: 'You plug a 10Ω device into a 12V car battery. How much current flows? Is this dangerous?', list: ['Formula: I = V ÷ R', 'I = 12V ÷ 10Ω = 1.2A', '1.2A is significant current — can heat up thin wires', 'Car battery can supply hundreds of Amps — the 10Ω device is the limiting factor', 'This is why we calculate BEFORE connecting — prevent fires!'] },
+            hi: { title: 'Problem 3 — क्या यह safe है? (current check)', body: 'आप 10Ω device को 12V car battery से जोड़ते हैं। कितनी current बहेगी? क्या यह खतरनाक है?', list: ['Formula: I = V ÷ R', 'I = 12V ÷ 10Ω = 1.2A', '1.2A काफी current है — पतले wires गर्म हो सकते हैं', 'Car battery सैकड़ों Amps दे सकती है — 10Ω device limiting factor है', 'इसीलिए connect करने से पहले calculate करते हैं — आग से बचाव!'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Try it with your own circuit', steps: ['Get a 9V battery, one LED, and a resistor from your kit', 'LED needs about 2V at 20mA (0.02A)', 'Voltage across resistor = 9 - 2 = 7V', 'Calculate: R = 7V ÷ 0.02A = 350Ω', 'Use 330Ω (nearest standard value)', 'Build the circuit and it should work perfectly', "Now try a 470Ω resistor — LED dims because less current flows (Ohm's Law!)"] },
+            hi: { title: 'अपने circuit के साथ try करो', steps: ['अपनी kit से 9V battery, एक LED और एक resistor लो', 'LED को लगभग 2V चाहिए 20mA (0.02A) पर', 'Resistor पर voltage = 9 - 2 = 7V', 'Calculate: R = 7V ÷ 0.02A = 350Ω', '330Ω use करो (नजदीकी standard value)', 'Circuit बनाओ और यह perfectly काम करेगी', "अब 470Ω resistor try करो — LED dim होगी क्योंकि कम current बहेगी (Ohm's Law!)"] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'You have a 9V battery and a 470Ω resistor. How much current flows?', options: ['0.019A (19mA)', '4.3A', '0.05A (50mA)', '461A'], correct: 0, feedback: 'I = V ÷ R = 9V ÷ 470Ω = 0.0191A = 19.1mA. This is exactly the right current for an LED! 470Ω is one of the most common resistor values in beginner kits for this reason.' },
+            hi: { question: 'आपके पास 9V battery और 470Ω resistor है। कितनी current बहेगी?', options: ['0.019A (19mA)', '4.3A', '0.05A (50mA)', '461A'], correct: 0, feedback: 'I = V ÷ R = 9V ÷ 470Ω = 0.0191A = 19.1mA। यह LED के लिए बिल्कुल सही current है! इसीलिए 470Ω beginner kits में सबसे common resistor values में से एक है।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: 'You can now calculate voltage, current, AND resistance for any circuit. This is the core skill every repair technician uses when diagnosing — "is there enough voltage here? how much current is flowing?" You now know how to answer those questions.' },
+            hi: { msg: 'अब आप किसी भी circuit के लिए voltage, current और resistance calculate कर सकते हो। यही core skill है जो हर repair technician diagnose करते समय use करता है — "यहाँ पर्याप्त voltage है? कितनी current बह रही है?" अब आप इन सवालों के जवाब जानते हो।' }
+          }
+        ]
+      },
+      {
+        en: { title: "Power and Watt's Law — why things get hot", time: '6 min' },
+        hi: { title: 'Power और Watt Law — चीज़ें गर्म क्यों होती हैं', time: '6 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Here is something Ohm's Law alone does not tell you: how HOT will this get? A component can be destroyed not because the voltage or current is wrong — but because it cannot handle the POWER. This lesson adds the final piece: Watt's Law." },
+            hi: { text: "यहाँ कुछ ऐसा है जो अकेला Ohm's Law नहीं बताता: यह कितना HOT होगा? एक component इसलिए नहीं जलता कि voltage या current गलत है — बल्कि इसलिए कि वह POWER handle नहीं कर सकता। यह lesson आखिरी piece जोड़ता है: Watt's Law।" }
+          },
+          {
+            type: 'learn',
+            icon: '🌡️',
+            en: { title: "P = V × I (Watt's Law)", body: 'Power is how much energy a component consumes per second. Too much power = heat = component fails. This is the #1 cause of component damage in DIY repairs.', list: ['P = Power in Watts (W)', 'P = V × I (voltage times current)', 'Also: P = I² × R (useful when you know current and resistance)', 'Also: P = V² ÷ R (useful when you know voltage and resistance)', 'A 1W resistor can handle 1 Watt of power. Exceed it = it burns!'] },
+            hi: { title: "P = V × I (Watt's Law)", body: 'Power वह है जो एक component प्रति second consume करता है। बहुत ज़्यादा power = heat = component fail। DIY repairs में component damage का यह #1 कारण है।', list: ['P = Power in Watts (W)', 'P = V × I (voltage गुना current)', 'Also: P = I² × R (useful जब current और resistance पता हो)', 'Also: P = V² ÷ R (useful जब voltage और resistance पता हो)', '1W resistor 1 Watt power handle कर सकता है। ज़्यादा हो = जल जाएगा!'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔥',
+            en: { title: 'Real example: choosing the right resistor wattage', body: 'Resistors come in different power ratings: 1/4W (tiny), 1/2W (medium), 1W, 2W, 5W. You MUST choose the right one.', list: ['Example: 470Ω resistor with 9V battery', 'Current: I = 9V ÷ 470Ω = 0.019A', 'Power: P = 9V × 0.019A = 0.17W', '0.17W is well within a 1/4W (0.25W) resistor — safe!', 'If power exceeds the rating, the resistor smokes and burns', 'Rule of thumb: choose a resistor rated at 2× the calculated power'] },
+            hi: { title: 'असली उदाहरण: सही resistor wattage चुनना', body: 'Resistors अलग-अलग power ratings में आते हैं: 1/4W (tiny), 1/2W (medium), 1W, 2W, 5W। सही चुनना MUST है।', list: ['उदाहरण: 470Ω resistor और 9V battery', 'Current: I = 9V ÷ 470Ω = 0.019A', 'Power: P = 9V × 0.019A = 0.17W', '0.17W एक 1/4W (0.25W) resistor के अंदर है — safe!', 'अगर power rating से ज़्यादा हो तो resistor जल जाता है', 'Rule: calculated power से 2× rated resistor लो'] }
+          },
+          {
+            type: 'fact',
+            en: { text: 'The human body feels warmth above about 45°C. Electronic components typically fail above 85°C to 125°C. So if you touch a component and it feels hot, it is probably dissipating too much power and may fail soon. Cold = good. Warm = watch it. Hot = problem!' },
+            hi: { text: 'मानव शरीर लगभग 45°C पर गर्मी महसूस करता है। Electronic components आमतौर पर 85°C से 125°C से ऊपर fail होते हैं। तो अगर आप कोई component छूते हैं और वह गर्म लगता है, तो वह शायद बहुत ज़्यादा power dissipate कर रहा है। ठंडा = अच्छा। गर्म = ध्यान दो। बहुत गर्म = समस्या!' }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Check if your LED circuit is safe', steps: ['Calculate power in the resistor: P = V × I', 'In 9V, 330Ω LED circuit: I = 7V ÷ 330Ω = 0.021A', 'Power in resistor: P = 7V × 0.021A = 0.15W', '0.15W — a standard 1/4W (0.25W) resistor handles this fine', 'Touch the resistor after 1 minute of running — should be barely warm', 'If it is hot, your resistor value is too low!'] },
+            hi: { title: 'Check करो कि आपकी LED circuit safe है', steps: ['Resistor में power calculate करो: P = V × I', '9V, 330Ω LED circuit में: I = 7V ÷ 330Ω = 0.021A', 'Resistor में power: P = 7V × 0.021A = 0.15W', '0.15W — standard 1/4W (0.25W) resistor इसे ठीक handle करता है', '1 minute चलाने के बाद resistor छुओ — barely warm होना चाहिए', 'अगर गर्म है तो resistor value बहुत कम है!'] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'A 100Ω resistor has 5V across it. What power does it dissipate?', options: ['0.25W', '500W', '0.05W', '5W'], correct: 0, feedback: 'I = 5V ÷ 100Ω = 0.05A. P = V × I = 5V × 0.05A = 0.25W. You need at least a 1/4W (0.25W) rated resistor. To be safe, use 1/2W (0.5W).' },
+            hi: { question: '100Ω resistor पर 5V है। यह कितनी power dissipate करता है?', options: ['0.25W', '500W', '0.05W', '5W'], correct: 0, feedback: 'I = 5V ÷ 100Ω = 0.05A। P = V × I = 5V × 0.05A = 0.25W। कम से कम 1/4W (0.25W) rated resistor चाहिए। Safe रहने के लिए 1/2W (0.5W) use करो।' }
+          },
+          {
+            type: 'complete', xp: 35,
+            en: { msg: "V=IR and P=VI — you now have the complete toolkit of basic circuit theory. Ohm's Law tells you current and voltage. Watt's Law tells you heat and power. Professional electronics repair technicians use both every single day. You're one step closer!" },
+            hi: { msg: "V=IR और P=VI — अब आपके पास basic circuit theory का complete toolkit है। Ohm's Law current और voltage बताता है। Watt's Law heat और power बताता है। Professional electronics repair technicians दोनों को हर रोज use करते हैं। आप एक कदम और आगे हैं!" }
           }
         ]
       }
@@ -1470,6 +1601,93 @@ const MODULES = [
             hi: { msg: "अब आप tools जानते हैं और — सबसे जरूरी — breadboard को PCB नहीं कहेंगे! आप पहले से ज्यादातर beginners से आगे हैं। अगला module: multimeter actually USE करना सीखेंगे — electronics में सबसे powerful skill।" }
           }
         ]
+      },
+      {
+        en: { title: 'Breadboard mastery — build without soldering', time: '7 min' },
+        hi: { title: 'Breadboard mastery — बिना soldering के बनाओ', time: '7 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "The breadboard is your sandbox. You can connect and disconnect components instantly, fix mistakes in seconds, and build entire circuits without permanent commitment. I will show you exactly how the connections work inside." },
+            hi: { text: "Breadboard आपका sandbox है। Components तुरंत जोड़ो और हटाओ, seconds में गलतियाँ ठीक करो, और बिना permanent commitment के पूरी circuits बनाओ। मैं आपको बताऊँगा कि अंदर connections कैसे काम करते हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '🗺️',
+            en: { title: 'Inside the breadboard — how connections work', body: 'The holes in a breadboard are not all connected. Understanding which holes connect to which is THE most important breadboard skill.', list: ['Top and bottom LONG rows (red/blue) = Power Rails — all connected along the row', 'Red rail (+) connects to battery positive', 'Blue/black rail (−) connects to battery negative', 'Middle section: each SHORT row (5 holes, a-b-c-d-e or f-g-h-i-j) is one connection', 'The CENTER GAP separates the two halves — nothing connects across it!', 'Tip: IC chips straddle this center gap so their two sides are separate'] },
+            hi: { title: 'Breadboard के अंदर — connections कैसे काम करते हैं', body: 'Breadboard के सभी holes connected नहीं हैं। कौन से holes किससे connect हैं यह जानना THE most important breadboard skill है।', list: ['ऊपर-नीचे LONG rows (red/blue) = Power Rails — पूरी row में connected', 'Red rail (+) = battery positive से जोड़ो', 'Blue/black rail (−) = battery negative से जोड़ो', 'बीच का हिस्सा: हर SHORT row (5 holes, a-b-c-d-e या f-g-h-i-j) एक connection है', 'CENTER GAP दोनों हिस्सों को अलग करता है — इसके पार कुछ connect नहीं होता!', 'Tip: IC chips इस center gap पर बैठते हैं ताकि दोनों sides अलग रहें'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚠️',
+            en: { title: "The 3 most common breadboard mistakes", body: 'In 10 years of teaching electronics, these three mistakes are responsible for 80% of "why doesn\'t it work?" problems.', list: ["Mistake 1: Component legs not FULLY inserted — must push down until flush", 'Mistake 2: Connecting across the CENTER GAP by accident — check your column letters', 'Mistake 3: Power rails: assuming both halves of the rail are connected — on some large breadboards they are NOT (check with continuity test!)', 'Always use red wire for + (positive) and black for − (negative)'] },
+            hi: { title: '3 सबसे common breadboard गलतियाँ', body: 'Electronics पढ़ाते 10 साल में इन तीन गलतियों से 80% "काम क्यों नहीं कर रहा?" problems आते हैं।', list: ['गलती 1: Component legs पूरी तरह INSIDE नहीं — flush होने तक दबाओ', 'गलती 2: CENTER GAP के पार accidentally connect करना — column letters check करो', 'गलती 3: यह मान लेना कि rail के दोनों हिस्से connected हैं — कुछ large breadboards पर नहीं होते! (continuity test से check करो)', 'हमेशा + के लिए red wire और − के लिए black wire use करो'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Build a working LED circuit on breadboard', steps: ['Put the 330Ω resistor: one leg in +power rail, other leg in row 5 column D', 'Put LED: long leg (+) in row 5 column E, short leg (−) in row 6 column E', 'Wire: connect row 6 column E to −power rail', 'Connect 9V battery: red clip to + rail, black clip to − rail', 'LED should LIGHT UP!', 'Now try: pull out one wire from the − rail. LED goes off. Reconnect. LED lights. This is how switches work!'] },
+            hi: { title: 'Breadboard पर working LED circuit बनाओ', steps: ['330Ω resistor: एक leg +power rail में, दूसरी row 5 column D में', 'LED: लंबी leg (+) row 5 column E में, छोटी leg (−) row 6 column E में', 'Wire: row 6 column E को −power rail से जोड़ो', '9V battery connect करो: red clip to + rail, black clip to − rail', 'LED जलनी चाहिए!', 'अब try करो: − rail से एक wire निकालो। LED बंद। वापस लगाओ। LED जले। यही switches का तरीका है!'] }
+          },
+          {
+            type: 'fact',
+            en: { text: 'The standard breadboard has 830 tie points. Mini breadboards have 170. The 830-point size costs about ₹80–₹120 from Indian electronics markets and allows you to build complex circuits with multiple components. One breadboard can be reused thousands of times!' },
+            hi: { text: 'Standard breadboard में 830 tie points होते हैं। Mini breadboards में 170। 830-point size भारतीय electronics markets से ₹80–₹120 में मिलता है और multiple components के साथ complex circuits बनाने देता है। एक breadboard हजारों बार reuse हो सकती है!' }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'On a breadboard, which row holes are connected to each other?', options: ['All holes in the entire board', 'The 5 holes in the same short row (a-b-c-d-e)', 'Holes in the same column going top to bottom', 'Any holes that are the same color'], correct: 1, feedback: 'Each short row (5 holes, labeled a through e) forms ONE connection point. Place one leg of a component in column a and another component in column b of the SAME row — they are connected!' },
+            hi: { question: 'Breadboard पर कौन से row holes आपस में connected हैं?', options: ['पूरे board के सभी holes', 'एक ही short row के 5 holes (a-b-c-d-e)', 'ऊपर से नीचे एक ही column के holes', 'जो भी holes एक ही रंग के हों'], correct: 1, feedback: 'हर short row (5 holes, a से e तक) एक CONNECTION POINT बनाती है। एक component की leg column a में और दूसरे की SAME row के column b में — ये connected हैं!' }
+          },
+          {
+            type: 'complete', xp: 25,
+            en: { msg: 'You now understand the breadboard completely — the power rails, the short rows, the center gap, and the common mistakes. With this knowledge, you can build any circuit in this course!' },
+            hi: { msg: 'अब आप breadboard पूरी तरह समझते हैं — power rails, short rows, center gap और common mistakes। इस knowledge के साथ आप इस course की कोई भी circuit बना सकते हैं!' }
+          }
+        ]
+      },
+      {
+        en: { title: 'Soldering basics — making permanent connections', time: '8 min' },
+        hi: { title: 'Soldering basics — permanent connections बनाना', time: '8 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Breadboards are for learning and testing. Soldering makes it permanent. Mobile phone repair, PCB work, component replacement — all require soldering. I will teach you what it is, how it works, and the two golden rules that make a perfect solder joint every time." },
+            hi: { text: "Breadboards सीखने और testing के लिए हैं। Soldering इसे permanent बनाती है। Mobile phone repair, PCB work, component replacement — सब में soldering चाहिए। मैं बताऊँगा यह क्या है, कैसे काम करती है, और दो golden rules जो हर बार perfect solder joint बनाते हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '🌡️',
+            en: { title: 'What is soldering?', body: 'Soldering uses a low-melting-point metal alloy (solder) to permanently join two metal surfaces. The soldering iron heats both surfaces so solder flows between them and bonds permanently when cooled.', list: ['Solder: tin/lead alloy (60/40 most common) or lead-free (95% tin). Melts at ~180–220°C', 'Soldering iron tip reaches ~350°C — HOT! Never touch the tip.', 'Flux inside solder wire cleans the metal surface and helps solder flow', 'A good solder joint is shiny and smooth — like a volcano shape', 'A bad joint (cold joint) is dull, lumpy, grey — it may not conduct at all!'] },
+            hi: { title: 'Soldering क्या है?', body: 'Soldering एक low-melting-point metal alloy (solder) से दो metal surfaces को permanently जोड़ती है। Soldering iron दोनों surfaces को गर्म करती है ताकि solder उनके बीच बह जाए और ठंडा होने पर permanently bond बन जाए।', list: ['Solder: tin/lead alloy (60/40 सबसे common) या lead-free (95% tin)। ~180–220°C पर पिघलता है', 'Soldering iron tip ~350°C तक — गर्म! Tip कभी मत छुओ।', 'Solder wire के अंदर flux metal surface को साफ करता है और solder flow में मदद करता है', 'अच्छा solder joint चमकदार और smooth होता है — volcano shape जैसा', 'बुरा joint (cold joint) dull, lumpy, grey होता है — conduct नहीं करता!'] }
+          },
+          {
+            type: 'learn',
+            icon: '✅',
+            en: { title: 'The 2 golden rules of soldering', body: 'Follow these two rules and your solder joints will always be perfect.', list: ['RULE 1: Heat the JOINT, not the solder. Touch the iron to where the component leg meets the PCB pad. Hold 2-3 seconds until hot. THEN touch solder to the joint — it should melt and flow instantly.', 'RULE 2: Do NOT move the joint while solder is cooling! Hold everything still for 3-5 seconds after removing the iron. Moving creates cold joints.', 'Amount: just enough solder to cover the pad and component leg — not a big blob', 'Speed: aim for 3-4 seconds total per joint. Too long = PCB pad lifts off.'] },
+            hi: { title: 'Soldering के 2 golden rules', body: 'इन दो rules को follow करो और solder joints हमेशा perfect होंगे।', list: ['RULE 1: JOINT को गर्म करो, solder को नहीं। Iron को वहाँ लगाओ जहाँ component leg PCB pad से मिलती है। 2-3 seconds रुको जब तक गर्म न हो। फिर solder को joint पर लगाओ — instantly पिघलना और बहना चाहिए।', 'RULE 2: Solder ठंडा होते समय joint को हिलाओ मत! Iron हटाने के बाद 3-5 seconds सब कुछ still रखो। हिलाने से cold joints बनते हैं।', 'Amount: बस इतना solder कि pad और component leg cover हो — बड़ा blob नहीं', 'Speed: हर joint के लिए कुल 3-4 seconds। बहुत ज़्यादा देर = PCB pad उठ जाती है।'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚠️',
+            en: { title: 'Safety — soldering is hot work', list: ['Soldering iron tip is 350°C — burns happen in milliseconds', 'Always put iron back in the STAND when not holding it — never flat on a table', 'Solder smoke is flux fumes — work near an open window or use a fume extractor', 'Wear safety glasses — tiny solder droplets can splash', 'Keep a damp sponge or brass wool tip-cleaner to wipe the tip', 'Iron heats up in 30-60 seconds. Keep children away from the work area.'] },
+            hi: { title: 'Safety — soldering गर्म काम है', list: ['Soldering iron tip 350°C है — milliseconds में जलता है', 'Iron को हमेशा STAND में रखो जब पकड़ नहीं रहे — कभी table पर flat नहीं', 'Solder का धुआँ flux fumes हैं — खुली खिड़की के पास काम करो या fume extractor use करो', 'Safety glasses पहनो — solder की छोटी बूँदें splash हो सकती हैं', 'Tip साफ करने के लिए damp sponge या brass wool tip-cleaner रखो', 'Iron 30-60 seconds में गर्म होती है। काम की जगह से बच्चों को दूर रखो।'] }
+          },
+          {
+            type: 'fact',
+            en: { text: 'The most common repair in mobile phone work is reflowing (re-melting) cold solder joints under chips. When a phone has a short-circuit fault or a component that "works sometimes", a cold solder joint is often the cause. A professional heat gun or micro-soldering iron is used to rework these — which is exactly what you are learning to do!' },
+            hi: { text: 'Mobile phone work में सबसे common repair है chips के नीचे cold solder joints को reflow (re-melting) करना। जब phone में short-circuit fault हो या कोई component "कभी-कभी काम करे", तो cold solder joint अक्सर कारण होता है। Professional heat gun या micro-soldering iron से यह rework किया जाता है — और यही आप सीख रहे हैं!' }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'What is a "cold solder joint"?', options: ['A joint made with cold solder wire from the fridge', "A dull, lumpy joint made when the iron moved during cooling or surfaces weren't hot enough", 'A joint that only works when the circuit is cold', 'Any joint that does not use flux'], correct: 1, feedback: "A cold joint forms when solder is applied to a surface that isn't hot enough, or when the joint is moved while cooling. It looks dull and grey, and may not conduct electricity reliably. Always heat the joint first, not the solder!" },
+            hi: { question: '"Cold solder joint" क्या है?', options: ['फ्रिज से ठंडे solder wire से बना joint', 'Dull, lumpy joint जो iron हिलने से या surfaces गर्म न होने से बना', 'Joint जो सिर्फ circuit ठंडी होने पर काम करे', 'कोई भी joint जिसमें flux न हो'], correct: 1, feedback: 'Cold joint तब बनता है जब solder ऐसी surface पर लगाया जाए जो काफी गर्म न हो, या joint ठंडा होते समय हिले। यह dull और grey दिखता है, और electricity reliably conduct नहीं करता। हमेशा पहले joint को गर्म करो, solder को नहीं!' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: 'You now know what soldering is, the 2 golden rules, and how to stay safe. The only way to get better is practice — solder 50 joints on an old PCB and they will become second nature. This is how every professional started.' },
+            hi: { msg: 'अब आप जानते हैं soldering क्या है, 2 golden rules, और safe कैसे रहें। बेहतर होने का एक ही तरीका है practice — पुराने PCB पर 50 joints solder करो और यह second nature बन जाएगा। हर professional ऐसे ही शुरू हुआ।' }
+          }
+        ]
       }
     ]
   },
@@ -1554,10 +1772,18 @@ const MODULES = [
 </svg>`
           },
           {
+            type: 'photo',
+            label: 'Analog multimeter — needle and scale',
+            src: '/img/multimeter_analog.jpg',
+            credit: 'Wikimedia Commons (CC-BY-SA)',
+            en: { caption: 'This is an analog multimeter. Instead of a digital display, it has a NEEDLE that swings over a printed scale. Notice the arc-shaped scales — different lines for DC voltage, AC voltage, resistance, and current. You read whichever line matches your dial setting.' },
+            hi: { caption: 'यह एक analog multimeter है। Digital display की जगह एक NEEDLE है जो printed scale पर swing करती है। Arc-shaped scales देखो — DC voltage, AC voltage, resistance और current के लिए अलग lines। Dial जिस setting पर हो, उसी line को पढ़ो।' }
+          },
+          {
             type: 'learn',
             icon: '📊',
-            en: { title: 'Digital vs Analog — both work fine', body: 'Two types of multimeters exist. Digital (shows numbers — most common today) and Analog (has a moving needle and a printed scale). Many older repair shops in India still use analog meters. Same measurements, different display.', list: ['Digital: reads 9.23V directly on screen — easy, accurate', 'Analog: needle points to a scale — you read the number it points to', 'Auto-ranging: modern digital meters select the range automatically', 'Manual-ranging: older meters need you to set the range dial above expected value', 'Rule for manual: always start at HIGHEST range, work down'] },
-            hi: { title: 'Digital vs Analog — दोनों ठीक हैं', body: 'दो प्रकार के multimeters होते हैं। Digital (numbers दिखाए — आज सबसे आम) और Analog (moving needle और printed scale)। भारत में कई पुराने repair shops में अभी भी analog meters हैं। माप एक जैसा — बस display अलग।', list: ['Digital: 9.23V directly screen पर — आसान, accurate', 'Analog: needle एक scale पर point करती है — उस number को पढ़ो', 'Auto-ranging: modern digital meters range automatically select करते हैं', 'Manual-ranging: पुराने meters में range dial खुद set करना पड़ता है', 'Manual का नियम: हमेशा HIGHEST range से शुरू करो, नीचे आओ'] }
+            en: { title: 'Digital vs Analog — how to read both', body: 'Two types of multimeters exist. Digital (shows numbers on screen) and Analog (moving needle over printed scale). Many older repair shops in India still use analog meters. Here is how to read each type:', list: ['DIGITAL: reading appears directly as numbers — 9.23V. Easy and accurate.', 'ANALOG: needle swings over scale. Read the line that matches your dial setting.', 'Analog resistance scale runs RIGHT TO LEFT — 0Ω on right, ∞ on left (opposite of voltage!)', 'Analog: before measuring resistance, SHORT the probes and zero the needle with the Zero Ω adjuster knob', 'Analog: hold the meter flat to avoid parallax error — read the needle straight on, not from an angle', 'Auto-ranging: modern digital meters select the range automatically', 'Manual-ranging (analog + older digital): always start at HIGHEST range, work down'] },
+            hi: { title: 'Digital vs Analog — दोनों कैसे पढ़ें', body: 'दो प्रकार के multimeters। Digital (screen पर numbers) और Analog (printed scale पर needle)। भारत में पुराने repair shops में analog meters अभी भी मिलते हैं।', list: ['DIGITAL: reading directly numbers में — 9.23V। आसान और accurate।', 'ANALOG: needle scale पर swing करती है। Dial की setting वाली line पढ़ो।', 'Analog resistance scale RIGHT TO LEFT होती है — दाईं तरफ 0Ω, बाईं तरफ ∞ (voltage के उल्टा!)', 'Analog resistance: मापने से पहले probes short करो और Zero Ω adjuster knob से needle zero करो', 'Parallax error से बचो — meter flat रखो, needle को सीधे सामने से पढ़ो', 'Auto-ranging: modern digital meters range automatically select करते हैं', 'Manual-ranging (analog + पुराने digital): हमेशा HIGHEST range से शुरू करो'] }
           },
           {
             type: 'quiz',
@@ -1745,6 +1971,94 @@ const MODULES = [
             hi: { msg: "अब जब आप कोई device खोलें और हरा board देखें — आप जानते हैं क्या देख रहे हैं! Traces, pads, silkscreen — आप PCB पढ़ सकते हैं।" }
           }
         ]
+      },
+      {
+        en: { title: 'Read a PCB — identify components and traces', time: '7 min' },
+        hi: { title: 'PCB पढ़ना — components और traces पहचानो', time: '7 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "When you open a phone or any device, a PCB stares back at you. Hundreds of components, tiny traces, mysterious ICs. After this lesson, you will know what you are looking at — and that is the first step to fixing it." },
+            hi: { text: "जब आप phone या कोई device खोलते हैं, एक PCB आपको देखती है। सैकड़ों components, tiny traces, रहस्यमय ICs। इस lesson के बाद आप जानेंगे कि आप क्या देख रहे हैं — और यही पहला कदम है इसे ठीक करने का।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔍',
+            en: { title: 'What you see on a PCB', list: ['GREEN layer = solder mask — protects copper traces. (Can also be red, blue, black, white)', 'SILVER/GOLD pads = where components are soldered', 'THIN LINES between pads = copper TRACES — these are the wires of the PCB', 'SILK SCREEN (white text) = component labels: R1=resistor 1, C3=capacitor 3, U1=IC chip 1, D1=diode/LED 1', 'VIAS = small holes with copper inside — connect traces between layers', 'On phones: the PCB has 6-12 layers of copper traces sandwiched together!'] },
+            hi: { title: 'PCB पर क्या दिखता है', list: ['GREEN layer = solder mask — copper traces को protect करता है। (Red, blue, black, white भी हो सकता है)', 'SILVER/GOLD pads = जहाँ components soldered हैं', 'Pads के बीच THIN LINES = copper TRACES — PCB के wires हैं ये', 'SILK SCREEN (white text) = component labels: R1=resistor 1, C3=capacitor 3, U1=IC chip 1, D1=diode/LED 1', 'VIAS = copper के साथ छोटे holes — layers के बीच traces connect करते हैं', 'Phones पर: PCB में 6-12 layers copper traces एक साथ!'] }
+          },
+          {
+            type: 'learn',
+            icon: '🗺️',
+            en: { title: 'Layers — why PCBs are not just one sheet', body: 'A simple breadboard circuit has 1 layer. Your phone PCB has 6-12 layers. Each layer carries traces, and vias connect them.', list: ['Single-sided PCB: traces on one side only — cheapest, used in simple devices', 'Double-sided PCB: traces on both sides — common in Arduino, affordable gadgets', 'Multi-layer PCB (4-12+ layers): traces sandwiched inside — used in phones, laptops', 'You cannot see inner layers by eye — X-ray or special software shows them', 'As a repair tech, you mainly work on the TOP and BOTTOM surface layers'] },
+            hi: { title: 'Layers — PCBs सिर्फ एक sheet नहीं क्यों', body: 'Simple breadboard circuit में 1 layer होती है। आपके phone PCB में 6-12 layers। हर layer traces carry करती है, और vias उन्हें connect करते हैं।', list: ['Single-sided PCB: traces एक ही side पर — सबसे सस्ता, simple devices में', 'Double-sided PCB: traces दोनों sides पर — Arduino, affordable gadgets में common', 'Multi-layer PCB (4-12+ layers): traces अंदर sandwiched — phones, laptops में', 'Inner layers आँखों से नहीं दिखतीं — X-ray या special software दिखाते हैं', 'Repair tech के रूप में आप mainly TOP और BOTTOM surface layers पर काम करते हैं'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔎',
+            en: { title: 'How to identify components on a PCB', list: ['Large black rectangles = ICs (Integrated Circuits) — read the text on top (e.g. "ATmega328P", "NE555")', 'Tiny 2-pin components = resistors (dark, no markings) or capacitors (brown or grey)', 'Cylindrical with stripe = electrolytic capacitor (polarity matters!)', 'Small 3-leg component = transistor or voltage regulator', 'Large rectangular component with many pins = processor, memory, WiFi/Bluetooth chip', 'Silver box = crystal oscillator (sets the clock speed)', 'Look for the silk-screen reference: R12, C5, U3 — these map to the schematic'] },
+            hi: { title: 'PCB पर components कैसे पहचानें', list: ['बड़े black rectangles = ICs (Integrated Circuits) — ऊपर text पढ़ो (जैसे "ATmega328P", "NE555")', 'Tiny 2-pin components = resistors (dark, no markings) या capacitors (brown या grey)', 'Stripe के साथ cylindrical = electrolytic capacitor (polarity matters!)', 'छोटा 3-leg component = transistor या voltage regulator', 'Many pins वाला large rectangular component = processor, memory, WiFi/Bluetooth chip', 'Silver box = crystal oscillator (clock speed set करता है)', 'Silk-screen reference ढूंढो: R12, C5, U3 — ये schematic से match करते हैं'] }
+          },
+          {
+            type: 'fact',
+            en: { text: 'A modern smartphone PCB contains over 1,000 surface-mount components. The smallest are 01005 size (0.4mm × 0.2mm) — smaller than a grain of sand. Placing and soldering these at factory scale requires robotic precision. Repair technicians use microscopes and micro-soldering stations to work on these boards.' },
+            hi: { text: 'Modern smartphone PCB में 1,000 से ज़्यादा surface-mount components होते हैं। सबसे छोटे 01005 size (0.4mm × 0.2mm) होते हैं — रेत के एक कण से भी छोटे। Factory scale पर इन्हें लगाने और solder करने के लिए robotic precision चाहिए। Repair technicians इन boards पर काम करने के लिए microscopes और micro-soldering stations use करते हैं।' }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'On a PCB silk screen, you see "C12". What does this component most likely refer to?', options: ['A coil or inductor', 'The 12th capacitor in the design', 'A crystal oscillator', 'A connector port'], correct: 1, feedback: 'C = Capacitor in standard electronics labeling. C12 is the 12th capacitor in the circuit design. R = Resistor, U = IC chip, D = Diode, Q = Transistor, L = Inductor, J or P = Connector.' },
+            hi: { question: 'PCB silk screen पर "C12" लिखा है। यह component सबसे likely क्या है?', options: ['Coil या inductor', 'Design का 12वाँ capacitor', 'Crystal oscillator', 'Connector port'], correct: 1, feedback: 'Standard electronics labeling में C = Capacitor। C12 = circuit design का 12वाँ capacitor। R = Resistor, U = IC chip, D = Diode, Q = Transistor, L = Inductor, J या P = Connector।' }
+          },
+          {
+            type: 'complete', xp: 25,
+            en: { msg: 'You can now look at a PCB and understand what you are seeing — traces, pads, component labels, layers. This is the foundation of PCB repair. Next: how to troubleshoot and diagnose faults on a real board.' },
+            hi: { msg: 'अब आप PCB देख कर समझ सकते हैं — traces, pads, component labels, layers। यह PCB repair की नींव है। आगे: real board पर faults कैसे troubleshoot और diagnose करें।' }
+          }
+        ]
+      },
+      {
+        en: { title: 'Troubleshoot a PCB — find what is broken', time: '8 min' },
+        hi: { title: 'PCB troubleshoot करो — क्या टूटा है खोजो', time: '8 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "A mobile phone is brought to you. It doesn't turn on. Where do you start? Random guessing wastes time. A systematic approach finds the fault in minutes. This is the exact method professional repair technicians use." },
+            hi: { text: "एक mobile phone आपके पास आता है। चालू नहीं हो रहा। कहाँ से शुरू करें? Random guessing से समय बर्बाद होता है। Systematic approach minutes में fault ढूंढती है। यही तरीका professional repair technicians use करते हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔬',
+            en: { title: 'The 5-step troubleshooting approach', list: ['Step 1: VISUAL INSPECTION — look for burnt components (black marks), cracked ICs, missing parts, water damage (white residue or corrosion)', 'Step 2: POWER CHECK — does the board get voltage? Use multimeter to check power input points', 'Step 3: CONTINUITY CHECK — is there a short circuit? (dead short = 0Ω between + and −)', 'Step 4: COMPONENT TEST — test individual components (diodes, transistors, capacitors)', 'Step 5: SIGNAL TRACE — follow the signal path from input to output, find where it stops'] },
+            hi: { title: '5-step troubleshooting approach', list: ['Step 1: VISUAL INSPECTION — burnt components (black marks), cracked ICs, missing parts, water damage (white residue या corrosion) देखो', 'Step 2: POWER CHECK — board को voltage मिल रही है? Power input points check करने के लिए multimeter use करो', 'Step 3: CONTINUITY CHECK — short circuit तो नहीं? (dead short = + और − के बीच 0Ω)', 'Step 4: COMPONENT TEST — individual components test करो (diodes, transistors, capacitors)', 'Step 5: SIGNAL TRACE — input से output तक signal path follow करो, कहाँ रुकती है देखो'] }
+          },
+          {
+            type: 'learn',
+            icon: '💧',
+            en: { title: 'Water damage — the most common PCB fault', list: ['Water itself does not damage electronics — the MINERALS in water cause corrosion', 'Signs: white or green crust on components, corroded traces, rust on metal shields', 'First step: POWER OFF immediately (water + electricity = short circuit = permanent damage)', 'Clean with 99% Isopropyl Alcohol (IPA) and a soft brush', 'Check for shorts after cleaning — replace corroded components', 'Always check under IC chips and connectors — water hides there'] },
+            hi: { title: 'Water damage — सबसे common PCB fault', list: ['पानी खुद electronics damage नहीं करता — पानी में MINERALS corrosion करते हैं', 'Signs: components पर white या green crust, corroded traces, metal shields पर rust', 'पहला कदम: तुरंत POWER OFF (पानी + बिजली = short circuit = permanent damage)', '99% Isopropyl Alcohol (IPA) और soft brush से clean करो', 'Clean करने के बाद shorts check करो — corroded components replace करो', 'हमेशा IC chips और connectors के नीचे check करो — पानी वहाँ छुपता है'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'Short circuit diagnosis', list: ['A short circuit is 0Ω (or near 0) between + power and − ground', 'Set multimeter to resistance or continuity mode', 'Touch probes to + and − power rails on the PCB', 'BEEP or 0Ω = short circuit exists somewhere on the board', 'To find WHERE: use thermal camera (board heats at short location) or inject small current and find warm spot', 'Common short causes: water damage, solder bridge between pads, damaged capacitor'] },
+            hi: { title: 'Short circuit diagnosis', list: ['Short circuit = + power और − ground के बीच 0Ω (या near 0)', 'Multimeter को resistance या continuity mode पर set करो', 'PCB के + और − power rails पर probes लगाओ', 'BEEP या 0Ω = board पर कहीं short circuit है', 'WHERE ढूंढने के लिए: thermal camera use करो (short location पर board गर्म होता है) या छोटा current inject करो और warm spot ढूंढो', 'Common short causes: water damage, pads के बीच solder bridge, damaged capacitor'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Inspect an old PCB from e-waste', steps: ['Find an old broken charger, toy, or any PCB (e-waste)', 'Look for burnt spots (black marks around components)', 'Check for missing components (empty solder pads)', 'Find capacitors that look swollen or cracked at the top (failed electrolytic caps)', 'Use multimeter continuity mode to test a few traces — probe both ends of a trace', 'Practice identifying R (resistors), C (capacitors), U (ICs) from silk screen labels'] },
+            hi: { title: 'E-waste से पुरानी PCB inspect करो', steps: ['पुराना टूटा charger, toy, या कोई PCB (e-waste) ढूंढो', 'Burnt spots देखो (components के आसपास black marks)', 'Missing components check करो (खाली solder pads)', 'Capacitors ढूंढो जो ऊपर से swollen या cracked लगें (failed electrolytic caps)', 'Multimeter continuity mode से कुछ traces test करो — trace के दोनों ends probe करो', 'Silk screen labels से R (resistors), C (capacitors), U (ICs) पहचानने की practice करो'] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'A phone PCB shows 0Ω between the + power rail and − ground. What does this mean?', options: ['Perfect — the circuit is complete', 'There is a short circuit somewhere on the board', 'The battery is fully charged', 'The PCB needs new software'], correct: 1, feedback: 'A 0Ω reading between + and − power rails means a SHORT CIRCUIT — something is causing + and − to connect directly. This will drain a battery instantly and can burn components. Finding and removing the shorted component fixes the fault.' },
+            hi: { question: 'Phone PCB पर + power rail और − ground के बीच 0Ω दिखता है। इसका क्या मतलब है?', options: ['Perfect — circuit complete है', 'Board पर कहीं short circuit है', 'Battery पूरी तरह charged है', 'PCB को नया software चाहिए'], correct: 1, feedback: '+ और − power rails के बीच 0Ω = SHORT CIRCUIT — कुछ + और − को directly connect कर रहा है। यह battery तुरंत drain करेगा और components जल सकते हैं। Shorted component ढूंढो और हटाओ — fault ठीक हो जाएगी।' }
+          },
+          {
+            type: 'complete', xp: 40,
+            en: { msg: 'You now have a systematic approach to PCB troubleshooting: visual inspection, power check, continuity check, component test, signal trace. This is exactly how professional mobile repair technicians approach every fault. Real skill comes from practice — get some old PCBs and start inspecting!' },
+            hi: { msg: 'अब आपके पास PCB troubleshooting का systematic approach है: visual inspection, power check, continuity check, component test, signal trace। Professional mobile repair technicians हर fault को exactly इसी तरह approach करते हैं। Real skill practice से आती है — कुछ पुरानी PCBs लो और inspect करना शुरू करो!' }
+          }
+        ]
       }
     ]
   },
@@ -1855,6 +2169,92 @@ const MODULES = [
             type: 'complete', xp: 50,
             en: { msg: "🎉 YOU BUILT A REAL CIRCUIT! This is not just a lesson — you have physically created something that controls electricity. Every engineer, maker, and inventor started exactly where you are right now. You're one of us now. Keep building!" },
             hi: { msg: "🎉 आपने एक असली CIRCUIT बनाई! यह सिर्फ एक पाठ नहीं है — आपने physically कुछ बनाया है जो बिजली को नियंत्रित करता है। हर engineer, maker और inventor ठीक यहीं से शुरू हुए। आप अब हम में से एक हैं!" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Add a switch — control your LED', time: '6 min' },
+        hi: { title: 'Switch लगाओ — LED को control करो', time: '6 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Every circuit in the world has some form of switching. Light switches, power buttons, touch screens — all are switches at heart. In this project you will add a tactile push button to your LED circuit and understand exactly how switches work." },
+            hi: { text: "दुनिया की हर circuit में किसी न किसी तरह की switching होती है। Light switches, power buttons, touch screens — सब दिल से switches हैं। इस project में आप अपनी LED circuit में एक tactile push button जोड़ेंगे और समझेंगे कि switches exactly कैसे काम करते हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔘',
+            en: { title: 'How a push button works', body: 'A tactile push button (the small square buttons in kits) has 4 legs. Inside is a simple mechanism: press = connect, release = disconnect.', list: ['4 legs, but only 2 unique connections: A-B are one side, C-D are the other', 'Unpressed: no connection between A-B and C-D sides', 'Pressed: A-B side connects to C-D side — current can flow', 'The button straddles the CENTER GAP of the breadboard', 'Legs on the same side (A and B together, C and D together) are ALWAYS connected — useful to know!'] },
+            hi: { title: 'Push button कैसे काम करता है', body: 'Tactile push button (kits में छोटे square buttons) में 4 legs होती हैं। अंदर simple mechanism: press = connect, release = disconnect।', list: ['4 legs, लेकिन केवल 2 unique connections: A-B एक side, C-D दूसरी', 'Unpressed: A-B और C-D sides के बीच कोई connection नहीं', 'Pressed: A-B side C-D side से connect होती है — current बह सकती है', 'Button breadboard के CENTER GAP पर बैठता है', 'एक ही side की legs (A और B साथ, C और D साथ) ALWAYS connected हैं — यह useful है!'] }
+          },
+          {
+            type: 'learn',
+            icon: '🗺️',
+            en: { title: 'Switch position in the circuit', list: ['A switch is placed IN SERIES with the component it controls', 'In series = the switch is in the same path as the current', 'When switch opens (unpressed) → circuit breaks → LED off', 'When switch closes (pressed) → circuit complete → LED on', 'Where to place it: anywhere in the series path works — before resistor, after LED, before battery'] },
+            hi: { title: 'Circuit में switch की position', list: ['Switch उस component के IN SERIES में लगता है जिसे control करना है', 'In series = switch current के same path में है', 'Switch open (unpressed) → circuit टूटती है → LED off', 'Switch close (pressed) → circuit complete → LED on', 'कहाँ लगाएं: series path में कहीं भी काम करता है — resistor से पहले, LED के बाद, battery से पहले'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Add a button to your LED circuit', steps: ['Keep your existing LED + 330Ω resistor circuit on the breadboard', 'Place a push button straddling the CENTER GAP, e.g. columns e and f, row 8', 'Disconnect the wire from + power rail to the resistor', 'Instead: wire from + power rail → button pin on one side (e.g. row 8, column d)', 'Wire from other button side (row 8, column g) → resistor → LED → ground', 'Press the button: LED lights up. Release: LED goes off.', 'You just built a light switch!'] },
+            hi: { title: 'LED circuit में button जोड़ो', steps: ['Breadboard पर अपनी existing LED + 330Ω resistor circuit रहने दो', 'Push button CENTER GAP पर रखो, जैसे columns e और f, row 8', '+ power rail से resistor तक जाने वाली wire disconnect करो', 'बजाय इसके: + power rail → button pin एक side (जैसे row 8, column d)', 'दूसरी button side (row 8, column g) → resistor → LED → ground', 'Button press करो: LED जले। छोड़ो: LED बंद।', 'आपने एक light switch बनाया!'] }
+          },
+          {
+            type: 'fact',
+            en: { text: "A smartphone screen is 1,000 to 3,000 tactile switches in disguise. Each touch-point detects a change in electrical capacitance (how much charge is stored). Your finger changes the capacitance, the chip reads it as a \"press.\" That is why gloves don't work — they block the capacitance change!" },
+            hi: { text: "Smartphone screen भेस में 1,000 से 3,000 tactile switches हैं। हर touch-point electrical capacitance में बदलाव detect करता है (कितना charge stored है)। आपकी उंगली capacitance बदलती है, chip इसे \"press\" पढ़ती है। इसीलिए gloves काम नहीं करते — वे capacitance change को block करते हैं!" }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'In an LED circuit with a switch in series, the LED stays ON even when the switch is open (unpressed). What is the likely cause?', options: ['The LED is too bright', 'The switch is not in series — it is wired in parallel, bypassing the switch', 'The resistor value is too high', 'The battery is too strong'], correct: 1, feedback: 'If the LED stays on when the switch is open, the switch is wired in PARALLEL (alongside the LED) instead of in SERIES (in the current path). In parallel, the LED has a complete path that bypasses the switch entirely. Re-wire so the switch breaks the series path.' },
+            hi: { question: 'Series switch वाली LED circuit में switch open (unpressed) होने पर भी LED ON रहती है। संभावित कारण क्या है?', options: ['LED बहुत bright है', 'Switch series में नहीं है — parallel में wired है, switch को bypass कर रहा है', 'Resistor value बहुत high है', 'Battery बहुत strong है'], correct: 1, feedback: 'अगर switch open होने पर भी LED जले, तो switch PARALLEL में wired है (LED के साथ) SERIES में नहीं (current path में)। Parallel में LED का एक complete path है जो switch को bypass करता है। फिर से wire करो ताकि switch series path तोड़े।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: 'You built a switch-controlled LED — a real interactive circuit! This concept (switch in series) is the basis of every light switch, keyboard key, power button, and relay in existence. Try adding a second LED in parallel, or a second button in series.' },
+            hi: { msg: 'आपने switch-controlled LED बनाई — एक real interactive circuit! यह concept (switch in series) हर light switch, keyboard key, power button और relay की basis है। एक दूसरी LED parallel में जोड़ने की, या दूसरा button series में जोड़ने की try करो।' }
+          }
+        ]
+      },
+      {
+        en: { title: 'Mini alarm — buzzer and transistor', time: '10 min' },
+        hi: { title: 'Mini alarm — buzzer और transistor', time: '10 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "This is your most advanced project yet: a buzzer alarm controlled by a transistor switch. You will use THREE components working together — battery, transistor, buzzer — and wire a light sensor (LDR) so the alarm beeps when a light is blocked. This is the same principle as security alarms and automatic night lights." },
+            hi: { text: "यह अब तक का आपका सबसे advanced project है: transistor switch से control होने वाला buzzer alarm। आप तीन components एक साथ use करेंगे — battery, transistor, buzzer — और एक light sensor (LDR) wire करेंगे ताकि light block होने पर alarm beep करे। यही principle security alarms और automatic night lights में होता है।" }
+          },
+          {
+            type: 'learn',
+            icon: '📢',
+            en: { title: 'What is a buzzer?', list: ['A piezo buzzer is a small disc that vibrates at high frequency when powered — makes a BEEP sound', 'Active buzzer: just needs power (+ and −) to beep continuously. Has a tiny circuit inside.', 'Passive buzzer: needs a rapidly changing signal to make sound (like an Arduino PWM pin)', 'For this project, use an ACTIVE buzzer (usually marked with a + on the top or have tape over the hole)', 'Typical ratings: 3V to 12V, 30mA current', 'In Indian markets: piezo buzzer costs ₹5–₹15'] },
+            hi: { title: 'Buzzer क्या है?', list: ['Piezo buzzer एक छोटी disc है जो powered होने पर high frequency पर vibrate करती है — BEEP sound', 'Active buzzer: बस power (+ और −) चाहिए continuously beep के लिए। अंदर tiny circuit है।', 'Passive buzzer: sound के लिए rapidly changing signal चाहिए (जैसे Arduino PWM pin)', 'इस project के लिए ACTIVE buzzer use करो (आमतौर पर ऊपर + marked या hole पर tape)', 'Typical ratings: 3V से 12V, 30mA current', 'भारतीय markets में: piezo buzzer ₹5–₹15'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔌',
+            en: { title: 'Circuit: transistor as a switch', body: 'The BC547 transistor has 3 legs: Base (B), Collector (C), Emitter (E). A small current into the Base controls a larger current through Collector→Emitter.', list: ['Flat face of BC547 pointing toward you: left=Collector, middle=Base, right=Emitter', 'Buzzer connects between + supply and Collector', 'Emitter connects to − (ground)', 'Base gets a small signal through a 10kΩ resistor', 'When Base gets current → transistor switches ON → buzzer beeps', 'This is how a transistor acts as a RELAY — a small signal controlling a bigger load'] },
+            hi: { title: 'Circuit: transistor एक switch की तरह', body: 'BC547 transistor में 3 legs हैं: Base (B), Collector (C), Emitter (E)। Base में छोटा current Collector→Emitter के through बड़े current को control करता है।', list: ['BC547 की flat face आपकी तरफ: left=Collector, middle=Base, right=Emitter', 'Buzzer + supply और Collector के बीच connect', 'Emitter − (ground) से connect', 'Base को 10kΩ resistor के through छोटा signal मिलता है', 'Base को current मिले → transistor ON → buzzer beeps', 'इस तरह transistor RELAY की तरह काम करता है — छोटा signal बड़ा load control करता है'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Build the LDR alarm circuit', steps: ['Components needed: BC547 transistor, active buzzer, LDR, 10kΩ resistor, 1kΩ resistor, 9V battery, breadboard', 'LDR + 10kΩ resistor in series between + and − (voltage divider)', 'Midpoint of LDR/10kΩ → through 1kΩ → to Base of BC547', 'Buzzer +ve → 9V supply', 'Buzzer −ve → Collector of BC547', 'Emitter of BC547 → Ground', 'In bright light: LDR resistance low → Base gets current → buzzer beeps', 'Cover LDR: resistance increases → Base current drops → buzzer stops', 'Reverse LDR and 10kΩ positions to flip logic!'] },
+            hi: { title: 'LDR alarm circuit बनाओ', steps: ['Components चाहिए: BC547 transistor, active buzzer, LDR, 10kΩ resistor, 1kΩ resistor, 9V battery, breadboard', 'LDR + 10kΩ resistor series में + और − के बीच (voltage divider)', 'LDR/10kΩ का midpoint → 1kΩ के through → BC547 के Base तक', 'Buzzer +ve → 9V supply', 'Buzzer −ve → BC547 का Collector', 'BC547 का Emitter → Ground', 'Bright light में: LDR resistance कम → Base को current → buzzer beeps', 'LDR ढकें: resistance बढ़े → Base current कम → buzzer बंद', 'Logic flip करने के लिए LDR और 10kΩ की positions swap करो!'] }
+          },
+          {
+            type: 'fact',
+            en: { text: 'This LDR alarm circuit is the basis of automatic street lights (off in daylight, on at night), burglar alarms (beam broken = alarm), and photocopier paper sensors. The LDR (Light Dependent Resistor) + voltage divider + transistor combination appears in millions of real products. You just built a functional version of it!' },
+            hi: { text: 'यह LDR alarm circuit automatic street lights (दिन में बंद, रात में चालू), burglar alarms (beam टूटी = alarm) और photocopier paper sensors की basis है। LDR (Light Dependent Resistor) + voltage divider + transistor combination लाखों real products में है। आपने इसका functional version बनाया!' }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'In the LDR alarm circuit, the buzzer beeps in bright light. To make it beep in DARKNESS instead, what do you do?', options: ['Use a different transistor', 'Swap the positions of the LDR and the 10kΩ fixed resistor in the voltage divider', 'Use a brighter LED', 'Increase the battery voltage'], correct: 1, feedback: 'By swapping LDR and fixed resistor positions in the voltage divider, the midpoint voltage is high in darkness (when LDR resistance is high) and low in bright light (when LDR resistance is low). This flips which condition triggers the transistor. The rest of the circuit stays the same.' },
+            hi: { question: 'LDR alarm circuit में buzzer bright light में beeps करता है। इसके बजाय DARKNESS में beep करवाने के लिए क्या करें?', options: ['अलग transistor use करो', 'Voltage divider में LDR और 10kΩ fixed resistor की positions swap करो', 'Brighter LED use करो', 'Battery voltage बढ़ाओ'], correct: 1, feedback: 'Voltage divider में LDR और fixed resistor positions swap करने से midpoint voltage अंधेरे में high (LDR resistance high) और bright light में low (LDR resistance low) होती है। यह flip करता है कि कौन सी condition transistor trigger करे। Circuit का बाकी हिस्सा same रहता है।' }
+          },
+          {
+            type: 'complete', xp: 50,
+            en: { msg: "You built a light-sensitive alarm using a transistor, LDR, and buzzer — a real sensor-actuator system! This is genuine electronics engineering. From here, the path goes to Arduino, Raspberry Pi, and beyond. You have already taken the hardest step: starting." },
+            hi: { msg: "आपने transistor, LDR और buzzer से light-sensitive alarm बनाया — एक real sensor-actuator system! यह genuine electronics engineering है। यहाँ से रास्ता Arduino, Raspberry Pi और आगे जाता है। आप पहले से ही सबसे कठिन कदम उठा चुके हैं: शुरुआत।" }
           }
         ]
       }
