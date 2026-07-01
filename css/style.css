@@ -265,6 +265,53 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
   box-shadow: 0 0 12px rgba(255,140,0,0.2), inset 0 1px 0 rgba(255,180,60,0.15);
 }
 
+/* Module detail screen */
+.mod-detail-header {
+  display: grid; grid-template-columns: 44px 1fr 44px;
+  align-items: center; padding: 14px 12px 10px;
+  border-bottom: 1px solid rgba(255,140,0,0.1);
+}
+.mod-detail-title { font-size: 16px; font-weight: 800; text-align: center; color: var(--text); }
+.mod-detail-body { padding: 16px 14px; overflow-y: auto; }
+.mod-hero {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px; border-radius: 14px; margin-bottom: 20px;
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.05);
+}
+.mod-hero-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; flex-shrink: 0;
+}
+.mod-hero-info { flex: 1; }
+.mod-hero-name { font-size: 17px; font-weight: 800; color: var(--text); }
+.mod-hero-phase { font-size: 11px; color: var(--text2); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.8px; }
+.mod-hero-prog { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.mod-hero-bar { flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.mod-hero-fill { height: 100%; border-radius: 2px; transition: width 0.4s; }
+.mod-hero-pct { font-size: 11px; color: var(--text2); font-weight: 700; white-space: nowrap; }
+.mod-lessons-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text2); margin-bottom: 10px; }
+.lesson-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 14px; border-radius: 12px; margin-bottom: 8px;
+  background: var(--surface); border: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer; transition: all 0.18s; position: relative; overflow: hidden;
+}
+.lesson-row:active { transform: scale(0.98); opacity: 0.85; }
+.lesson-row-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; flex-shrink: 0;
+  background: rgba(255,255,255,0.06); color: var(--text2);
+}
+.lesson-row-num.done { background: var(--green); color: #000; }
+.lesson-row-info { flex: 1; }
+.lesson-row-title { font-size: 14px; font-weight: 700; color: var(--text); }
+.lesson-row-time { font-size: 11px; color: var(--text2); margin-top: 3px; }
+.lesson-row-arrow { font-size: 20px; color: var(--text2); flex-shrink: 0; }
+.lesson-row.done-row { opacity: 0.72; }
+.lesson-row.done-row .lesson-row-title { color: var(--text2); }
+
 /* Module grid */
 .module-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .module-card {
@@ -441,6 +488,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .quiz-feedback { font-size: 12px; margin-top: 10px; padding: 10px 12px; border-radius: 8px; line-height: 1.5; }
 .quiz-feedback.good { background: rgba(57,217,138,0.08); color: var(--green); border: 1px solid rgba(57,217,138,0.25); }
 .quiz-feedback.bad { background: rgba(255,77,77,0.06); color: #ff9999; border: 1px solid rgba(255,77,77,0.2); }
+.quiz-continue-wrap { display: none; justify-content: center; margin-top: 16px; }
+.quiz-continue-btn { background: var(--accent); color: #000; font-size: 14px; font-weight: 800; border: none; border-radius: 99px; padding: 13px 36px; cursor: pointer; box-shadow: 0 4px 18px rgba(255,140,0,0.3); }
 
 /* Try it */
 .tryit-card { background: rgba(255,140,0,0.04); border: 1.5px solid rgba(255,140,0,0.3); border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; }

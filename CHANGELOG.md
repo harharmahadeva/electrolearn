@@ -1,5 +1,34 @@
 # ElectroLearn Changelog
 
+## v2.6.0 — 2026-07-01
+
+### Multimeter deep-dive + component variations + quiz UX fix
+
+- **Quiz behavior fixed**: Spark now speaks feedback fully before continuing — removed 2.4s auto-advance; "Continue →" button appears only after TTS finishes (8s fallback), so learner always hears the full explanation
+- **Lesson back button**: now returns to module detail screen (lesson list) instead of home, so user doesn't lose their place
+- **Multimeter module completely rewritten** into 3 lessons (90 XP total):
+  - Lesson 1 "Know your multimeter": annotated SVG (yellow multimeter body), digital vs analog explanation, "your meter may look different — yellow/black/red, all work the same", 5 key parts, COM/VΩ/10A jack explained
+  - Lesson 2 "Measuring voltage": step-by-step DC voltage (battery check), AC voltage (India 230V, safety warning), TryIt card for 9V battery, manual vs auto-ranging
+  - Lesson 3 "Resistance, continuity and current": Ω measurement with power-off rule, TryIt: measure a resistor, continuity test ("BEEP = connected, SILENCE = broken"), TryIt: test a wire, current measurement danger warning (10A jack, probe placement)
+- **Component variations added** — "your component may look different" cards for all 4 component types:
+  - Resistors: through-hole, potentiometer, LDR, SMD
+  - Capacitors: electrolytic (polarity!), ceramic disc, film, tantalum, SMD
+  - LEDs: 5mm, 3mm, SMD, RGB, IR, high-brightness — with 330Ω universal formula reminder
+  - Transistors: TO-92 (BC547/2N2222), TO-220, TO-3, SOT-23, MOSFET (IRFZ44N)
+- **CSS**: `.quiz-continue-wrap` + `.quiz-continue-btn` styles added (orange gradient, rounded pill)
+- APP_VERSION → 2.6.0, SW cache → electrolearn-v14, assets at ?v=18
+
+## v2.5.0 — 2026-07-01
+
+### Real photos + module detail screen + photo card type
+
+- Added `photo` card type — shows real-world component/tool images with caption and attribution
+- 5 local images committed to /img/: breadboard.jpg, multimeter.jpg, resistors.jpg, capacitors.jpg, transistors.jpg (CC-BY from Wikimedia)
+- LEDs, soldering iron, jumper wires use Wikimedia CDN URLs (auto-cached by SW on first view)
+- Module detail screen added: clicking a module now shows ALL lessons (done/not-done indicators) instead of jumping straight to first incomplete lesson
+- Arrow buttons on Resume and Spark home cards redesigned: 36px circle, gradient fill, color glow
+- SW ASSETS updated to pre-cache local images
+
 ## v2.4.0 — 2026-07-01
 
 ### Tools module overhaul — real illustrations + Indian teaching style

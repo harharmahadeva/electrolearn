@@ -1,4 +1,4 @@
-const CACHE = 'electrolearn-v13';
+const CACHE = 'electrolearn-v14';
 const ASSETS = ['/', '/index.html', '/css/style.css', '/js/app.js', '/js/lessons.js', '/js/storage.js', '/js/tts.js', '/data/users.json', '/manifest.json',
   '/img/breadboard.jpg', '/img/multimeter.jpg', '/img/resistors.jpg', '/img/capacitors.jpg', '/img/transistors.jpg'];
 

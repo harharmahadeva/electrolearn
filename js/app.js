@@ -253,16 +253,61 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast(lang === 'hi' ? '⚡ Spark बोल रहा है...' : '⚡ Spark is speaking...');
   });
 
-  // ── OPEN MODULE ──
+  // ── OPEN MODULE (show lesson list) ──
   function openModule(mod) {
     currentMod = mod;
-    let startLesson = 0;
-    for (let i = 0; i < mod.lessons.length; i++) {
-      if (!Storage.isLessonDone(mod.id, i)) { startLesson = i; break; }
-      if (i === mod.lessons.length - 1) startLesson = i;
-    }
-    openLesson(mod, startLesson);
+    renderModuleDetail(mod);
+    showScreen('screen-module');
+    $('bottom-nav').style.display = 'flex';
   }
+
+  function renderModuleDetail(mod) {
+    const mt = mod[lang] || mod.en;
+    $('mod-detail-title').textContent = mt.name;
+
+    const total = mod.lessons.length;
+    const done  = mod.lessons.filter((_, i) => Storage.isLessonDone(mod.id, i)).length;
+    const pct   = total ? done / total : 0;
+
+    $('mod-detail-body').innerHTML = `
+      <div class="mod-hero">
+        <div class="mod-hero-icon" style="background:${mod.color}22;border:1.5px solid ${mod.color}44">${mod.icon}</div>
+        <div class="mod-hero-info">
+          <div class="mod-hero-name">${mt.name}</div>
+          <div class="mod-hero-phase">${mt.phase}</div>
+          <div class="mod-hero-prog">
+            <div class="mod-hero-bar"><div class="mod-hero-fill" style="width:${pct*100}%;background:${mod.color}"></div></div>
+            <div class="mod-hero-pct">${done}/${total} ${lang === 'hi' ? 'पाठ' : 'lessons'}</div>
+          </div>
+        </div>
+      </div>
+      <div class="mod-lessons-label">${lang === 'hi' ? 'पाठ चुनें' : 'Choose a lesson'}</div>
+      <div id="mod-lesson-list"></div>
+    `;
+
+    const list = $('mod-lesson-list');
+    mod.lessons.forEach((lesson, idx) => {
+      const lt    = lesson[lang] || lesson.en;
+      const isDone = Storage.isLessonDone(mod.id, idx);
+      const row   = document.createElement('div');
+      row.className = 'lesson-row' + (isDone ? ' done-row' : '');
+      row.style.borderLeftColor = mod.color;
+      row.innerHTML = `
+        <div class="lesson-row-num ${isDone ? 'done' : ''}" style="${isDone ? '' : `color:${mod.color};border:1.5px solid ${mod.color}44`}">${isDone ? '✓' : idx + 1}</div>
+        <div class="lesson-row-info">
+          <div class="lesson-row-title">${lt.title}</div>
+          <div class="lesson-row-time">${lt.time || ''}</div>
+        </div>
+        <div class="lesson-row-arrow">›</div>
+      `;
+      row.addEventListener('click', () => openLesson(mod, idx));
+      list.appendChild(row);
+    });
+  }
+
+  $('mod-detail-back').addEventListener('click', () => {
+    showHome();
+  });
 
   // ── OPEN LESSON ──
   function openLesson(mod, lessonIdx) {
@@ -473,6 +518,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </button>`).join('')}
             </div>
             <div class="quiz-feedback" style="display:none"></div>
+            <div class="quiz-continue-wrap" style="display:none"><button class="quiz-continue-btn">Continue →</button></div>
           </div>`;
         wrap.querySelectorAll('.quiz-opt').forEach(btn => {
           btn.addEventListener('click', () => {
@@ -485,8 +531,12 @@ document.addEventListener('DOMContentLoaded', () => {
             fb.className = 'quiz-feedback ' + (isRight ? 'good' : 'bad');
             fb.textContent = (isRight ? randFrom(CORRECT_LINES) : randFrom(WRONG_LINES)) + ' ' + feedback;
             fb.style.display = 'block';
-            speak((isRight ? 'Correct! ' : 'Not quite. ') + feedback);
-            setTimeout(() => advanceStep(), 2400);
+            const continueWrap = wrap.querySelector('.quiz-continue-wrap');
+            const continueFallback = setTimeout(() => { continueWrap.style.display = 'flex'; }, 8000);
+            speak((isRight ? 'Correct! ' : 'Not quite. ') + feedback, {
+              onEnd: () => { clearTimeout(continueFallback); continueWrap.style.display = 'flex'; }
+            });
+            wrap.querySelector('.quiz-continue-btn').addEventListener('click', () => { clearTimeout(continueFallback); advanceStep(); });
           });
         });
         break;
@@ -676,7 +726,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── LESSON BACK ──
   $('lesson-back').addEventListener('click', () => {
     stopSpeak();
-    goHome();
+    if (currentMod) {
+      renderModuleDetail(currentMod);
+      showScreen('screen-module');
+      $('bottom-nav').style.display = 'flex';
+    } else {
+      goHome();
+    }
   });
 
   // ── RESUME CARD ──

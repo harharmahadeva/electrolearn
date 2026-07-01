@@ -1,4 +1,4 @@
-const APP_VERSION = '2.5.0';
+const APP_VERSION = '2.6.0';
 
 const T = {
   en: {
@@ -522,6 +522,12 @@ const MODULES = [
             hi: { caption: 'ये असली resistors हैं। रंगीन bands देखो — हर रंग एक number दर्शाता है। ये bands Ohms (Ω) में resistance value बताते हैं। छोटे cylindrical वाले breadboard पर सबसे ज्यादा use होते हैं।' }
           },
           {
+            type: 'learn',
+            icon: '🔄',
+            en: { title: 'Resistors you may see — all types', body: 'Resistors come in many forms. The one you will use most on a breadboard is the through-hole type with color bands. But as you advance, you will see others.', list: ['Through-hole (axial): cylindrical body with color bands, 2 wire legs — most common for breadboards', 'Potentiometer (POT): a variable resistor with a rotating knob — used in volume controls, fan speed dials', 'LDR (Light Dependent Resistor): looks like a disc — resistance changes with light. Used in automatic street lights', 'SMD (Surface Mount): tiny black rectangles on modern PCBs — no legs, soldered flat onto the board', 'All types follow Ohm\'s Law — V = I × R'] },
+            hi: { title: 'Resistors you may see — all types', body: 'Resistors कई रूपों में आते हैं। Breadboard पर सबसे ज्यादा through-hole type use होती है जिसमें color bands हों। जैसे-जैसे आगे बढ़ोगे, दूसरे भी दिखेंगे।', list: ['Through-hole (axial): color bands वाला cylindrical body, 2 wire legs — breadboard पर सबसे आम', 'Potentiometer (POT): rotating knob वाला variable resistor — volume controls, fan speed dials में', 'LDR (Light Dependent Resistor): disc जैसा दिखता है — light के साथ resistance बदलती है। automatic street lights में', 'SMD (Surface Mount): modern PCBs पर tiny काले rectangles — कोई legs नहीं, flat soldered', 'सभी types Ohm\'s Law follow करते हैं — V = I × R'] }
+          },
+          {
             type: 'fact',
             en: { text: "Resistors use a color code system — colored bands that tell you their value in Ohms. Brown-Black-Red = 1,000 Ω = 1 kΩ. Engineers memorize this like a language!" },
             hi: { text: "Resistors रंग कोड प्रणाली उपयोग करते हैं — रंगीन बैंड जो Ohms में उनकी value बताते हैं। Brown-Black-Red = 1,000 Ω = 1 kΩ। Engineers इसे भाषा की तरह याद करते हैं!" }
@@ -608,6 +614,12 @@ const MODULES = [
             credit: 'Photo: Wikimedia Commons (CC-BY)',
             en: { caption: 'Different types of capacitors. The tall blue/black cylinders are electrolytic capacitors (common in power circuits). The small round/disc ones are ceramic capacitors. The orange rectangular ones are film capacitors. All store charge — just different amounts and speeds.' },
             hi: { caption: 'अलग-अलग प्रकार के capacitors। लंबे नीले/काले cylinder electrolytic capacitors हैं (power circuits में आम)। छोटे गोल disc वाले ceramic capacitors हैं। नारंगी आयताकार film capacitors हैं। सभी charge store करते हैं — बस मात्रा और speed अलग।' }
+          },
+          {
+            type: 'learn',
+            icon: '🔄',
+            en: { title: 'Capacitors you may see — all types', body: 'Capacitors look very different depending on their type and size. The key thing that varies is: do they have polarity (+ and −) or not?', list: ['Electrolytic (cylindrical): has + and − polarity MUST go in correct direction — used in power supplies', 'Ceramic disc: small, flat, no polarity, looks like a tiny disc — very common on all boards', 'Film capacitor: orange/yellow rectangular block — high quality, no polarity', 'Tantalum: tiny teardrop shape with a stripe — has polarity, used in phones/laptops', 'SMD: tiny, flat, no leads — on modern PCBs', 'RULE: Electrolytic caps have polarity — always check the + marking before inserting!'] },
+            hi: { title: 'Capacitors you may see — all types', body: 'Capacitors अपने type और size के हिसाब से बहुत अलग दिखते हैं। सबसे important बात: क्या इनमें polarity (+ और −) है या नहीं?', list: ['Electrolytic (cylindrical): + और − polarity है, सही direction में लगाना MUST है — power supplies में', 'Ceramic disc: छोटा, flat, कोई polarity नहीं, tiny disc जैसा — सभी boards पर बहुत आम', 'Film capacitor: orange/yellow rectangular block — high quality, कोई polarity नहीं', 'Tantalum: tiny teardrop shape with stripe — polarity है, phones/laptops में', 'SMD: tiny, flat, कोई leads नहीं — modern PCBs पर', 'नियम: Electrolytic caps में polarity होती है — insert करने से पहले + marking check करो!'] }
           },
           {
             type: 'fact',
@@ -703,6 +715,12 @@ const MODULES = [
             hi: { caption: 'LEDs कई रंगों में आती हैं — लाल, हरा, नीला, सफेद, पीला। पारदर्शी वाली अंदर के semiconductor के हिसाब से रंग दिखाती है। लेंस के नीचे flat side negative (cathode) पैर की तरफ होती है।' }
           },
           {
+            type: 'learn',
+            icon: '🔄',
+            en: { title: 'LEDs you may see — all types and colors', body: 'LEDs come in many sizes, shapes and colors. But they all share one rule: ALWAYS use a current-limiting resistor or the LED will burn instantly.', list: ['5mm LED: standard round, flat bottom, 2 legs (long=+, short=−) — most common', '3mm LED: smaller version, same rules', 'SMD LED: flat, no legs, soldered directly on PCB — used in phone screens, indicator lights', 'RGB LED: 3 LEDs in one package (Red, Green, Blue) — 4 legs, can mix any color', 'IR LED: looks like a clear LED but emits invisible infrared light — used in TV remotes', 'High-brightness LED: very bright, needs more current — used in flashlights, LED bulbs', 'ALL types burn without a resistor — 330Ω for 9V battery is the universal beginner formula'] },
+            hi: { title: 'LEDs you may see — all types and colors', body: 'LEDs कई sizes, shapes और colors में आती हैं। लेकिन सभी एक rule share करती हैं: हमेशा current-limiting resistor लगाओ वरना LED तुरंत जल जाएगी।', list: ['5mm LED: standard round, flat bottom, 2 legs (long=+, short=−) — सबसे आम', '3mm LED: छोटा version, same rules', 'SMD LED: flat, no legs, PCB पर directly soldered — phone screens, indicator lights में', 'RGB LED: एक में 3 LEDs (Red, Green, Blue) — 4 legs, कोई भी color mix कर सकते हैं', 'IR LED: clear LED जैसी दिखती है पर invisible infrared light emit करती है — TV remotes में', 'High-brightness LED: बहुत bright, ज्यादा current चाहिए — flashlights, LED bulbs में', 'सभी types resistor के बिना जलती हैं — 9V battery के लिए 330Ω universal beginner formula'] }
+          },
+          {
             type: 'quiz',
             en: { question: 'Why must you always use a resistor with an LED?', options: ['To make it brighter', 'To limit current and prevent burning', 'To reverse the current direction', 'To store extra charge'], correct: 1, feedback: 'Without a resistor, too much current flows through the LED and it burns out instantly. A 330Ω resistor with a 9V battery is the classic beginner LED circuit.' },
             hi: { question: 'LED के साथ हमेशा resistor क्यों लगाते हैं?', options: ['ज्यादा चमक के लिए', 'Current सीमित करने के लिए — नहीं तो जल जाएगी', 'Current की दिशा बदलने के लिए', 'अतिरिक्त charge संग्रहीत करने के लिए'], correct: 1, feedback: 'बिना resistor के बहुत ज्यादा current LED को तुरंत जला देती है। 330Ω resistor + 9V battery = beginners का classic LED circuit।' }
@@ -791,6 +809,12 @@ const MODULES = [
             credit: 'Photo: Wikimedia Commons (CC-BY)',
             en: { caption: 'Different transistors. The small black D-shaped ones (TO-92 package) are the most common — like BC547 and 2N2222 which you will use in projects. The larger metal-can ones (TO-18/TO-39) are older types. All have 3 legs: Base, Collector, Emitter.' },
             hi: { caption: 'अलग-अलग transistors। छोटे काले D-shape वाले (TO-92 package) सबसे आम हैं — जैसे BC547 और 2N2222 जो आप projects में use करेंगे। बड़े metal-can वाले पुराने type हैं। सभी के 3 पैर: Base, Collector, Emitter।' }
+          },
+          {
+            type: 'learn',
+            icon: '🔄',
+            en: { title: 'Transistors you may see — packages and types', body: 'The transistor symbol and function is universal, but the physical package (shape it comes in) varies a lot. The same NPN transistor principle works in all of them.', list: ['TO-92: small, D-shaped black plastic, 3 legs — BC547, 2N2222, most common for beginners (₹2 each)', 'TO-220: larger, with a metal tab for heatsink — used when more power is needed (TIP31, BD139)', 'TO-3: large metal can — old power transistors, still found in audio amplifiers', 'SOT-23: tiny SMD package, 3 flat legs — in phones, laptops', 'MOSFET: a different type of transistor — controlled by voltage not current. IRFZ44N is a common power MOSFET', 'All behave the same way: small signal controls larger current — whether TO-92 or TO-220'] },
+            hi: { title: 'Transistors you may see — packages and types', body: 'Transistor symbol और function universal है, लेकिन physical package (जिस shape में आता है) बहुत vary करता है। NPN transistor principle सभी में एक जैसा काम करता है।', list: ['TO-92: छोटा, D-shaped काला plastic, 3 legs — BC547, 2N2222, beginners के लिए सबसे आम (₹2 प्रत्येक)', 'TO-220: बड़ा, metal tab के साथ heatsink के लिए — ज्यादा power चाहिए तो (TIP31, BD139)', 'TO-3: बड़ा metal can — पुराने power transistors, audio amplifiers में अभी भी', 'SOT-23: tiny SMD package, 3 flat legs — phones, laptops में', 'MOSFET: एक अलग प्रकार का transistor — current नहीं voltage से control होता है। IRFZ44N common power MOSFET है', 'सभी एक जैसे behave करते हैं: छोटा signal बड़े current को control करता है'] }
           },
           {
             type: 'fact',
@@ -1461,81 +1485,186 @@ const MODULES = [
     hi: { name: 'Multimeter चलाना', phase: 'व्यावहारिक' },
     lessons: [
       {
-        en: { title: 'Read voltage like a pro', time: '6 min' },
-        hi: { title: 'Voltage की तरह pro बनें', time: '6 मिनट' },
+        en: { title: 'Know your multimeter — parts and types', time: '7 min' },
+        hi: { title: 'Multimeter को जानो — parts और types', time: '7 मिनट' },
         steps: [
           {
             type: 'spark',
-            en: { text: "The multimeter is your eyes in a circuit. You can't see electricity — but with a multimeter, you can measure it precisely. This is the single most useful skill you'll learn today." },
-            hi: { text: "Multimeter आपकी circuit में आँखें है। आप बिजली देख नहीं सकते — लेकिन multimeter से आप उसे सटीक माप सकते हैं।" }
+            en: { text: "Doston, your multimeter might be yellow, black, red, or silver. It might be digital (shows numbers) or analog (has a needle). They all look slightly different — but they ALL work the same way. I will teach you the universal method that works on any multimeter." },
+            hi: { text: "दोस्तों, आपका multimeter पीला, काला, लाल या silver हो सकता है। Digital (numbers दिखाए) या analog (needle वाला) हो सकता है। सब थोड़े अलग दिखते हैं — लेकिन सब एक ही तरह काम करते हैं। मैं वो universal method सिखाऊँगा जो किसी भी multimeter पर काम करेगा।" }
+          },
+          {
+            type: 'photo',
+            label: 'Real digital multimeter',
+            src: '/img/multimeter.jpg',
+            credit: 'Wikimedia Commons (CC-BY)',
+            en: { caption: 'This is a typical digital multimeter. Yours might be a different color or brand — yellow Ferve, black Mastech, red Mextech — doesn\'t matter. The layout is almost identical: display at top, big dial in center, probe jacks at bottom.' },
+            hi: { caption: 'यह एक typical digital multimeter है। आपका अलग color या brand का हो सकता है — पीला Ferve, काला Mastech, लाल Mextech — कोई फर्क नहीं। Layout लगभग एक जैसा: ऊपर display, बीच में बड़ा dial, नीचे probe jacks।' }
           },
           {
             type: 'learn',
-            icon: '📟',
-            en: { title: 'Parts of a multimeter', body: 'Every multimeter has 3 essential parts you need to know before you start.', list: ['Display — shows the reading', 'Dial/selector — choose what to measure (V, A, Ω)', 'Probes — two wires: RED (+) and BLACK (−)', 'COM jack — always connect BLACK probe here', 'VΩ jack — connect RED probe here for voltage and resistance'] },
-            hi: { title: 'Multimeter के हिस्से', body: 'हर multimeter में 3 जरूरी हिस्से हैं।', list: ['Display — reading दिखाता है', 'Dial/selector — क्या मापना है चुनें (V, A, Ω)', 'Probes — दो wires: RED (+) और BLACK (−)', 'COM jack — BLACK probe हमेशा यहाँ', 'VΩ jack — voltage और resistance के लिए RED probe यहाँ'] }
+            icon: '🔍',
+            en: { title: 'The 5 parts you MUST know', body: 'Before you touch a multimeter, know these 5 parts. This is the same on every multimeter in the world.', list: ['1. DISPLAY — shows your reading as numbers (e.g. 9.2V, 330Ω)', '2. ROTARY DIAL — big knob in center. Turn it to select what to measure', '3. COM jack — BLACK probe ALWAYS goes here (COM = Common = negative)', '4. VΩ jack — RED probe goes here for Voltage, Resistance, Continuity', '5. 10A jack — RED probe moves HERE only when measuring high current'] },
+            hi: { title: 'The 5 parts you MUST know', body: 'Multimeter छूने से पहले ये 5 हिस्से जानो। यह दुनिया के हर multimeter में एक जैसा है।', list: ['1. DISPLAY — reading numbers में दिखाता है (जैसे 9.2V, 330Ω)', '2. ROTARY DIAL — बीच में बड़ा knob। घुमाकर क्या मापना है select करो', '3. COM jack — BLACK probe हमेशा यहाँ (COM = Common = negative)', '4. VΩ jack — Voltage, Resistance, Continuity के लिए RED probe यहाँ', '5. 10A jack — HIGH current मापते समय RED probe यहाँ जाती है'] }
           },
           {
             type: 'diagram',
-            label: 'Multimeter — Anatomy',
-            svg: `<svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
-  <rect width="280" height="200" fill="#1a1d35" rx="12"/>
+            label: 'Multimeter — every part explained',
+            svg: `<svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="240" fill="#1a1d35" rx="12"/>
   <!-- Multimeter body -->
-  <rect x="80" y="10" width="120" height="170" rx="14" fill="#1a1a2e" stroke="#4f6ef7" stroke-width="2"/>
+  <rect x="90" y="14" width="100" height="155" rx="14" fill="#f59e0b" stroke="#1a1a1a" stroke-width="2.5"/>
   <!-- Display -->
-  <rect x="92" y="22" width="96" height="40" rx="6" fill="#0f1a0f" stroke="#10b981" stroke-width="1.5"/>
-  <text x="140" y="48" fill="#10b981" font-size="20" font-weight="bold" text-anchor="middle" font-family="monospace">12.6V</text>
+  <rect x="100" y="22" width="80" height="36" rx="5" fill="#0f1a0f" stroke="#10b981" stroke-width="1.5"/>
+  <text x="140" y="45" fill="#10b981" font-size="18" font-weight="bold" text-anchor="middle" font-family="monospace">12.6</text>
   <!-- Dial -->
-  <circle cx="140" cy="108" r="28" fill="#232748" stroke="#4f6ef7" stroke-width="2"/>
-  <circle cx="140" cy="108" r="10" fill="#1a1d35" stroke="#4f6ef7" stroke-width="1.5"/>
-  <!-- dial labels -->
-  <text x="140" y="86" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif">V~</text>
-  <text x="162" y="95" fill="#10b981" font-size="7" text-anchor="middle" font-family="sans-serif">V</text>
-  <text x="168" y="112" fill="#a78bfa" font-size="7" text-anchor="middle" font-family="sans-serif">Ω</text>
-  <text x="162" y="130" fill="#60a5fa" font-size="7" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="118" y="130" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">OFF</text>
-  <!-- dial pointer -->
-  <line x1="140" y1="108" x2="155" y2="95" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
-  <!-- jacks -->
-  <circle cx="120" cy="158" r="7" fill="#1e2040" stroke="#9ba3c8" stroke-width="1.5"/>
-  <circle cx="140" cy="158" r="7" fill="#1e2040" stroke="#10b981" stroke-width="1.5"/>
-  <circle cx="160" cy="158" r="7" fill="#1e2040" stroke="#ef4444" stroke-width="1.5"/>
-  <text x="120" y="175" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">A</text>
-  <text x="140" y="175" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">COM</text>
-  <text x="160" y="175" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">VΩ</text>
-  <!-- probes -->
-  <line x1="140" y1="165" x2="35" y2="190" stroke="#1a3a1a" stroke-width="3"/>
-  <line x1="160" y1="165" x2="245" y2="190" stroke="#3a1a1a" stroke-width="3"/>
-  <text x="25" y="198" fill="#10b981" font-size="9" text-anchor="middle" font-family="sans-serif">BLACK −</text>
-  <text x="255" y="198" fill="#ef4444" font-size="9" text-anchor="middle" font-family="sans-serif">RED +</text>
+  <circle cx="140" cy="112" r="28" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <circle cx="140" cy="112" r="10" fill="#333" stroke="#555" stroke-width="1.5"/>
+  <text x="140" y="90" fill="#f59e0b" font-size="6.5" text-anchor="middle" font-family="sans-serif">V~</text>
+  <text x="162" y="99" fill="#10b981" font-size="6.5" text-anchor="middle" font-family="sans-serif">V⎓</text>
+  <text x="168" y="115" fill="#a78bfa" font-size="6.5" text-anchor="middle" font-family="sans-serif">Ω</text>
+  <text x="162" y="132" fill="#60a5fa" font-size="6.5" text-anchor="middle" font-family="sans-serif">A</text>
+  <text x="118" y="132" fill="#ccc" font-size="6.5" text-anchor="middle" font-family="sans-serif">OFF</text>
+  <line x1="140" y1="112" x2="156" y2="98" stroke="#f59e0b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Probe jacks -->
+  <circle cx="115" cy="155" r="7" fill="#1e2040" stroke="#ef4444" stroke-width="1.5"/>
+  <circle cx="140" cy="155" r="7" fill="#1e2040" stroke="#555" stroke-width="1.5"/>
+  <circle cx="165" cy="155" r="7" fill="#1e2040" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="115" y="174" fill="#ef4444" font-size="6.5" text-anchor="middle" font-family="sans-serif">10A</text>
+  <text x="140" y="174" fill="#aaa" font-size="6.5" text-anchor="middle" font-family="sans-serif">COM</text>
+  <text x="165" y="174" fill="#ef4444" font-size="6.5" text-anchor="middle" font-family="sans-serif">VΩ</text>
+  <!-- Probe wires -->
+  <line x1="140" y1="162" x2="50" y2="210" stroke="#222" stroke-width="3"/>
+  <line x1="165" y1="162" x2="230" y2="210" stroke="#5a0000" stroke-width="3"/>
+  <circle cx="50" cy="214" r="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <circle cx="230" cy="214" r="4" fill="#5a0000" stroke="#ef4444" stroke-width="1"/>
+  <text x="50" y="228" fill="#aaa" font-size="7.5" text-anchor="middle" font-family="sans-serif">black probe</text>
+  <text x="230" y="228" fill="#ef4444" font-size="7.5" text-anchor="middle" font-family="sans-serif">red probe</text>
+  <!-- Annotation arrows and labels -->
+  <line x1="180" y1="40" x2="212" y2="30" stroke="#10b981" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="214" y="28" fill="#10b981" font-size="7" font-family="sans-serif">Display — reads numbers</text>
+  <line x1="168" y1="112" x2="210" y2="98" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="212" y="96" fill="#f59e0b" font-size="7" font-family="sans-serif">Dial — select mode</text>
+  <line x1="140" y1="148" x2="100" y2="188" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="2" y="192" fill="#aaa" font-size="6.5" font-family="sans-serif">COM — black</text>
+  <text x="2" y="201" fill="#aaa" font-size="6.5" font-family="sans-serif">probe always</text>
+  <line x1="165" y1="148" x2="210" y2="188" stroke="#ef4444" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="212" y="193" fill="#ef4444" font-size="6.5" font-family="sans-serif">VΩ — red</text>
+  <text x="212" y="202" fill="#ef4444" font-size="6.5" font-family="sans-serif">probe here</text>
 </svg>`
           },
           {
             type: 'learn',
-            icon: '⚡',
-            en: { title: 'Measure DC Voltage — step by step', body: 'Measuring the voltage of a battery is the first thing every electronics person learns.', list: ['Set dial to V (DC) — look for straight lines symbol', 'Black probe → COM jack', 'Red probe → VΩ jack', 'Touch red to + (positive) of battery, black to − (negative)', 'Read the display — that is your voltage!', 'For a AA battery: should read ~1.5V'] },
-            hi: { title: 'DC Voltage मापें — step by step', body: 'Battery का voltage मापना electronics सीखने वाले पहले चीज सीखते हैं।', list: ['Dial को V (DC) पर सेट करें', 'Black probe → COM jack', 'Red probe → VΩ jack', 'Red probe को battery के + पर, Black को − पर लगाएं', 'Display पढ़ें — यही आपका voltage है!', 'AA battery के लिए: ~1.5V आना चाहिए'] }
+            icon: '📊',
+            en: { title: 'Digital vs Analog — both work fine', body: 'Two types of multimeters exist. Digital (shows numbers — most common today) and Analog (has a moving needle and a printed scale). Many older repair shops in India still use analog meters. Same measurements, different display.', list: ['Digital: reads 9.23V directly on screen — easy, accurate', 'Analog: needle points to a scale — you read the number it points to', 'Auto-ranging: modern digital meters select the range automatically', 'Manual-ranging: older meters need you to set the range dial above expected value', 'Rule for manual: always start at HIGHEST range, work down'] },
+            hi: { title: 'Digital vs Analog — दोनों ठीक हैं', body: 'दो प्रकार के multimeters होते हैं। Digital (numbers दिखाए — आज सबसे आम) और Analog (moving needle और printed scale)। भारत में कई पुराने repair shops में अभी भी analog meters हैं। माप एक जैसा — बस display अलग।', list: ['Digital: 9.23V directly screen पर — आसान, accurate', 'Analog: needle एक scale पर point करती है — उस number को पढ़ो', 'Auto-ranging: modern digital meters range automatically select करते हैं', 'Manual-ranging: पुराने meters में range dial खुद set करना पड़ता है', 'Manual का नियम: हमेशा HIGHEST range से शुरू करो, नीचे आओ'] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'Where does the BLACK probe ALWAYS go?', options: ['VΩ jack', '10A jack', 'COM jack', 'Any jack works'], correct: 2, feedback: 'BLACK probe ALWAYS into COM — this never changes on any multimeter. RED probe goes to VΩ for most measurements (move to 10A only for high current).' },
+            hi: { question: 'BLACK probe हमेशा कहाँ जाती है?', options: ['VΩ jack', '10A jack', 'COM jack', 'कोई भी jack'], correct: 2, feedback: 'BLACK probe हमेशा COM में — यह किसी भी multimeter पर कभी नहीं बदलता। RED probe ज्यादातर measurements के लिए VΩ में जाती है।' }
+          },
+          {
+            type: 'complete', xp: 20,
+            en: { msg: "You know your multimeter's parts! Now the most important skill — actually USING it. Next lesson: check a battery, test a wire, measure a resistor." },
+            hi: { msg: "आप multimeter के parts जानते हैं! अब सबसे जरूरी skill — actually USE करना। अगला पाठ: battery check करना, wire test करना, resistor मापना।" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Measuring voltage — battery and AC mains', time: '8 min' },
+        hi: { title: 'Voltage मापना — battery और AC mains', time: '8 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "The #1 repair skill: is this battery still good? With a multimeter, you know in 5 seconds. I will walk you through it step by step — just follow along." },
+            hi: { text: "Repair की #1 skill: क्या यह battery अभी भी अच्छी है? Multimeter से 5 seconds में पता चलता है। मैं आपको step by step बताऊँगा।" }
           },
           {
             type: 'learn',
-            icon: '🔊',
-            en: { title: 'Continuity — is it connected?', body: 'The most used feature! Set to continuity mode (looks like a speaker/sound symbol) and touch the probes to two points. If connected — it BEEPS!', list: ['Beep = connected (circuit is complete)', 'No beep = not connected (broken wire, open circuit)', 'Use it to: test wires, check solder joints, find broken paths', 'Safe to use — even on powered-off circuits'] },
-            hi: { title: 'Continuity — जुड़ा है या नहीं?', body: 'सबसे ज्यादा इस्तेमाल होने वाला feature! Continuity mode सेट करें और दो points पर probes लगाएं। जुड़े हैं तो — BEEP!', list: ['Beep = जुड़ा है (circuit complete है)', 'No beep = जुड़ा नहीं (टूटा wire)', 'उपयोग: wires test करें, solder joints जाँचें', 'Safe है — बंद circuits पर भी'] }
+            icon: '🔋',
+            en: { title: 'Step 1 — Measuring DC voltage (batteries)', body: 'DC voltage is what batteries produce. Follow these exact steps every time.', list: ['Plug: BLACK probe → COM jack', 'Plug: RED probe → VΩ jack', 'Turn dial to V⎓ (DC Voltage) — look for straight lines symbol', 'If manual-ranging: choose 20V (above the battery\'s expected voltage)', 'Touch RED probe to battery + (positive/longer end)', 'Touch BLACK probe to battery − (negative/flat end)', 'Read the display!'] },
+            hi: { title: 'Step 1 — DC voltage मापना (batteries)', body: 'DC voltage वो है जो batteries produce करती हैं। हर बार ये exact steps follow करो।', list: ['लगाओ: BLACK probe → COM jack', 'लगाओ: RED probe → VΩ jack', 'Dial को V⎓ (DC Voltage) पर घुमाओ — straight lines symbol देखो', 'Manual-ranging है तो: 20V choose करो (battery की expected voltage से ऊपर)', 'RED probe को battery के + (positive) से छुओ', 'BLACK probe को battery के − (negative) से छुओ', 'Display पढ़ो!'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Check a 9V battery right now', steps: ['Get a 9V battery from your kit', 'BLACK probe → COM jack, RED probe → VΩ jack', 'Turn dial to V⎓ (DC Voltage), select 20V range if manual', 'Touch RED to the small round + terminal, BLACK to the hexagonal − terminal', 'Read display: 8.5-9.5V = good battery | below 7V = weak | below 5V = dead', 'Try reversing the probes — you\'ll see a negative reading. That\'s fine, just shows you have them backwards.'] },
+            hi: { title: '9V battery अभी check करो', steps: ['Kit से 9V battery निकालो', 'BLACK probe → COM, RED probe → VΩ', 'Dial को V⎓ पर घुमाओ, manual है तो 20V select करो', 'RED probe को छोटे गोल + terminal पर, BLACK को hexagonal − terminal पर लगाओ', 'Display पढ़ो: 8.5-9.5V = अच्छी | 7V से कम = कमज़ोर | 5V से कम = मृत', 'Probes उल्टे करके देखो — negative reading आएगी। ठीक है, बस उल्टे लगे हैं।'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'Step 2 — AC voltage (wall sockets)', body: '⚠️ SAFETY FIRST: Never measure AC voltage until you are comfortable. India uses 230V AC which CAN KILL if you short-circuit it. For practice, just verify concepts — don\'t connect to a live socket in your first week.', list: ['India standard: 230V AC at 50 Hz', 'Turn dial to V~ (AC Voltage) — wavy line symbol', 'BLACK → COM, RED → VΩ (same as always)', 'Insert probes one in each slot — reading should show ~230V', 'IMPORTANT: Never touch the metal tips of probes when measuring AC!', 'Auto-ranging meters handle this automatically — manual: select 600V range'] },
+            hi: { title: 'Step 2 — AC voltage (wall sockets)', body: '⚠️ पहले SAFETY: AC voltage तभी मापो जब comfortable हो। भारत में 230V AC है जो SHORT CIRCUIT होने पर जान ले सकती है। पहले हफ्ते live socket पर connect मत करो।', list: ['भारत standard: 230V AC, 50 Hz', 'Dial को V~ (AC Voltage) पर घुमाओ — wavy line symbol', 'BLACK → COM, RED → VΩ (जैसा हमेशा)', 'एक probe हर slot में — ~230V आना चाहिए', 'IMPORTANT: AC मापते समय probes की metal tips को कभी मत छुओ!', 'Auto-ranging: खुद handle करता है — manual: 600V range select करो'] }
+          },
+          {
+            type: 'fact',
+            en: { text: "A simple way to remember: DC voltage (batteries, circuits) = V⎓ with straight lines. AC voltage (house power, mains) = V~ with a wavy line. The wave symbol literally represents the alternating (back-and-forth) nature of AC power!" },
+            hi: { text: "याद रखने का आसान तरीका: DC voltage (batteries) = V⎓ straight lines। AC voltage (घर की बिजली) = V~ wavy line। Wave symbol literally AC power की alternating (आगे-पीछे) nature दर्शाता है!" }
           },
           {
             type: 'quiz',
-            en: { question: 'Where does the RED probe always go?', options: ['COM jack', 'VΩ jack', 'Either jack is fine', 'The jack labeled A (current)'], correct: 1, feedback: 'RED probe always goes into the VΩ jack (for voltage and resistance). BLACK probe always into COM. This is universal across all multimeters!' },
-            hi: { question: 'RED probe हमेशा कहाँ जाता है?', options: ['COM jack में', 'VΩ jack में', 'कोई भी jack', 'A (current) jack में'], correct: 1, feedback: 'RED probe हमेशा VΩ jack में। BLACK probe हमेशा COM में। यह सभी multimeters में एक जैसा है!' }
+            en: { question: 'You want to check if a 9V battery is still good. What dial setting do you use?', options: ['V~ (wavy line)', 'V⎓ (straight lines)', 'Ω (resistance)', 'A (current)'], correct: 1, feedback: 'V⎓ (DC voltage with straight lines) is for batteries and electronics circuits. V~ is for AC mains power. A battery is always DC.' },
+            hi: { question: '9V battery check करनी है। Dial किस पर set करोगे?', options: ['V~ (wavy line)', 'V⎓ (straight lines)', 'Ω (resistance)', 'A (current)'], correct: 1, feedback: 'V⎓ (DC voltage, straight lines) batteries और electronics circuits के लिए। V~ AC mains के लिए। Battery हमेशा DC होती है।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: "You can now measure voltage — both battery (DC) and mains (AC). This single skill will let you test every power supply in your repair work. Next: the most used daily skill — continuity and resistance." },
+            hi: { msg: "अब आप voltage माप सकते हैं — battery (DC) और mains (AC) दोनों। यह single skill आपको repair work में हर power supply test करने देगी। अगला: रोज़ सबसे ज्यादा use होने वाला skill।" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Resistance, continuity and current', time: '10 min' },
+        hi: { title: 'Resistance, continuity और current', time: '10 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "This lesson has the skill that mobile repair technicians use 100 times every day: continuity. If you learn nothing else from this module, learn the continuity test. It will tell you instantly if a wire is broken, if a solder joint is good, or if a component has failed." },
+            hi: { text: "इस lesson में वो skill है जो mobile repair technicians दिन में 100 बार use करते हैं: continuity। अगर इस module से कुछ एक सीखना हो, तो continuity test सीखो। यह instantly बताएगा — wire टूटी है, solder joint अच्छा है, या component fail हो गया।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔢',
+            en: { title: 'Step 3 — Measuring resistance', body: 'Resistance tells you the value of a component (resistor, etc.) or if something is broken (infinite resistance = open circuit). Always measure resistance with POWER OFF.', list: ['⚠️ Power must be OFF — measuring resistance on a live circuit gives wrong readings', 'Turn dial to Ω (resistance)', 'BLACK → COM, RED → VΩ', 'Touch probes across the component (both legs of the resistor)', 'Read the display: e.g. 330 = 330 Ω, 4.7k = 4700 Ω', 'OL or 1 on display = overload = open circuit (broken or too high range)'] },
+            hi: { title: 'Step 3 — Resistance मापना', body: 'Resistance किसी component की value (resistor आदि) या breakage (infinite resistance = open circuit) बताता है। Resistance हमेशा POWER OFF करके मापो।', list: ['⚠️ Power OFF हो — live circuit पर resistance मापने से गलत reading आती है', 'Dial को Ω पर घुमाओ', 'BLACK → COM, RED → VΩ', 'Probes component के दोनों legs के पार लगाओ', 'Display पढ़ो: 330 = 330 Ω, 4.7k = 4700 Ω', 'OL या 1 display पर = overload = open circuit (टूटा या range बड़ी)'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Measure a resistor from your kit', steps: ['Pick any resistor from your kit', 'Power off everything', 'Turn dial to Ω', 'BLACK → COM, RED → VΩ', 'Touch one probe to each leg of the resistor', 'Read the value — e.g. 330 Ω or 4.7 kΩ', 'Compare with the color bands on the resistor — they should match!'] },
+            hi: { title: 'Kit से एक resistor measure करो', steps: ['Kit से कोई भी resistor लो', 'सब कुछ बंद करो', 'Dial को Ω पर घुमाओ', 'BLACK → COM, RED → VΩ', 'एक probe हर leg पर', 'Value पढ़ो — जैसे 330 Ω या 4.7 kΩ', 'Resistor के color bands से compare करो — match होनी चाहिए!'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔔',
+            en: { title: 'Step 4 — Continuity test (most important!)', body: 'Continuity tells you: are these two points electrically connected? You will use this every single day in repair work. BEEP = connected. SILENCE = broken.', list: ['Turn dial to continuity symbol (🔔 or ))) or sound wave icon)', 'BLACK → COM, RED → VΩ', 'First test: touch both probe tips together — you should hear a BEEP. If no beep, your meter\'s battery may be low.', 'Now touch probes to two points you want to test', 'BEEP = connected, current can flow', 'NO BEEP = not connected, open circuit, broken wire or joint'] },
+            hi: { title: 'Step 4 — Continuity test (सबसे जरूरी!)', body: 'Continuity बताता है: ये दो points electrically जुड़े हैं क्या? यह repair work में रोज़ काम आएगा। BEEP = जुड़े हैं। SILENCE = टूटे हैं।', list: ['Dial को continuity symbol (🔔 या ))) या sound wave) पर घुमाओ', 'BLACK → COM, RED → VΩ', 'पहले test: दोनों probe tips को एक साथ छुओ — BEEP सुनाई देनी चाहिए। No beep तो meter की battery कम हो सकती है।', 'अब उन दो points पर probes लगाओ जो test करने हैं', 'BEEP = जुड़े हैं, current चल सकती है', 'NO BEEP = नहीं जुड़े, open circuit, टूटी wire या joint'] }
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Test a wire for continuity', steps: ['Take a jumper wire from your kit', 'Set dial to continuity (beep symbol)', 'Touch one probe to each end of the wire', 'You should hear a BEEP — the wire is complete', 'Now try on a broken or damaged wire — no beep = broken', 'Also try: touch probes to opposite ends of a resistor — you\'ll hear a beep (it\'s connected, just with resistance)'] },
+            hi: { title: 'Wire का continuity test करो', steps: ['Kit से कोई jumper wire लो', 'Dial को continuity (beep symbol) पर set करो', 'Wire के दोनों सिरों पर एक-एक probe लगाओ', 'BEEP सुनाई देनी चाहिए — wire पूरी है', 'अब टूटी या damaged wire try करो — no beep = टूटी है', 'यह भी try करो: resistor के दोनों legs पर probes — beep आएगी (connected है, बस resistance के साथ)'] }
+          },
+          {
+            type: 'learn',
+            icon: '⚠️',
+            en: { title: 'Step 5 — Measuring current (handle with care)', body: 'Current measurement is DIFFERENT from all others. The meter must become PART of the circuit. This is where beginners make dangerous mistakes.', list: ['Move RED probe to 10A jack (not VΩ!)', 'Set dial to A (current)', 'The circuit must be BROKEN — meter connects in series (in between)', 'NEVER connect across a battery or power supply directly — this shorts the meter and can cause injury', 'After measuring, MOVE RED probe BACK to VΩ immediately', 'Most beginners don\'t need current measurement until intermediate level — focus on voltage and continuity first'] },
+            hi: { title: 'Step 5 — Current मापना (सावधानी से)', body: 'Current measurement बाकी सब से DIFFERENT है। Meter को circuit का हिस्सा बनना पड़ता है। यहीं beginners से dangerous गलतियाँ होती हैं।', list: ['RED probe को 10A jack में लगाओ (VΩ नहीं!)', 'Dial को A (current) पर set करो', 'Circuit BREAK होनी चाहिए — meter series में जोड़ते हैं (बीच में)', 'Battery या power supply के directly across कभी मत लगाओ — meter short हो जाएगा और चोट लग सकती है', 'Measure करने के बाद RED probe तुरंत वापस VΩ में लगाओ', 'ज्यादातर beginners को intermediate level तक current measurement की जरूरत नहीं — पहले voltage और continuity पर focus करो'] }
+          },
+          {
+            type: 'fact',
+            en: { text: "The most common mistake with multimeters: forgetting to move the RED probe back to VΩ after measuring current. If you then try to measure voltage with RED in the 10A jack, you SHORT CIRCUIT the power source through the meter. This can blow the meter's internal fuse or damage it permanently. Always check where your RED probe is before measuring!" },
+            hi: { text: "Multimeter के साथ सबसे आम गलती: current measure करने के बाद RED probe वापस VΩ में रखना भूल जाना। अगर फिर RED 10A jack में होते हुए voltage measure करो, तो meter के through power source SHORT हो जाती है। यह meter का internal fuse उड़ा सकता है या permanently damage कर सकता है। Measure करने से पहले हमेशा check करो RED probe कहाँ है!" }
           },
           {
             type: 'quiz',
-            en: { question: 'You hear a BEEP when testing continuity between two wire ends. What does this mean?', options: ['The wire is broken', 'The wire is complete and conducting electricity', 'The multimeter is broken', 'The voltage is too high'], correct: 1, feedback: 'A beep means continuity — the two points are electrically connected. No beep means the path is broken somewhere.' },
-            hi: { question: 'Continuity test में BEEP सुनाई दे तो क्या मतलब है?', options: ['Wire टूटी है', 'Wire पूरी है और बिजली चल रही है', 'Multimeter खराब है', 'Voltage बहुत ज्यादा है'], correct: 1, feedback: 'Beep = continuity — दोनों points electrically जुड़े हैं। No beep = कहीं टूटी है।' }
+            en: { question: 'You finished measuring current. What MUST you do immediately before your next measurement?', options: ['Turn off the multimeter', 'Move RED probe back to VΩ jack', 'Replace the battery', 'Set dial to OFF'], correct: 1, feedback: 'Move RED probe back to VΩ immediately after current measurement. Leaving it in 10A and then measuring voltage creates a short circuit through the meter — this blows the fuse or damages the meter.' },
+            hi: { question: 'Current measure करने के बाद immediately क्या करना MUST है?', options: ['Multimeter बंद करो', 'RED probe तुरंत वापस VΩ में लगाओ', 'Battery बदलो', 'Dial OFF पर set करो'], correct: 1, feedback: 'RED probe तुरंत वापस VΩ में लगाओ। 10A में छोड़ कर voltage measure करने से meter के through short circuit बनती है।' }
           },
           {
-            type: 'complete', xp: 35,
-            en: { msg: "You can now use a multimeter! Voltage, continuity — these two measurements will solve 90% of beginner problems. You're officially a practical electronics learner now." },
-            hi: { msg: "अब आप multimeter चला सकते हैं! Voltage, continuity — ये दो measurements 90% beginner problems हल करेंगे। आप अब officially एक practical electronics learner हैं।" }
+            type: 'complete', xp: 40,
+            en: { msg: "You are now a multimeter user! Voltage (DC + AC), resistance, continuity, current — these are the same skills every professional repair technician uses. Practice with a battery and resistors every day for one week and you will never forget it." },
+            hi: { msg: "अब आप multimeter user हैं! Voltage (DC + AC), resistance, continuity, current — यही skills हर professional repair technician use करता है। एक हफ्ते तक रोज़ battery और resistors से practice करो और आप इसे कभी नहीं भूलेंगे।" }
           }
         ]
       }
