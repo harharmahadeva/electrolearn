@@ -1720,6 +1720,14 @@ const MODULES = [
             hi: { caption: 'यह एक typical digital multimeter है। आपका पीला (Ferve), काला (Mastech), या लाल (Mextech) हो सकता है — brand और color से फर्क नहीं पड़ता। Layout हमेशा एक जैसा: ऊपर digital display reading दिखाता है, बीच में बड़ा rotary dial क्या मापना है select करता है, नीचे probe jacks।' }
           },
           {
+            type: 'photo',
+            label: 'Analog multimeter — needle and scale',
+            src: '/img/multimeter_analog.jpg',
+            credit: 'Wikimedia Commons (CC-BY-SA)',
+            en: { caption: 'This is an analog multimeter. Instead of a digital display, it has a NEEDLE that swings over a printed scale. Notice the arc-shaped scales — different lines for DC voltage, AC voltage, resistance, and current. You read whichever line matches your dial setting.' },
+            hi: { caption: 'यह एक analog multimeter है। Digital display की जगह एक NEEDLE है जो printed scale पर swing करती है। Arc-shaped scales देखो — DC voltage, AC voltage, resistance और current के लिए अलग lines। Dial जिस setting पर हो, उसी line को पढ़ो।' }
+          },
+          {
             type: 'learn',
             icon: '🔍',
             en: { title: 'The 5 parts you MUST know', body: 'Before you touch a multimeter, know these 5 parts. This is the same on every multimeter in the world.', list: ['1. DISPLAY — shows your reading as numbers (e.g. 9.2V, 330Ω)', '2. ROTARY DIAL — big knob in center. Turn it to select what to measure', '3. COM jack — BLACK probe ALWAYS goes here (COM = Common = negative)', '4. VΩ jack — RED probe goes here for Voltage, Resistance, Continuity', '5. 10A jack — RED probe moves HERE only when measuring high current'] },
@@ -1770,14 +1778,6 @@ const MODULES = [
   <text x="212" y="193" fill="#ef4444" font-size="6.5" font-family="sans-serif">VΩ — red</text>
   <text x="212" y="202" fill="#ef4444" font-size="6.5" font-family="sans-serif">probe here</text>
 </svg>`
-          },
-          {
-            type: 'photo',
-            label: 'Analog multimeter — needle and scale',
-            src: '/img/multimeter_analog.jpg',
-            credit: 'Wikimedia Commons (CC-BY-SA)',
-            en: { caption: 'This is an analog multimeter. Instead of a digital display, it has a NEEDLE that swings over a printed scale. Notice the arc-shaped scales — different lines for DC voltage, AC voltage, resistance, and current. You read whichever line matches your dial setting.' },
-            hi: { caption: 'यह एक analog multimeter है। Digital display की जगह एक NEEDLE है जो printed scale पर swing करती है। Arc-shaped scales देखो — DC voltage, AC voltage, resistance और current के लिए अलग lines। Dial जिस setting पर हो, उसी line को पढ़ो।' }
           },
           {
             type: 'learn',
