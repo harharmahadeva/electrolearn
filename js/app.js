@@ -326,11 +326,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (step.type === 'fact') return s.text || '';
     if (step.type === 'complete') return s.msg || '';
 
-    if (step.type === 'diagram') {
-      const label = step.label || (hi ? 'आरेख' : 'diagram');
+    if (step.type === 'diagram' || step.type === 'photo') {
+      const label = step.label || (hi ? 'चित्र' : 'image');
       return hi
         ? `यहाँ एक चित्र है — ${label}। इसे ध्यान से देखें।`
-        : `Here is a diagram — ${label}. Take a moment to study it carefully.`;
+        : `Here is ${step.type === 'photo' ? 'a real photo' : 'a diagram'} — ${label}. Take a moment to look carefully.`;
     }
 
     if (step.type === 'hindi') {
@@ -412,6 +412,22 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="diagram-label">${step.label || t('diagramLabel')}</div>
               <div class="diagram-svg">${step.svg}</div>
             </div>
+          </div>`;
+        break;
+      }
+
+      case 'photo': {
+        const caption = (step[lang] || step.en || {}).caption || step.caption || '';
+        const credit  = step.credit || '';
+        wrap.innerHTML = `
+          <div class="photo-card">
+            <div class="photo-label">📷 ${step.label || ''}</div>
+            <div class="photo-img-wrap">
+              <img class="photo-img" src="${step.src}" alt="${step.label || ''}" loading="lazy"
+                   onerror="this.closest('.photo-img-wrap').style.display='none'">
+            </div>
+            ${caption ? `<div class="photo-caption">${caption}</div>` : ''}
+            ${credit  ? `<div class="photo-credit">${credit}</div>`  : ''}
           </div>`;
         break;
       }

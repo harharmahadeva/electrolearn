@@ -1,4 +1,4 @@
-const APP_VERSION = '2.4.0';
+const APP_VERSION = '2.5.0';
 
 const T = {
   en: {
@@ -514,6 +514,14 @@ const MODULES = [
 </svg>`
           },
           {
+            type: 'photo',
+            label: 'Real resistors — what they look like',
+            src: '/img/resistors.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'These are real resistors. Notice the colored bands — each color represents a number. The bands tell you the resistance value in Ohms (Ω). The small cylindrical ones are the most common type you will use on a breadboard.' },
+            hi: { caption: 'ये असली resistors हैं। रंगीन bands देखो — हर रंग एक number दर्शाता है। ये bands Ohms (Ω) में resistance value बताते हैं। छोटे cylindrical वाले breadboard पर सबसे ज्यादा use होते हैं।' }
+          },
+          {
             type: 'fact',
             en: { text: "Resistors use a color code system — colored bands that tell you their value in Ohms. Brown-Black-Red = 1,000 Ω = 1 kΩ. Engineers memorize this like a language!" },
             hi: { text: "Resistors रंग कोड प्रणाली उपयोग करते हैं — रंगीन बैंड जो Ohms में उनकी value बताते हैं। Brown-Black-Red = 1,000 Ω = 1 kΩ। Engineers इसे भाषा की तरह याद करते हैं!" }
@@ -592,6 +600,14 @@ const MODULES = [
   <text x="225" y="115" fill="#a78bfa" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="bold">C</text>
   <text x="225" y="128" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="sans-serif">µF = microfarads</text>
 </svg>`
+          },
+          {
+            type: 'photo',
+            label: 'Real capacitors — different types',
+            src: '/img/capacitors.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'Different types of capacitors. The tall blue/black cylinders are electrolytic capacitors (common in power circuits). The small round/disc ones are ceramic capacitors. The orange rectangular ones are film capacitors. All store charge — just different amounts and speeds.' },
+            hi: { caption: 'अलग-अलग प्रकार के capacitors। लंबे नीले/काले cylinder electrolytic capacitors हैं (power circuits में आम)। छोटे गोल disc वाले ceramic capacitors हैं। नारंगी आयताकार film capacitors हैं। सभी charge store करते हैं — बस मात्रा और speed अलग।' }
           },
           {
             type: 'fact',
@@ -679,6 +695,14 @@ const MODULES = [
 </svg>`
           },
           {
+            type: 'photo',
+            label: 'Real LEDs — all colors',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Five_LED_colors.jpg/330px-Five_LED_colors.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'LEDs come in many colors — red, green, blue, white, yellow. The transparent/clear ones can show any color based on the semiconductor inside. The flat side on the bottom of the lens tells you which leg is negative (cathode).' },
+            hi: { caption: 'LEDs कई रंगों में आती हैं — लाल, हरा, नीला, सफेद, पीला। पारदर्शी वाली अंदर के semiconductor के हिसाब से रंग दिखाती है। लेंस के नीचे flat side negative (cathode) पैर की तरफ होती है।' }
+          },
+          {
             type: 'quiz',
             en: { question: 'Why must you always use a resistor with an LED?', options: ['To make it brighter', 'To limit current and prevent burning', 'To reverse the current direction', 'To store extra charge'], correct: 1, feedback: 'Without a resistor, too much current flows through the LED and it burns out instantly. A 330Ω resistor with a 9V battery is the classic beginner LED circuit.' },
             hi: { question: 'LED के साथ हमेशा resistor क्यों लगाते हैं?', options: ['ज्यादा चमक के लिए', 'Current सीमित करने के लिए — नहीं तो जल जाएगी', 'Current की दिशा बदलने के लिए', 'अतिरिक्त charge संग्रहीत करने के लिए'], correct: 1, feedback: 'बिना resistor के बहुत ज्यादा current LED को तुरंत जला देती है। 330Ω resistor + 9V battery = beginners का classic LED circuit।' }
@@ -759,6 +783,14 @@ const MODULES = [
   <text x="145" y="90" fill="#10b981" font-size="9" font-family="sans-serif">B</text>
   <text x="220" y="145" fill="#60a5fa" font-size="9" font-family="sans-serif">E</text>
 </svg>`
+          },
+          {
+            type: 'photo',
+            label: 'Real transistors — BC547 and others',
+            src: '/img/transistors.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'Different transistors. The small black D-shaped ones (TO-92 package) are the most common — like BC547 and 2N2222 which you will use in projects. The larger metal-can ones (TO-18/TO-39) are older types. All have 3 legs: Base, Collector, Emitter.' },
+            hi: { caption: 'अलग-अलग transistors। छोटे काले D-shape वाले (TO-92 package) सबसे आम हैं — जैसे BC547 और 2N2222 जो आप projects में use करेंगे। बड़े metal-can वाले पुराने type हैं। सभी के 3 पैर: Base, Collector, Emitter।' }
           },
           {
             type: 'fact',
@@ -1196,6 +1228,14 @@ const MODULES = [
 </svg>`
           },
           {
+            type: 'photo',
+            label: 'Real breadboard — what you will actually buy',
+            src: '/img/breadboard.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'This is a real 400-point breadboard. You can see the grid of holes in the middle and the red/blue power rails on the sides. Local market name: "practice board" or incorrectly "PCB" — but now you know the difference! Available for ₹40-80.' },
+            hi: { caption: 'यह एक असली 400-point breadboard है। बीच में holes का grid और किनारों पर लाल/नीली power rails दिखती हैं। Local market में इसे "practice board" या गलती से "PCB" कहते हैं — लेकिन अब आप फर्क जानते हैं! ₹40-80 में मिलती है।' }
+          },
+          {
             type: 'learn',
             icon: '🔌',
             en: {
@@ -1250,6 +1290,14 @@ const MODULES = [
   ).join('')}
   <text x="150" y="149" fill="#94a3b8" font-size="7" text-anchor="middle" font-family="sans-serif">Use colors to keep track of connections (red=power, black=ground)</text>
 </svg>`
+          },
+          {
+            type: 'photo',
+            label: 'Real jumper wires — what to buy',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/A_small_collection_of_electronics_components.jpg/330px-A_small_collection_of_electronics_components.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'A collection of common electronics components including jumper wires. The colorful wires with metal pins are jumper wires. Buy a set of 40-65 mixed Male-Male and Male-Female wires. The color usually just indicates wire length, but by convention: red = power, black = ground, others = signal.' },
+            hi: { caption: 'आम electronics components का collection जिसमें jumper wires हैं। धातु pins वाली रंगीन तारें jumper wires हैं। 40-65 mixed Male-Male और Male-Female wires का set खरीदो। रंग आमतौर पर length दिखाता है, लेकिन convention है: लाल = power, काला = ground।' }
           },
           {
             type: 'learn',
@@ -1312,6 +1360,14 @@ const MODULES = [
 </svg>`
           },
           {
+            type: 'photo',
+            label: 'Real multimeter — what a ₹300 one looks like',
+            src: '/img/multimeter.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'A digital multimeter. You can clearly see the display (top), the large dial in the center to select what to measure (V/A/Ω), and the three probe jacks at the bottom. The red and black probes plug into COM (black) and VΩ (red). The exact model does not matter — any digital multimeter from ₹250 upwards works fine for beginners.' },
+            hi: { caption: 'एक digital multimeter। ऊपर display, बीच में बड़ा dial (V/A/Ω select करने के लिए), नीचे तीन probe jacks। काली probe COM में और लाल probe VΩ में जाती है। Model जरूरी नहीं — ₹250 से ऊपर कोई भी digital multimeter beginners के लिए काफी है।' }
+          },
+          {
             type: 'learn',
             icon: '🔥',
             en: {
@@ -1365,6 +1421,14 @@ const MODULES = [
   <text x="150" y="132" fill="#fca5a5" font-size="9" text-anchor="middle" font-family="sans-serif" font-weight="bold">⚠ NEVER touch the tip!</text>
   <text x="150" y="146" fill="#fca5a5" font-size="8" text-anchor="middle" font-family="sans-serif">Always use iron stand. Keep away from wires.</text>
 </svg>`
+          },
+          {
+            type: 'photo',
+            label: 'Soldering iron setup — real tools',
+            src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Soldering_iron_and_accessories.jpg/330px-Soldering_iron_and_accessories.jpg',
+            credit: 'Photo: Wikimedia Commons (CC-BY)',
+            en: { caption: 'A complete soldering setup: iron with stand, solder wire (silver coil), and flux. The stand (spiral-shaped holder) is ESSENTIAL — never put a hot iron directly on the table. Always wait 5 minutes after switching off before touching the tip. The silver wire is solder — it melts and creates permanent joints.' },
+            hi: { caption: 'पूरा soldering setup: stand के साथ iron, solder wire (चांदी का coil), और flux। Stand (spiral holder) बहुत जरूरी है — गर्म iron कभी सीधे table पर मत रखो। Switch off के बाद 5 मिनट रुको tip को छूने से पहले। चांदी की wire solder है — यह पिघलकर permanent joint बनाती है।' }
           },
           {
             type: 'fact',

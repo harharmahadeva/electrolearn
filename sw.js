@@ -1,5 +1,6 @@
-const CACHE = 'electrolearn-v12';
-const ASSETS = ['/', '/index.html', '/css/style.css', '/js/app.js', '/js/lessons.js', '/js/storage.js', '/js/tts.js', '/data/users.json', '/manifest.json'];
+const CACHE = 'electrolearn-v13';
+const ASSETS = ['/', '/index.html', '/css/style.css', '/js/app.js', '/js/lessons.js', '/js/storage.js', '/js/tts.js', '/data/users.json', '/manifest.json',
+  '/img/breadboard.jpg', '/img/multimeter.jpg', '/img/resistors.jpg', '/img/capacitors.jpg', '/img/transistors.jpg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));

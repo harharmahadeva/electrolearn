@@ -217,10 +217,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .resume-text { font-size: 14px; font-weight: 800; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text); }
 .resume-mod { font-size: 11px; color: var(--text2); margin-top: 2px; }
 .resume-arrow {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(57,217,138,0.1); border: 1px solid rgba(57,217,138,0.25);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(57,217,138,0.25) 0%, rgba(16,185,129,0.15) 100%);
+  border: 1.5px solid rgba(57,217,138,0.5);
   display: flex; align-items: center; justify-content: center;
-  color: var(--green); font-size: 16px; flex-shrink: 0;
+  color: var(--green); font-size: 18px; flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(57,217,138,0.2), inset 0 1px 0 rgba(57,217,138,0.15);
 }
 
 /* Spark home card */
@@ -255,10 +257,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .spark-home-text h3 { font-size: 15px; font-weight: 800; color: var(--text); letter-spacing: -0.2px; }
 .spark-home-text p { font-size: 12px; color: var(--text2); margin-top: 3px; line-height: 1.4; }
 .spark-home-arrow {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(255,140,0,0.1); border: 1px solid rgba(255,140,0,0.25);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,140,0,0.25) 0%, rgba(234,88,12,0.15) 100%);
+  border: 1.5px solid rgba(255,140,0,0.5);
   display: flex; align-items: center; justify-content: center;
-  color: var(--accent); font-size: 14px; flex-shrink: 0;
+  color: var(--accent); font-size: 18px; flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(255,140,0,0.2), inset 0 1px 0 rgba(255,180,60,0.15);
 }
 
 /* Module grid */
@@ -396,6 +400,15 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .diagram-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); margin-bottom: 14px; display: flex; align-items: center; justify-content: center; gap: 6px; }
 .diagram-label::before { content: '◉'; font-size: 8px; }
 .diagram-svg { display: flex; justify-content: center; }
+
+/* Photo card */
+.photo-card { border-radius: var(--radius); margin-bottom: 16px; overflow: hidden; background: #0c0c0e; border: 1.5px solid rgba(255,140,0,0.25); }
+.photo-card::before { content: ''; display: block; height: 4px; background: linear-gradient(90deg, #b45309, var(--accent), #fbbf24 70%, transparent); }
+.photo-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); padding: 12px 14px 8px; display: flex; align-items: center; gap: 6px; }
+.photo-img-wrap { line-height: 0; }
+.photo-img { width: 100%; max-height: 260px; object-fit: cover; display: block; }
+.photo-caption { font-size: 13px; line-height: 1.65; color: var(--text); padding: 12px 14px 8px; }
+.photo-credit { font-size: 10px; color: var(--text2); padding: 0 14px 12px; opacity: 0.6; }
 
 /* Hindi card */
 .hindi-card { background: rgba(255,215,0,0.04); border: 1.5px solid rgba(255,215,0,0.2); border-radius: var(--radius); padding: 16px; margin-bottom: 16px; }
