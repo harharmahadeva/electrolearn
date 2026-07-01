@@ -1,4 +1,4 @@
-const APP_VERSION = '2.7.0';
+const APP_VERSION = '2.7.1';
 
 const T = {
   en: {
@@ -1713,11 +1713,11 @@ const MODULES = [
           },
           {
             type: 'photo',
-            label: 'Real digital multimeter',
-            src: '/img/multimeter.jpg',
-            credit: 'Wikimedia Commons (CC-BY)',
-            en: { caption: 'This is a typical digital multimeter. Yours might be a different color or brand — yellow Ferve, black Mastech, red Mextech — doesn\'t matter. The layout is almost identical: display at top, big dial in center, probe jacks at bottom.' },
-            hi: { caption: 'यह एक typical digital multimeter है। आपका अलग color या brand का हो सकता है — पीला Ferve, काला Mastech, लाल Mextech — कोई फर्क नहीं। Layout लगभग एक जैसा: ऊपर display, बीच में बड़ा dial, नीचे probe jacks।' }
+            label: 'Digital multimeter — display, dial, probe jacks',
+            src: '/img/multimeter_digital.jpg',
+            credit: 'André Karwath (CC BY-SA 2.5)',
+            en: { caption: 'This is a typical digital multimeter. Yours might be yellow (Ferve), black (Mastech), or red (Mextech) — the brand and color don\'t matter. The layout is always the same: digital display at top showing your reading, big rotary dial in center to select what you measure, and probe jacks at the bottom.' },
+            hi: { caption: 'यह एक typical digital multimeter है। आपका पीला (Ferve), काला (Mastech), या लाल (Mextech) हो सकता है — brand और color से फर्क नहीं पड़ता। Layout हमेशा एक जैसा: ऊपर digital display reading दिखाता है, बीच में बड़ा rotary dial क्या मापना है select करता है, नीचे probe jacks।' }
           },
           {
             type: 'learn',

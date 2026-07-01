@@ -1,5 +1,13 @@
 # ElectroLearn Changelog
 
+## v2.7.1 — 2026-07-01
+
+### Add multimeter_digital.jpg to local assets
+
+- Digital multimeter photo card in lesson 1 now uses local `/img/multimeter_digital.jpg` (André Karwath, CC BY-SA 2.5) instead of generic multimeter.jpg
+- Both analog and digital multimeter images now pre-cached in SW ASSETS
+- SW cache → electrolearn-v16, APP_VERSION → 2.7.1, assets → ?v=20
+
 ## v2.7.0 — 2026-07-01
 
 ### IC lesson rewrite (5 types) + analog multimeter photo + expanded multimeter lesson
