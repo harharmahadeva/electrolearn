@@ -2,21 +2,22 @@ const TTS = (() => {
   let enabled = true;
   let lang = 'en-US';
 
-  // Female voices only — ranked warmest / most natural first
+  // Ranked warmest / most natural first
   const PREFERRED_EN = [
-    // iOS / macOS — Apple neural female voices
-    'Samantha', 'Karen', 'Moira', 'Tessa', 'Victoria', 'Allison', 'Ava', 'Susan',
-    // Windows online neural female (best quality on Windows)
+    // Windows neural voices — Aria is the warmest, most conversational
     'Microsoft Aria Online (Natural)', 'Microsoft Jenny Online (Natural)',
-    'Microsoft Aria', 'Microsoft Jenny', 'Microsoft Zira',
-    'Microsoft Eva', 'Microsoft Hazel', 'Microsoft Susan',
-    // Chrome / Android female
+    'Microsoft Michelle Online (Natural)', 'Microsoft Emma Online (Natural)',
+    'Microsoft Aria', 'Microsoft Jenny', 'Microsoft Michelle',
+    // iOS / macOS Apple neural
+    'Samantha', 'Karen', 'Moira', 'Tessa', 'Victoria', 'Allison', 'Ava',
+    // Windows legacy (last resort)
+    'Microsoft Zira', 'Microsoft Eva', 'Microsoft Hazel',
+    // Chrome / Android
     'Google UK English Female',
   ];
-  // Male voice names to skip — we never want these
   const MALE_NAMES = [
     'David', 'Mark', 'George', 'James', 'Daniel', 'Alex',
-    'Fred', 'Tom', 'Lee', 'Rishi', 'Aaron', 'Arthur',
+    'Fred', 'Tom', 'Lee', 'Rishi', 'Aaron', 'Arthur', 'Guy',
   ];
   const PREFERRED_HI = [
     'Microsoft Swara Online (Natural)', 'Microsoft Swara',
@@ -25,23 +26,28 @@ const TTS = (() => {
 
   function pickVoice(targetLang) {
     const voices = window.speechSynthesis.getVoices();
-    const langCode = targetLang.slice(0, 2); // 'en' or 'hi'
+    const langCode = targetLang.slice(0, 2);
     const prefs = langCode === 'hi' ? PREFERRED_HI : PREFERRED_EN;
-
-    // 1. try preferred list in order
     for (const name of prefs) {
       const v = voices.find(v => v.name.includes(name));
       if (v) return v;
     }
-    // 2. any local female-sounding voice (exclude known male names)
     const isMale = v => MALE_NAMES.some(m => v.name.includes(m));
     const localFemale = voices.find(v => v.lang.startsWith(langCode) && v.localService && !isMale(v));
     if (localFemale) return localFemale;
-    // 3. any non-male voice in the right language
     const anyFemale = voices.find(v => v.lang.startsWith(langCode) && !isMale(v));
     if (anyFemale) return anyFemale;
-    // 4. absolute fallback — any voice in the language
     return voices.find(v => v.lang.startsWith(langCode)) || null;
+  }
+
+  // Strip HTML tags and normalize text for natural-sounding speech
+  function prepareText(raw) {
+    return raw
+      .replace(/<[^>]*>/g, ' ')     // strip HTML
+      .replace(/⚡|💡|🔧|📖|✓|✗/g, '') // strip decorative emoji
+      .replace(/\s{2,}/g, ' ')       // collapse spaces
+      .replace(/([.?!])\s+/g, '$1  ') // brief pause after sentences
+      .trim();
   }
 
   function speak(text, options = {}) {
@@ -50,23 +56,26 @@ const TTS = (() => {
 
     const utterLang = options.lang || lang;
     const isHindi = utterLang.startsWith('hi');
+    const cleanText = prepareText(text);
 
-    const utter = new SpeechSynthesisUtterance(text);
+    const utter = new SpeechSynthesisUtterance(cleanText);
     utter.lang = utterLang;
 
-    // Clear, calm settings — slow enough for non-native / lower-literacy listeners
-    utter.rate   = options.rate   ?? (isHindi ? 0.78 : 0.82);
-    utter.pitch  = options.pitch  ?? (isHindi ? 0.92 : 0.88);
-    utter.volume = options.volume ?? 0.88;
+    // Natural, warm settings — slightly higher pitch and rate than before for less robotic feel
+    // "Online (Natural)" neural voices sound best near rate 1.0; legacy TTS needs slowing
+    const v = pickVoice(utterLang);
+    const isNeural = v && (v.name.includes('Online') || v.name.includes('Neural') || v.localService === false);
+    utter.rate   = options.rate   ?? (isHindi ? 0.80 : (isNeural ? 0.90 : 0.84));
+    utter.pitch  = options.pitch  ?? (isHindi ? 0.94 : (isNeural ? 1.02 : 0.95));
+    utter.volume = options.volume ?? 0.92;
 
-    // Voice selection — try immediately, then retry after voiceschanged if empty
-    const trySetVoice = () => {
-      const v = pickVoice(utterLang);
-      if (v) utter.voice = v;
-    };
-    trySetVoice();
+    // Voice selection — already picked above for neural detection, assign it
+    if (v) utter.voice = v;
     if (!utter.voice) {
-      window.speechSynthesis.addEventListener('voiceschanged', trySetVoice, { once: true });
+      window.speechSynthesis.addEventListener('voiceschanged', () => {
+        const v2 = pickVoice(utterLang);
+        if (v2) utter.voice = v2;
+      }, { once: true });
     }
 
     if (options.onStart) utter.onstart = options.onStart;

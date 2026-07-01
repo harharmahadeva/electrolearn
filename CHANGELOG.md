@@ -1,5 +1,16 @@
 # ElectroLearn Changelog
 
+## v2.3.0 — 2026-07-01
+
+### Elegant home cards + natural TTS voice
+
+- Resume card redesigned: dark green gradient, glowing top highlight, rounded icon box, circular arrow button
+- Spark card redesigned: warm dark gradient, glowing top highlight, amber icon box with pulse animation, circular arrow
+- TTS: Microsoft Aria Online (Natural) prioritized first — much warmer, less robotic than Zira
+- TTS: Neural voices detected and given higher rate (0.90) and natural pitch (1.02) for conversational feel; legacy voices get slower/flatter settings
+- TTS: Text preprocessing strips HTML/decorative emoji and normalizes spacing for cleaner speech
+- Added Microsoft Michelle and Emma Online voices to fallback list
+
 ## v2.2.0 — 2026-07-01
 
 ### Full UI redesign — cards, module grid, lesson nav
