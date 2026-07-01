@@ -36,10 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function speak(text, opts = {}) {
     if (sparkMuted) return;
     sparkSpeaking(true);
+    const callerOnEnd = opts.onEnd;
     TTS.speak(text, {
       ...opts,
       lang: lang === 'hi' ? 'hi-IN' : 'en-US',
-      onEnd: () => sparkSpeaking(false)
+      onEnd: (e) => { sparkSpeaking(false); callerOnEnd && callerOnEnd(e); }
     });
   }
   function stopSpeak() {
@@ -306,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   $('mod-detail-back').addEventListener('click', () => {
-    showHome();
+    goHome();
   });
 
   // ── OPEN LESSON ──
