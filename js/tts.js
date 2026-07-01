@@ -61,13 +61,12 @@ const TTS = (() => {
     const utter = new SpeechSynthesisUtterance(cleanText);
     utter.lang = utterLang;
 
-    // Natural, warm settings — slightly higher pitch and rate than before for less robotic feel
-    // "Online (Natural)" neural voices sound best near rate 1.0; legacy TTS needs slowing
+    // Natural settings — pitch near 1.0 = most natural; too slow or too low = robotic
     const v = pickVoice(utterLang);
-    const isNeural = v && (v.name.includes('Online') || v.name.includes('Neural') || v.localService === false);
-    utter.rate   = options.rate   ?? (isHindi ? 0.80 : (isNeural ? 0.90 : 0.84));
-    utter.pitch  = options.pitch  ?? (isHindi ? 0.94 : (isNeural ? 1.02 : 0.95));
-    utter.volume = options.volume ?? 0.92;
+    const isNeural = v && (v.name.includes('Online') || v.name.includes('Natural') || v.localService === false);
+    utter.rate   = options.rate   ?? (isHindi ? 0.82 : (isNeural ? 0.92 : 0.88));
+    utter.pitch  = options.pitch  ?? (isHindi ? 1.0  : (isNeural ? 1.0  : 1.0));
+    utter.volume = options.volume ?? 0.95;
 
     // Voice selection — already picked above for neural detection, assign it
     if (v) utter.voice = v;

@@ -1,4 +1,4 @@
-const APP_VERSION = '2.3.0';
+const APP_VERSION = '2.4.0';
 
 const T = {
   en: {
@@ -1133,41 +1133,253 @@ const MODULES = [
         steps: [
           {
             type: 'spark',
-            en: { text: "You don't need expensive equipment to start with electronics. A few basic tools will take you a long way. Let me show you what actually matters — and what you can skip for now." },
-            hi: { text: "इलेक्ट्रॉनिक्स शुरू करने के लिए महंगे उपकरण नहीं चाहिए। कुछ basic tools बहुत काम आते हैं। मैं आपको बताता हूँ क्या जरूरी है।" }
+            en: { text: "Doston, good news — you don't need expensive equipment to start! In India, a full beginner toolkit costs less than a movie ticket combo. I'll show you each tool, what it looks like, and what it actually does. Pay close attention to the breadboard — most beginners get confused about it!" },
+            hi: { text: "दोस्तों, खुशखबरी — शुरुआत के लिए महंगा सामान नहीं चाहिए! भारत में पूरी beginner toolkit एक movie ticket जितनी सस्ती है। मैं हर tool दिखाऊँगा — और breadboard के बारे में ध्यान से सुनो, ज्यादातर लोग इसके बारे में confused रहते हैं!" }
           },
           {
             type: 'learn',
             icon: '🍞',
-            en: { title: 'Breadboard — your best friend', body: 'A breadboard lets you build circuits WITHOUT soldering. You push components and wires into the holes and they connect. Perfect for learning and experimenting.', list: ['No soldering needed — just push wires in', 'Reusable — pull out components and try again', 'Holes connect in rows (horizontally)', 'Two long rails on edges = power (+) and ground (−)'] },
-            hi: { title: 'Breadboard — आपका सबसे अच्छा दोस्त', body: 'Breadboard से आप बिना soldering के circuits बना सकते हैं। बस holes में components और wires डालें।', list: ['Soldering की जरूरत नहीं — बस wires डालें', 'दोबारा उपयोग करें — components निकालें और फिर try करें', 'Holes rows में जुड़ते हैं (horizontally)', 'किनारों पर दो लंबी rails = power (+) और ground (−)'] }
+            en: {
+              title: 'Breadboard — practice board, NOT a PCB!',
+              body: 'IMPORTANT: In local markets and repair shops, many people call a breadboard a "PCB". That is WRONG. A PCB (Printed Circuit Board) is the green board soldered permanently inside your phone or TV. A breadboard is a reusable practice board — you push wires in, test, pull them out, try again. No soldering. Think of it like a notebook — you write and erase. A PCB is like a printed book — permanent.',
+              list: ['White/off-white rectangular board with rows of tiny holes', 'Components and wires push in — no soldering needed', 'Pull out and reuse — try 100 circuits on the same board', 'Costs ₹40-80 at local electronics shop or online']
+            },
+            hi: {
+              title: 'Breadboard — practice board है, PCB नहीं!',
+              body: 'यह बहुत जरूरी बात है — दोस्तों, बाजार में और repair shops में लोग breadboard को "PCB" बोलते हैं। यह गलत है। PCB यानी Printed Circuit Board वो हरी board होती है जो आपके phone या TV के अंदर permanently soldered होती है। Breadboard एक reusable practice board है — आप wires डालो, test करो, निकालो, दोबारा try करो। बिल्कुल copybook की तरह — जहाँ लिखो और मिटाओ। PCB एक printed किताब की तरह है — permanent।',
+              list: ['सफेद/हल्की पीली rectangular board जिसमें छोटे-छोटे holes हों', 'Components और wires सीधे घुसाओ — soldering नहीं', 'निकालो और दोबारा use करो — एक ही board पर 100 circuits', '₹40-80 में local electronics shop या online मिलती है']
+            }
+          },
+          {
+            type: 'diagram',
+            label: 'Breadboard — How it works inside',
+            svg: `<svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="220" fill="#111827" rx="12"/>
+  <!-- board body -->
+  <rect x="20" y="30" width="260" height="160" rx="8" fill="#f5f0e8" stroke="#d4c89a" stroke-width="2"/>
+  <!-- power rail top red -->
+  <rect x="24" y="34" width="252" height="18" rx="4" fill="#fca5a5" opacity="0.7"/>
+  <text x="150" y="47" fill="#991b1b" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">+ POWER RAIL</text>
+  <!-- power rail top blue -->
+  <rect x="24" y="55" width="252" height="18" rx="4" fill="#93c5fd" opacity="0.7"/>
+  <text x="150" y="68" fill="#1e3a8a" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">− GROUND RAIL</text>
+  <!-- divider channel -->
+  <rect x="24" y="112" width="252" height="8" rx="2" fill="#9ca3af" opacity="0.4"/>
+  <text x="150" y="119" fill="#6b7280" font-size="6" text-anchor="middle" font-family="sans-serif">MIDDLE GAP</text>
+  <!-- power rail bottom red -->
+  <rect x="24" y="150" width="252" height="18" rx="4" fill="#fca5a5" opacity="0.7"/>
+  <text x="150" y="163" fill="#991b1b" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">+ POWER RAIL</text>
+  <!-- power rail bottom blue -->
+  <rect x="24" y="170" width="252" height="16" rx="4" fill="#93c5fd" opacity="0.7"/>
+  <text x="150" y="181" fill="#1e3a8a" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">− GROUND RAIL</text>
+  <!-- middle section holes grid rows a-e top half -->
+  ${[0,1,2,3,4].map(row => [0,1,2,3,4,5,6,7,8,9,10,11,12].map(col =>
+    `<circle cx="${36 + col*18}" cy="${82 + row*6}" r="2.5" fill="#9ca3af" stroke="#6b7280" stroke-width="0.5"/>`
+  ).join('')).join('')}
+  <!-- horizontal connection lines showing rows connect -->
+  ${[0,1,2,3,4].map(row =>
+    `<line x1="33" y1="${82 + row*6}" x2="${33 + 12*18}" y2="${82 + row*6}" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>`
+  ).join('')}
+  <!-- labels -->
+  <text x="14" y="85" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif" font-weight="bold">a</text>
+  <text x="14" y="91" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif" font-weight="bold">b</text>
+  <text x="14" y="97" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif" font-weight="bold">c</text>
+  <text x="14" y="103" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif" font-weight="bold">d</text>
+  <text x="14" y="109" fill="#f59e0b" font-size="7" text-anchor="middle" font-family="sans-serif" font-weight="bold">e</text>
+  <!-- annotation: rows connect horizontally -->
+  <line x1="240" y1="93" x2="280" y2="75" stroke="#f59e0b" stroke-width="1"/>
+  <text x="282" y="70" fill="#f59e0b" font-size="7" font-family="sans-serif">Row connects</text>
+  <text x="282" y="79" fill="#f59e0b" font-size="7" font-family="sans-serif">→ horizontal</text>
+  <!-- NOT a PCB badge -->
+  <rect x="85" y="192" width="130" height="22" rx="6" fill="#ef4444" opacity="0.9"/>
+  <text x="150" y="207" fill="white" font-size="9" text-anchor="middle" font-family="sans-serif" font-weight="bold">⚠ NOT a PCB — Practice Board!</text>
+</svg>`
           },
           {
             type: 'learn',
             icon: '🔌',
-            en: { title: 'Jumper wires & components kit', body: 'Jumper wires connect points on a breadboard. A basic components kit is all you need to start.', list: ['Male-to-male jumper wires (most common for breadboard)', 'Basic kit: LEDs, resistors (assorted), capacitors, buttons', 'One 9V battery + clip for power', 'Total cost: ₹200-500 gets you started!'] },
-            hi: { title: 'Jumper wires और components kit', body: 'Jumper wires breadboard पर points जोड़ते हैं। एक basic components kit शुरू करने के लिए काफी है।', list: ['Male-to-male jumper wires (breadboard के लिए सबसे आम)', 'Basic kit: LEDs, resistors, capacitors, buttons', 'Power के लिए एक 9V battery + clip', 'कुल लागत: ₹200-500 में शुरुआत!'] }
+            en: {
+              title: 'Jumper wires — the connectors',
+              body: 'Jumper wires are short colorful wires with metal pins at each end. You use them to connect two holes on the breadboard. Think of them like temporary bridges between components.',
+              list: ['Male-to-Male (MM): both ends have pins — for breadboard to breadboard', 'Male-to-Female (MF): one pin, one socket — for breadboard to Arduino', 'Buy a set of 40 or 65 wires — all colors, different lengths', 'Cost: ₹30-60 for a full set — absolutely must have!']
+            },
+            hi: {
+              title: 'Jumper wires — जोड़ने वाली तारें',
+              body: 'Jumper wires छोटी रंगीन तारें हैं जिनके दोनों सिरों पर metal pins होते हैं। इनसे breadboard के दो holes को जोड़ते हैं। इन्हें components के बीच temporary bridge समझो।',
+              list: ['Male-to-Male (MM): दोनों तरफ pins — breadboard से breadboard', 'Male-to-Female (MF): एक pin, एक socket — breadboard से Arduino के लिए', '40 या 65 wires का set लो — सभी colors, अलग-अलग length', 'कीमत: ₹30-60 पूरे set की — बहुत जरूरी!']
+            }
+          },
+          {
+            type: 'diagram',
+            label: 'Jumper wires — Male vs Female ends',
+            svg: `<svg viewBox="0 0 300 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="160" fill="#111827" rx="12"/>
+  <text x="150" y="20" fill="#f59e0b" font-size="11" text-anchor="middle" font-family="sans-serif" font-weight="bold">Jumper Wire Types</text>
+  <!-- Male end left -->
+  <rect x="20" y="35" width="14" height="8" rx="2" fill="#60a5fa"/>
+  <rect x="25" y="32" width="4" height="11" rx="1" fill="#93c5fd"/>
+  <text x="27" y="55" fill="#93c5fd" font-size="8" text-anchor="middle" font-family="sans-serif">MALE</text>
+  <text x="27" y="64" fill="#6b7280" font-size="7" text-anchor="middle" font-family="sans-serif">(pin)</text>
+  <!-- wire mm -->
+  <rect x="34" y="38" width="80" height="4" rx="2" fill="#3b82f6"/>
+  <!-- Male end right MM -->
+  <rect x="114" y="35" width="14" height="8" rx="2" fill="#60a5fa"/>
+  <rect x="119" y="32" width="4" height="11" rx="1" fill="#93c5fd"/>
+  <text x="75" y="55" fill="#e2e8f0" font-size="8" text-anchor="middle" font-family="sans-serif">Male-Male (MM)</text>
+  <text x="75" y="64" fill="#94a3b8" font-size="7" text-anchor="middle" font-family="sans-serif">Breadboard to Breadboard</text>
+  <!-- Female end -->
+  <rect x="180" y="35" width="14" height="10" rx="2" fill="#10b981"/>
+  <rect x="183" y="35" width="8" height="10" rx="1" fill="#064e3b"/>
+  <circle cx="187" cy="40" r="2.5" fill="#0d9488"/>
+  <text x="187" y="55" fill="#34d399" font-size="8" text-anchor="middle" font-family="sans-serif">FEMALE</text>
+  <text x="187" y="64" fill="#6b7280" font-size="7" text-anchor="middle" font-family="sans-serif">(socket)</text>
+  <!-- wire mf -->
+  <rect x="150" y="88" width="80" height="4" rx="2" fill="#a78bfa"/>
+  <!-- male end mf -->
+  <rect x="130" y="85" width="14" height="8" rx="2" fill="#60a5fa"/>
+  <rect x="135" y="82" width="4" height="11" rx="1" fill="#93c5fd"/>
+  <!-- female end mf -->
+  <rect x="234" y="85" width="14" height="10" rx="2" fill="#10b981"/>
+  <rect x="237" y="85" width="8" height="10" rx="1" fill="#064e3b"/>
+  <circle cx="241" cy="90" r="2.5" fill="#0d9488"/>
+  <text x="190" y="110" fill="#e2e8f0" font-size="8" text-anchor="middle" font-family="sans-serif">Male-Female (MF)</text>
+  <text x="190" y="119" fill="#94a3b8" font-size="7" text-anchor="middle" font-family="sans-serif">Breadboard to Arduino/Module</text>
+  <!-- color guide -->
+  ${['#ef4444','#f97316','#eab308','#22c55e','#3b82f6','#a855f7'].map((c,i) =>
+    `<circle cx="${30 + i*18}" cy="${145}" r="5" fill="${c}"/>`
+  ).join('')}
+  <text x="150" y="149" fill="#94a3b8" font-size="7" text-anchor="middle" font-family="sans-serif">Use colors to keep track of connections (red=power, black=ground)</text>
+</svg>`
           },
           {
             type: 'learn',
             icon: '🌡️',
-            en: { title: 'Multimeter — your most important tool', body: 'A multimeter measures voltage, current, resistance, and continuity. It is THE essential tool for electronics. We cover how to use it in detail in the next module!', list: ['Measures Voltage (V), Current (A), Resistance (Ω)', 'Continuity beep: tells you if two points are connected', 'Even a ₹300 budget multimeter works well for beginners', 'You cannot do electronics without one — buy one first!'] },
-            hi: { title: 'Multimeter — आपका सबसे महत्वपूर्ण औजार', body: 'Multimeter voltage, current, resistance और continuity मापता है। यह electronics का THE जरूरी औजार है।', list: ['Voltage (V), Current (A), Resistance (Ω) मापता है', 'Continuity beep: बताता है दो points जुड़े हैं या नहीं', '₹300 का budget multimeter भी beginners के लिए काफी है', 'इसके बिना electronics नहीं होती — पहले खरीदें!'] }
+            en: {
+              title: 'Multimeter — your most important tool',
+              body: 'A multimeter is like a doctor\'s stethoscope for circuits. Without it, you are guessing. With it, you know exactly what is happening. Even a basic ₹250 multimeter from a local shop works perfectly for learning. We will learn how to USE it in the next module.',
+              list: ['Measures Voltage (V) — is there power? How much?', 'Resistance (Ω) — what value is this component?', 'Continuity beep — are these two points connected?', 'Buy: ANY digital multimeter, ₹250-400, any electronics shop']
+            },
+            hi: {
+              title: 'Multimeter — सबसे जरूरी औजार',
+              body: 'Multimeter circuits के लिए वैसा ही है जैसे doctor के लिए stethoscope। इसके बिना आप अंदाजे में काम करते हो। इसके साथ आपको exact पता चलता है क्या हो रहा है। ₹250 का local shop का multimeter भी learning के लिए perfect है। इसे USE कैसे करते हैं यह अगले module में सीखेंगे।',
+              list: ['Voltage (V) मापता है — क्या power है? कितनी?', 'Resistance (Ω) — यह component कितने का है?', 'Continuity beep — ये दो points जुड़े हैं क्या?', 'खरीदो: कोई भी digital multimeter, ₹250-400, कोई भी electronics shop']
+            }
+          },
+          {
+            type: 'diagram',
+            label: 'Multimeter — What each part does',
+            svg: `<svg viewBox="0 0 280 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+  <rect width="280" height="210" fill="#111827" rx="12"/>
+  <!-- body -->
+  <rect x="75" y="15" width="130" height="175" rx="16" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <!-- display -->
+  <rect x="88" y="26" width="104" height="42" rx="6" fill="#0f1a0f" stroke="#10b981" stroke-width="1.5"/>
+  <text x="140" y="54" fill="#10b981" font-size="22" font-weight="bold" text-anchor="middle" font-family="monospace">1.5V</text>
+  <!-- dial circle -->
+  <circle cx="140" cy="115" r="32" fill="#0f172a" stroke="#4f6ef7" stroke-width="2"/>
+  <circle cx="140" cy="115" r="12" fill="#1e293b" stroke="#4f6ef7" stroke-width="1.5"/>
+  <!-- dial sections -->
+  <text x="140" y="90" fill="#f59e0b" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">V~</text>
+  <text x="165" y="100" fill="#22c55e" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">V—</text>
+  <text x="172" y="118" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">Ω</text>
+  <text x="162" y="137" fill="#60a5fa" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">A</text>
+  <text x="118" y="137" fill="#94a3b8" font-size="7" text-anchor="middle" font-family="sans-serif">OFF</text>
+  <text x="112" y="118" fill="#f97316" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">🔈</text>
+  <!-- pointer -->
+  <line x1="140" y1="115" x2="158" y2="100" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- probe jacks -->
+  <circle cx="115" cy="165" r="8" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="115" y="181" fill="#ef4444" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">10A</text>
+  <circle cx="140" cy="165" r="8" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+  <text x="140" y="181" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">COM</text>
+  <circle cx="165" cy="165" r="8" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="165" y="181" fill="#ef4444" font-size="8" text-anchor="middle" font-family="sans-serif" font-weight="bold">VΩ</text>
+  <!-- annotation arrows -->
+  <line x1="88" y1="47" x2="55" y2="47" stroke="#94a3b8" stroke-width="1"/>
+  <text x="52" y="42" fill="#e2e8f0" font-size="7" text-anchor="end" font-family="sans-serif">Display</text>
+  <text x="52" y="51" fill="#94a3b8" font-size="6" text-anchor="end" font-family="sans-serif">shows reading</text>
+  <line x1="172" y1="115" x2="215" y2="100" stroke="#94a3b8" stroke-width="1"/>
+  <text x="217" y="97" fill="#e2e8f0" font-size="7" font-family="sans-serif">Dial</text>
+  <text x="217" y="106" fill="#94a3b8" font-size="6" font-family="sans-serif">select V/A/Ω</text>
+  <line x1="165" y1="157" x2="215" y2="140" stroke="#94a3b8" stroke-width="1"/>
+  <text x="217" y="137" fill="#e2e8f0" font-size="7" font-family="sans-serif">RED → VΩ</text>
+  <text x="217" y="146" fill="#94a3b8" font-size="6" font-family="sans-serif">BLACK → COM</text>
+  <!-- probes below -->
+  <rect x="113" y="188" width="4" height="16" rx="1" fill="#1e293b" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="138" y="188" width="4" height="16" rx="1" fill="#1e293b" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="115" y1="203" x2="115" y2="206" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="140" y1="203" x2="140" y2="206" stroke="#1d4ed8" stroke-width="1.5"/>
+</svg>`
+          },
+          {
+            type: 'learn',
+            icon: '🔥',
+            en: {
+              title: 'Soldering iron — for permanent connections',
+              body: 'Once you have tested your circuit on a breadboard and it works, you can make it permanent using a soldering iron. It melts a metal called "solder" to join wires and components to a PCB (the real one!). For beginners, a basic 25W iron is enough.',
+              list: ['Temperature: ~350°C tip — NEVER touch the tip!', 'Solder wire: rosin-core 60/40, ₹60-100 per roll', 'Basic 25W iron: ₹120-200 at any hardware/electronics shop', 'Always use on a stand — never put a hot iron on the table']
+            },
+            hi: {
+              title: 'Soldering iron — permanent जोड़ बनाने के लिए',
+              body: 'जब आपने breadboard पर circuit test कर लिया और वो काम कर गया — तब उसे permanent बनाने के लिए soldering iron use करते हैं। यह एक धातु को पिघलाता है जिसे "solder" कहते हैं, जो wires और components को PCB से जोड़ता है (असली PCB — वो हरी board!). Beginners के लिए basic 25W iron काफी है।',
+              list: ['Temperature: ~350°C — tip को कभी मत छुओ!', 'Solder wire: rosin-core 60/40, ₹60-100 प्रति roll', 'Basic 25W iron: ₹120-200 कोई भी hardware/electronics shop', 'हमेशा stand पर रखो — गर्म iron कभी table पर मत रखो']
+            }
+          },
+          {
+            type: 'diagram',
+            label: 'Soldering iron — parts & safe use',
+            svg: `<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="170" fill="#111827" rx="12"/>
+  <!-- handle -->
+  <rect x="30" y="75" width="120" height="22" rx="11" fill="#2d3748" stroke="#4a5568" stroke-width="1.5"/>
+  <!-- grip lines -->
+  ${[0,1,2,3,4].map(i => `<line x1="${50+i*14}" y1="75" x2="${50+i*14}" y2="97" stroke="#1a202c" stroke-width="2" opacity="0.5"/>`).join('')}
+  <!-- barrel/ferrule -->
+  <rect x="150" y="79" width="30" height="14" rx="3" fill="#718096" stroke="#4a5568" stroke-width="1"/>
+  <!-- heating element -->
+  <rect x="180" y="80" width="40" height="12" rx="3" fill="#744210" stroke="#92400e" stroke-width="1"/>
+  <!-- tip -->
+  <polygon points="220,83 255,90 220,97" fill="#a0aec0" stroke="#718096" stroke-width="1"/>
+  <!-- heat glow -->
+  <ellipse cx="252" cy="90" rx="10" ry="6" fill="#f97316" opacity="0.3"/>
+  <ellipse cx="256" cy="90" rx="6" ry="3" fill="#fbbf24" opacity="0.4"/>
+  <!-- heat waves -->
+  <path d="M258,78 Q262,73 258,68" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <path d="M264,80 Q268,74 264,68" stroke="#f97316" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- cord -->
+  <path d="M30,86 Q15,86 12,100 Q10,120 8,140" stroke="#4a5568" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- power plug -->
+  <rect x="4" y="138" width="12" height="18" rx="2" fill="#2d3748" stroke="#4a5568" stroke-width="1"/>
+  <rect x="7" y="156" width="3" height="8" rx="1" fill="#94a3b8"/>
+  <rect x="12" y="156" width="3" height="8" rx="1" fill="#94a3b8"/>
+  <!-- labels -->
+  <text x="88" y="70" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="sans-serif">Handle</text>
+  <line x1="88" y1="73" x2="88" y2="76" stroke="#94a3b8" stroke-width="1"/>
+  <text x="162" y="70" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="sans-serif">Heating</text>
+  <line x1="162" y1="73" x2="195" y2="79" stroke="#94a3b8" stroke-width="1"/>
+  <text x="235" y="70" fill="#f97316" font-size="8" text-anchor="middle" font-family="sans-serif">HOT TIP</text>
+  <text x="235" y="80" fill="#f97316" font-size="7" text-anchor="middle" font-family="sans-serif">~350°C</text>
+  <line x1="235" y1="82" x2="245" y2="86" stroke="#f97316" stroke-width="1"/>
+  <!-- WARNING -->
+  <rect x="60" y="115" width="180" height="40" rx="8" fill="#7f1d1d" opacity="0.8"/>
+  <text x="150" y="132" fill="#fca5a5" font-size="9" text-anchor="middle" font-family="sans-serif" font-weight="bold">⚠ NEVER touch the tip!</text>
+  <text x="150" y="146" fill="#fca5a5" font-size="8" text-anchor="middle" font-family="sans-serif">Always use iron stand. Keep away from wires.</text>
+</svg>`
           },
           {
             type: 'fact',
-            en: { text: "A basic starter kit (breadboard + jumper wires + components + multimeter) costs around ₹500-800 in India and is available on Amazon, Flipkart, or local electronics markets like Lajpat Rai (Delhi) or Lamington Road (Mumbai)." },
-            hi: { text: "एक basic starter kit (breadboard + jumper wires + components + multimeter) भारत में ₹500-800 में मिलती है — Amazon, Flipkart, या लाजपत राय (दिल्ली) या लैमिंगटन रोड (मुंबई) जैसे electronics बाजार में।" }
+            en: { text: "Full beginner toolkit for India: Breadboard (₹50) + Jumper wire set (₹50) + Components kit with LEDs/resistors/capacitors (₹100) + Digital multimeter (₹300) + 9V battery + clip (₹30) = Under ₹550 total! Available on Amazon, Flipkart, Robu.in, or local markets: Lajpat Rai (Delhi), Lamington Road (Mumbai), SP Road (Bangalore)." },
+            hi: { text: "भारत के लिए पूरी beginner toolkit: Breadboard (₹50) + Jumper wire set (₹50) + Components kit (₹100) + Digital multimeter (₹300) + 9V battery + clip (₹30) = कुल ₹550 से कम! Amazon, Flipkart, Robu.in, या local markets: लाजपत राय (दिल्ली), लैमिंगटन रोड (मुंबई), SP Road (बैंगलोर) पर मिलता है।" }
           },
           {
             type: 'quiz',
-            en: { question: 'What is the main advantage of a breadboard for beginners?', options: ['It generates electricity', 'You can build circuits without soldering', 'It measures voltage automatically', 'It protects against short circuits'], correct: 1, feedback: 'Breadboards are perfect for beginners because you can experiment, make mistakes, and change your circuit easily — no soldering iron needed!' },
-            hi: { question: 'Beginners के लिए breadboard का मुख्य फायदा क्या है?', options: ['यह बिजली उत्पन्न करता है', 'Soldering के बिना circuits बना सकते हैं', 'यह स्वचालित रूप से voltage मापता है', 'यह short circuits से बचाता है'], correct: 1, feedback: 'Breadboard beginners के लिए perfect है — experiment करें, गलतियाँ करें, circuit बदलें — कोई soldering iron नहीं चाहिए!' }
+            en: { question: 'A classmate says "I bought a PCB to test my circuit." What did he actually buy?', options: ['A real PCB from inside a phone', 'A breadboard — the reusable practice board', 'A multimeter', 'A soldering iron'], correct: 1, feedback: 'Exactly! In Indian markets, people often call a breadboard a "PCB" — but a real PCB is the green soldered board inside devices. The breadboard is a reusable practice board — no soldering needed!' },
+            hi: { question: 'एक classmate कहता है "मैंने circuit test के लिए PCB खरीदी।" उसने actually क्या खरीदा?', options: ['Phone के अंदर की असली PCB', 'Breadboard — reusable practice board', 'Multimeter', 'Soldering iron'], correct: 1, feedback: 'बिल्कुल सही! भारतीय बाजार में लोग अक्सर breadboard को "PCB" कहते हैं — लेकिन असली PCB वो हरी soldered board होती है जो devices के अंदर होती है। Breadboard एक reusable practice board है — बिना soldering के!' }
           },
           {
-            type: 'complete', xp: 25,
-            en: { msg: "You now know what tools you need to get started. The good news: it's affordable! Next up — the most powerful skill a beginner can learn: using a multimeter." },
-            hi: { msg: "अब आप जानते हैं शुरुआत के लिए कौन से tools चाहिए। अच्छी खबर: यह सस्ता है! अगला — सबसे महत्वपूर्ण skill: multimeter चलाना।" }
+            type: 'complete', xp: 30,
+            en: { msg: "You now know your tools and — importantly — you know that a breadboard is NOT a PCB! You're ahead of most beginners already. Next module: we learn to actually USE the multimeter — the most powerful skill for any electronics person." },
+            hi: { msg: "अब आप tools जानते हैं और — सबसे जरूरी — breadboard को PCB नहीं कहेंगे! आप पहले से ज्यादातर beginners से आगे हैं। अगला module: multimeter actually USE करना सीखेंगे — electronics में सबसे powerful skill।" }
           }
         ]
       }

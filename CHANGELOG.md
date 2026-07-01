@@ -1,5 +1,21 @@
 # ElectroLearn Changelog
 
+## v2.4.0 — 2026-07-01
+
+### Tools module overhaul — real illustrations + Indian teaching style
+
+- Tools & Measurement module completely rewritten with 3 detailed SVG diagrams
+- Breadboard diagram: shows hole grid, internal row connections (dashed orange lines), power rails color-coded red/blue, "NOT a PCB — Practice Board!" warning badge
+- Jumper wires diagram: Male vs Female ends illustrated, color coding guide, Male-Male vs Male-Female types explained
+- Multimeter diagram: improved annotated view with dial labels (V~, V—, Ω, A, beep), probe jacks labeled, annotation arrows
+- Soldering iron diagram: full anatomy with handle, heating element, HOT TIP label (350°C), safety warning
+- Indian teaching context added: breadboard vs PCB misconception directly addressed — "People call breadboard 'PCB' in Indian markets — that is WRONG"
+- Quiz updated to test the breadboard/PCB distinction
+- All prices in ₹, Indian markets referenced (Lajpat Rai, Lamington Road, SP Road, Robu.in)
+- Trainer-style Hindi throughout — natural mixed-language explanations
+- TTS improved: pitch set to 1.0 for all voices (natural baseline), rate 0.88 for legacy / 0.92 for neural (less robotic), volume 0.95
+- SW cache bumped to electrolearn-v12
+
 ## v2.3.0 — 2026-07-01
 
 ### Elegant home cards + natural TTS voice
