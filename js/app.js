@@ -210,10 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const done = mod.lessons.filter((_, i) => Storage.isLessonDone(mod.id, i)).length;
       const pct = total ? done / total : 0;
       const allDone = done >= total;
-      const locked = mi > 0 && !MODULES[mi - 1].lessons.every((_, i) => Storage.isLessonDone(MODULES[mi - 1].id, i));
+      const locked = false; // all modules unlocked
 
       const card = document.createElement('div');
-      card.className = 'module-card' + (locked ? ' locked' : '');
+      card.className = 'module-card';
+      card.style.borderTop = `3px solid ${mod.color}`;
       card.innerHTML = `
         <div class="mc-row1">
           <div class="mc-icon">${mod.icon}</div>
@@ -226,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="mc-count">${done}/${total}</div>
           <div class="mc-bar"><div class="mc-fill" style="width:${pct*100}%;background:${mod.color}"></div></div>
         </div>
-        ${allDone ? '<div class="mc-done-badge">✓</div>' : ''}
+        ${allDone ? '<div class="mc-done-badge">✓ Done</div>' : ''}
       `;
       if (!locked) {
         card.addEventListener('click', () => openModule(mod));
@@ -378,12 +379,19 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'learn': {
         const listHtml = s.list ? `<ul>${s.list.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
         const fullText = (s.title || '') + '. ' + (s.body || '');
+        const rw = step.rw;
+        const rwHtml = rw ? `
+          <div class="rw-box">
+            <div class="rw-label">⚡ ${lang === 'hi' ? 'असली ज़िंदगी में' : 'In real life'}</div>
+            <div class="rw-items">${rw.map(r => `<div class="rw-item">${r}</div>`).join('')}</div>
+          </div>` : '';
         wrap.innerHTML = `
           <div class="card">
-            <div class="card-icon">${step.icon || '📖'}</div>
+            <span class="card-icon">${step.icon || '📖'}</span>
             <h3>${s.title}</h3>
             <p>${s.body}</p>
             ${listHtml}
+            ${rwHtml}
             <button class="play-btn mt-8" data-text="${escAttr(fullText)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button>
           </div>`;
         break;

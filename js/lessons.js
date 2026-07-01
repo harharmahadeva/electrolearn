@@ -99,6 +99,92 @@ const MODULES = [
     hi: { name: 'बिजली क्या है?', phase: 'बुनियाद' },
     lessons: [
       {
+        en: { title: 'What is Electronics? Your world explained', time: '4 min' },
+        hi: { title: 'Electronics क्या है? आपकी दुनिया समझाई', time: '4 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Look around you right now. Your phone, the TV remote, the charger on the wall, the LED bulb above you — every single one of those runs on electronics. By the end of this course, you won't just use these things. You'll understand exactly how they work. And then you can build them yourself." },
+            hi: { text: "अभी चारों तरफ देखें। आपका phone, TV remote, charger, LED bulb — ये सब electronics से चलते हैं। इस course के अंत तक, आप इन्हें सिर्फ use नहीं करेंगे — आप समझेंगे ये काम कैसे करते हैं। फिर खुद बना भी सकते हैं।" }
+          },
+          {
+            type: 'diagram',
+            label: 'Electronics is everywhere around you',
+            svg: `<svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px">
+  <rect width="320" height="220" fill="#0a0900" rx="12"/>
+  <!-- Center label -->
+  <text x="160" y="115" fill="#ff8c00" font-size="13" font-weight="bold" text-anchor="middle" font-family="sans-serif">ELECTRONICS</text>
+  <text x="160" y="131" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="sans-serif">controls all of these</text>
+  <!-- Pulsing center circle -->
+  <circle cx="160" cy="115" r="38" fill="none" stroke="#ff8c00" stroke-width="1.5" opacity="0.4">
+    <animate attributeName="r" values="38;45;38" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="160" cy="115" r="38" fill="none" stroke="#ff8c00" stroke-width="0.5" opacity="0.2">
+    <animate attributeName="r" values="38;55;38" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0;0.2" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Phone — top left -->
+  <rect x="20" y="20" width="58" height="72" rx="8" fill="#1a1d35" stroke="#4f6ef7" stroke-width="1.5"/>
+  <rect x="26" y="28" width="46" height="36" rx="3" fill="#0f1a3f"/>
+  <rect x="40" y="68" width="18" height="3" rx="2" fill="#4f6ef7" opacity="0.6"/>
+  <text x="49" y="50" fill="#60a5fa" font-size="8" text-anchor="middle" font-family="sans-serif">📱</text>
+  <text x="49" y="62" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">3.7V Li-ion</text>
+  <text x="49" y="104" fill="#60a5fa" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">Phone</text>
+  <text x="49" y="114" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">~15 billion transistors</text>
+  <!-- connecting line phone to center -->
+  <line x1="78" y1="56" x2="122" y2="105" stroke="#4f6ef7" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <!-- LED Bulb — top right -->
+  <circle cx="258" cy="48" r="22" fill="#2a1a00" stroke="#ff8c00" stroke-width="1.5"/>
+  <text x="258" y="53" fill="#fbbf24" font-size="18" text-anchor="middle" font-family="sans-serif">💡</text>
+  <text x="258" y="84" fill="#ff8c00" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">LED Bulb</text>
+  <text x="258" y="94" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">converts 220V AC → light</text>
+  <!-- connecting line bulb to center -->
+  <line x1="237" y1="62" x2="198" y2="100" stroke="#ff8c00" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <!-- TV Remote — bottom left -->
+  <rect x="22" y="148" width="36" height="60" rx="8" fill="#1a1d35" stroke="#8b5cf6" stroke-width="1.5"/>
+  <circle cx="40" cy="163" r="7" fill="#2e2060" stroke="#8b5cf6" stroke-width="1"/>
+  <rect x="28" y="175" width="24" height="3" rx="1.5" fill="#8b5cf6" opacity="0.5"/>
+  <rect x="28" y="181" width="24" height="3" rx="1.5" fill="#8b5cf6" opacity="0.5"/>
+  <rect x="28" y="187" width="24" height="3" rx="1.5" fill="#8b5cf6" opacity="0.5"/>
+  <text x="40" y="220" fill="#8b5cf6" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">TV Remote</text>
+  <!-- Arduino — bottom right -->
+  <rect x="240" y="148" width="62" height="48" rx="6" fill="#0a2a0a" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="246" y="154" width="50" height="30" rx="3" fill="#0f1a0f"/>
+  <text x="271" y="172" fill="#10b981" font-size="8" text-anchor="middle" font-family="sans-serif">ARDUINO</text>
+  <text x="271" y="182" fill="#9ba3c8" font-size="6" text-anchor="middle" font-family="sans-serif">you can program this!</text>
+  <text x="271" y="210" fill="#10b981" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">Microcontroller</text>
+  <!-- connecting lines bottom -->
+  <line x1="58" y1="165" x2="122" y2="128" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="242" y1="165" x2="198" y2="128" stroke="#10b981" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+</svg>`
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'Electricity vs Electronics — the difference', body: 'Electricity is the raw energy — like water in a pipe. Electronics is the art of controlling that energy to do useful things.', list: ['Electricity = raw energy flowing through wires', 'Electronics = circuits that CONTROL how that energy flows', 'A light switch uses electricity. A smartphone uses electronics', 'This course: you learn to control electricity with purpose'] },
+            hi: { title: 'Electricity vs Electronics — फर्क', body: 'Electricity कच्ची ऊर्जा है — पाइप में पानी की तरह। Electronics वो कला है जो उस ऊर्जा को useful काम के लिए control करती है।', list: ['Electricity = तारों में बहती कच्ची ऊर्जा', 'Electronics = circuits जो उस ऊर्जा को CONTROL करते हैं', 'Light switch = electricity। Smartphone = electronics', 'यह course: आप सीखेंगे electricity को purpose से control करना'] },
+            rw: ['📱 Phone — 3.7V, billions of tiny switches', '💡 LED bulb — 220V AC → controlled light', '🎮 Game controller — tiny circuits read your buttons', '🚗 Car ECU — electronics control the engine']
+          },
+          {
+            type: 'learn',
+            icon: '🎯',
+            en: { title: 'What you will be able to do after this course', body: 'This is not just theory. These are real practical skills you will have.', list: ['Read a circuit diagram (schematic) of any gadget', 'Understand why your phone charges at 5V not 230V', 'Build a working LED circuit from scratch', 'Use a multimeter to diagnose any electrical problem', 'Understand what the components inside a PCB actually do', 'Start building your own projects on a breadboard'] },
+            hi: { title: 'इस course के बाद आप क्या कर पाएंगे', body: 'यह सिर्फ theory नहीं है। ये real practical skills हैं जो आपके पास होंगी।', list: ['किसी भी gadget का circuit diagram पढ़ सकेंगे', 'समझेंगे phone 5V पर क्यों charge होता है 230V पर नहीं', 'Scratch से working LED circuit बना सकेंगे', 'Multimeter से कोई भी electrical problem diagnose कर सकेंगे', 'PCB के अंदर components क्या करते हैं — समझेंगे', 'Breadboard पर खुद projects बनाना शुरू कर सकेंगे'] }
+          },
+          {
+            type: 'fact',
+            en: { text: "The first electronic computer ENIAC (1945) weighed 27 tonnes and filled an entire room. Today, your smartphone is millions of times more powerful and fits in your pocket. That is 80 years of electronics progress." },
+            hi: { text: "पहला electronic computer ENIAC (1945) का वजन 27 tonnes था और पूरे कमरे में था। आज आपका smartphone लाखों गुना ज्यादा powerful है और जेब में आता है। यह 80 साल की electronics की प्रगति है।" }
+          },
+          {
+            type: 'complete', xp: 15,
+            en: { msg: "You know what electronics is and why it matters. Every lesson from here is practical — you'll see real components, real circuits, real examples. Let's start with the most fundamental question: what exactly IS electricity?" },
+            hi: { msg: "आप जानते हैं electronics क्या है और क्यों matter करती है। यहाँ से हर lesson practical है — real components, real circuits, real examples। शुरू करते हैं सबसे basic सवाल से: electricity actually क्या है?" }
+          }
+        ]
+      },
+      {
         en: { title: 'Electricity is like water', time: '5 min' },
         hi: { title: 'बिजली पानी जैसी है', time: '5 मिनट' },
         steps: [
@@ -110,50 +196,58 @@ const MODULES = [
           {
             type: 'learn',
             icon: '💧',
-            en: { title: 'Think of water in a pipe', body: 'Electricity is easiest to understand if you imagine water flowing through a pipe. This analogy is so accurate that engineers use it all the time.', list: ['Water flowing = Electric current (current = flow of electrons)', 'Water pressure = Voltage (voltage = the push)', 'A narrow pipe = Resistance (resistance = opposition to flow)', 'Water pump = Battery (battery = the source of push)'] },
-            hi: { title: 'पाइप में पानी सोचो', body: 'बिजली को समझने का सबसे आसान तरीका है — पाइप में बहते पानी की कल्पना करो।', list: ['बहता पानी = विद्युत धारा (Current)', 'पानी का दबाव = वोल्टेज (Voltage)', 'पतली पाइप = प्रतिरोध (Resistance)', 'पंप = बैटरी (Battery)'] }
+            en: { title: 'Think of water in a pipe', body: 'Electricity is easiest to understand if you imagine water flowing through a pipe. This analogy is so accurate that engineers use it all the time.', list: ['Water flowing = Electric current (flow of electrons through wire)', 'Water pressure = Voltage (the push that drives current)', 'A narrow pipe = Resistance (opposition to flow)', 'Water pump = Battery (the source of the push)'] },
+            hi: { title: 'पाइप में पानी सोचो', body: 'बिजली को समझने का सबसे आसान तरीका है — पाइप में बहते पानी की कल्पना करो।', list: ['बहता पानी = विद्युत धारा (Current — electrons का प्रवाह)', 'पानी का दबाव = वोल्टेज (Voltage — push)', 'पतली पाइप = प्रतिरोध (Resistance — रुकावट)', 'पंप = बैटरी (Battery — push का स्रोत)'] },
+            rw: ['🔦 Torch: 3V battery pushes current through LED', '🚿 Shower: pressure = voltage, flow rate = current', '💉 IV drip: slow controlled flow = low current']
           },
           {
             type: 'diagram',
-            label: 'Water vs Electricity',
-            svg: `<svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px">
-  <rect width="320" height="180" fill="#1a1d35" rx="12"/>
-  <!-- Water side -->
-  <text x="80" y="22" fill="#9ba3c8" font-size="10" text-anchor="middle" font-family="sans-serif">WATER</text>
-  <rect x="20" y="30" width="40" height="70" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-  <text x="40" y="60" fill="#60a5fa" font-size="9" text-anchor="middle" font-family="sans-serif">PUMP</text>
-  <text x="40" y="72" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Battery</text>
-  <rect x="60" y="58" width="80" height="14" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-  <rect x="60" y="78" width="80" height="14" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
-  <!-- flow arrows -->
-  <text x="75" y="68" fill="#3b82f6" font-size="14" font-family="sans-serif">→</text>
-  <text x="95" y="68" fill="#3b82f6" font-size="14" font-family="sans-serif">→</text>
-  <circle cx="145" cy="70" r="12" fill="#1e3a5f" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="145" y="74" fill="#f59e0b" font-size="9" text-anchor="middle" font-family="sans-serif">R</text>
-  <text x="140" y="100" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">narrow</text>
-  <text x="140" y="110" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">pipe</text>
-  <!-- labels -->
-  <text x="40" y="115" fill="#60a5fa" font-size="8" text-anchor="middle" font-family="sans-serif">Voltage</text>
-  <text x="40" y="125" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">(Push)</text>
-  <text x="100" y="115" fill="#60a5fa" font-size="8" text-anchor="middle" font-family="sans-serif">Current</text>
-  <text x="100" y="125" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">(Flow)</text>
-  <!-- divider -->
-  <line x1="172" y1="20" x2="172" y2="160" stroke="#2e3260" stroke-width="1" stroke-dasharray="4,3"/>
-  <!-- Electricity side -->
-  <text x="246" y="22" fill="#9ba3c8" font-size="10" text-anchor="middle" font-family="sans-serif">ELECTRICITY</text>
-  <rect x="184" y="30" width="36" height="70" rx="6" fill="#1e2040" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="202" y="60" fill="#a78bfa" font-size="9" text-anchor="middle" font-family="sans-serif">BAT-</text>
-  <text x="202" y="72" fill="#a78bfa" font-size="9" text-anchor="middle" font-family="sans-serif">TERY</text>
-  <rect x="220" y="58" width="60" height="14" rx="4" fill="#1e2040" stroke="#7c3aed" stroke-width="1.5"/>
-  <rect x="220" y="78" width="60" height="14" rx="4" fill="#1e2040" stroke="#7c3aed" stroke-width="1.5"/>
-  <text x="233" y="68" fill="#7c3aed" font-size="14" font-family="sans-serif">→</text>
-  <text x="251" y="68" fill="#7c3aed" font-size="14" font-family="sans-serif">→</text>
-  <circle cx="288" cy="70" r="12" fill="#1e2040" stroke="#f59e0b" stroke-width="1.5"/>
-  <text x="288" y="74" fill="#f59e0b" font-size="9" text-anchor="middle" font-family="sans-serif">Ω</text>
-  <text x="202" y="115" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="sans-serif">Voltage (V)</text>
-  <text x="250" y="115" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="sans-serif">Current (A)</text>
-  <text x="288" y="115" fill="#f59e0b" font-size="8" text-anchor="middle" font-family="sans-serif">Resistance</text>
-  <text x="288" y="125" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">(Ω)</text>
+            label: 'Live circuit — electrons flowing right now',
+            svg: `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="200" fill="#0a0900" rx="12"/>
+  <!-- Circuit outline: battery top-left, wire loop through resistor and LED -->
+  <!-- Battery -->
+  <rect x="16" y="60" width="32" height="80" rx="8" fill="#1e1060" stroke="#7c3aed" stroke-width="2"/>
+  <text x="32" y="96" fill="#a78bfa" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">9V</text>
+  <text x="32" y="108" fill="#a78bfa" font-size="8" text-anchor="middle" font-family="sans-serif">Battery</text>
+  <line x1="32" y1="60" x2="32" y2="40" stroke="#7c3aed" stroke-width="2"/>
+  <text x="42" y="38" fill="#10b981" font-size="12" font-family="sans-serif">+</text>
+  <line x1="32" y1="140" x2="32" y2="160" stroke="#7c3aed" stroke-width="2"/>
+  <text x="42" y="165" fill="#ef4444" font-size="12" font-family="sans-serif">−</text>
+  <!-- Top wire + → right -->
+  <line x1="32" y1="40" x2="270" y2="40" stroke="#ff8c00" stroke-width="3" stroke-linecap="round"/>
+  <!-- Bottom wire − → right -->
+  <line x1="32" y1="160" x2="270" y2="160" stroke="#4f5060" stroke-width="3" stroke-linecap="round"/>
+  <!-- Right side connecting wire -->
+  <line x1="270" y1="40" x2="270" y2="160" stroke="#4f5060" stroke-width="3" stroke-linecap="round"/>
+  <!-- Resistor (on top wire, middle) -->
+  <rect x="100" y="28" width="50" height="24" rx="5" fill="#7c2d00" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="125" y="44" fill="#fbbf24" font-size="9" text-anchor="middle" font-family="sans-serif" font-weight="bold">330Ω</text>
+  <text x="125" y="20" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Resistor</text>
+  <!-- LED (right side, vertical) -->
+  <polygon points="260,75 260,105 280,90" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+  <line x1="260" y1="74" x2="260" y2="75" stroke="#10b981" stroke-width="0"/>
+  <line x1="260" y1="74" x2="260" y2="106" stroke="#10b981" stroke-width="2.5"/>
+  <line x1="280" y1="74" x2="280" y2="106" stroke="#10b981" stroke-width="2.5"/>
+  <text x="292" y="94" fill="#10b981" font-size="8" font-family="sans-serif">LED</text>
+  <!-- LED glow animation -->
+  <circle cx="270" cy="90" r="14" fill="none" stroke="#10b981" stroke-width="1" opacity="0">
+    <animate attributeName="opacity" values="0;0.5;0" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="14;22;14" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Animated electrons on top wire -->
+  <circle r="5" fill="#ff8c00" opacity="0.95">
+    <animateMotion dur="2.5s" repeatCount="indefinite" path="M 48 40 L 290 40 L 290 160 L 48 160 Z"/>
+  </circle>
+  <circle r="5" fill="#fbbf24" opacity="0.85">
+    <animateMotion dur="2.5s" begin="0.83s" repeatCount="indefinite" path="M 48 40 L 290 40 L 290 160 L 48 160 Z"/>
+  </circle>
+  <circle r="5" fill="#ff8c00" opacity="0.75">
+    <animateMotion dur="2.5s" begin="1.66s" repeatCount="indefinite" path="M 48 40 L 290 40 L 290 160 L 48 160 Z"/>
+  </circle>
+  <!-- Labels -->
+  <text x="125" y="185" fill="#ff8c00" font-size="9" text-anchor="middle" font-family="sans-serif">● = electrons moving</text>
+  <text x="125" y="197" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">battery pushes them around the loop</text>
 </svg>`
           },
           {
@@ -197,14 +291,69 @@ const MODULES = [
           {
             type: 'learn',
             icon: '🔋',
-            en: { title: 'DC — Direct Current', body: 'DC means electrons always flow in one direction — like water flowing steadily downstream. Batteries give DC.', list: ['Flows in one direction only', 'Used in: phones, laptops, LED lights, Arduino', 'Safe for small electronics', 'Example: 1.5V AA battery, 9V battery, 5V USB'] },
-            hi: { title: 'DC — सीधी धारा', body: 'DC का मतलब है electrons हमेशा एक दिशा में बहते हैं — जैसे पानी एक तरफ बहता है।', list: ['सिर्फ एक दिशा में बहती है', 'उपयोग: फोन, लैपटॉप, LED, Arduino', 'छोटे electronics के लिए सुरक्षित', 'उदाहरण: AA बैटरी, 9V बैटरी, 5V USB'] }
+            en: { title: 'DC — Direct Current', body: 'DC means electrons always flow in ONE direction — like water flowing steadily downstream. Think of DC as a calm, one-way river.', list: ['Flows in one direction only — constant, steady', 'Used in: phones, laptops, LED lights, Arduino', 'Safe for small electronics — stays predictable', 'Your phone charger CONVERTS AC from the wall → DC for the battery'] },
+            hi: { title: 'DC — सीधी धारा', body: 'DC का मतलब है electrons हमेशा एक दिशा में बहते हैं — शांत एक-तरफा नदी की तरह।', list: ['सिर्फ एक दिशा में — constant, steady', 'उपयोग: फोन, लैपटॉप, LED, Arduino', 'छोटे electronics के लिए सुरक्षित', 'आपका charger wall की AC को phone के लिए DC में बदलता है!'] },
+            rw: ['🔋 AA battery: 1.5V DC', '📱 Phone battery: 3.7V DC', '💻 Laptop: 19V DC (from adapter)', '🔌 USB port: 5V DC']
+          },
+          {
+            type: 'diagram',
+            label: 'DC vs AC — how the current flows',
+            svg: `<svg viewBox="0 0 300 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="190" fill="#0a0900" rx="12"/>
+  <!-- DC side -->
+  <text x="75" y="18" fill="#10b981" font-size="10" font-weight="bold" text-anchor="middle" font-family="sans-serif">DC (Direct)</text>
+  <!-- DC wire -->
+  <line x1="15" y1="50" x2="140" y2="50" stroke="#1a3a2a" stroke-width="8" stroke-linecap="round"/>
+  <!-- DC animated electrons — all going one way -->
+  <circle r="5" fill="#10b981">
+    <animateMotion dur="1.8s" repeatCount="indefinite" path="M 15 50 L 140 50"/>
+  </circle>
+  <circle r="5" fill="#10b981" opacity="0.8">
+    <animateMotion dur="1.8s" begin="0.6s" repeatCount="indefinite" path="M 15 50 L 140 50"/>
+  </circle>
+  <circle r="5" fill="#10b981" opacity="0.6">
+    <animateMotion dur="1.8s" begin="1.2s" repeatCount="indefinite" path="M 15 50 L 140 50"/>
+  </circle>
+  <text x="20" y="47" fill="#10b981" font-size="14" font-family="sans-serif">→</text>
+  <text x="55" y="47" fill="#10b981" font-size="14" font-family="sans-serif">→</text>
+  <text x="90" y="47" fill="#10b981" font-size="14" font-family="sans-serif">→</text>
+  <text x="75" y="72" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="sans-serif">always one direction</text>
+  <!-- Battery icon -->
+  <rect x="16" y="85" width="50" height="30" rx="5" fill="#0a2a1a" stroke="#10b981" stroke-width="1.5"/>
+  <text x="41" y="104" fill="#10b981" font-size="9" text-anchor="middle" font-family="sans-serif">🔋 Battery</text>
+  <rect x="70" y="85" width="60" height="30" rx="5" fill="#0a2a1a" stroke="#10b981" stroke-width="1"/>
+  <text x="100" y="101" fill="#10b981" font-size="8" text-anchor="middle" font-family="sans-serif">📱 Phone</text>
+  <text x="100" y="111" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">3.7V DC</text>
+  <!-- divider -->
+  <line x1="153" y1="10" x2="153" y2="180" stroke="#2a2000" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- AC side -->
+  <text x="225" y="18" fill="#f59e0b" font-size="10" font-weight="bold" text-anchor="middle" font-family="sans-serif">AC (Alternating)</text>
+  <!-- AC sine wave — animated drawing -->
+  <path d="M 165 50 Q 180 30 195 50 Q 210 70 225 50 Q 240 30 255 50 Q 270 70 285 50" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <animate attributeName="stroke-dasharray" values="0,200;200,0" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-dashoffset" values="0;0" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <!-- AC direction arrows — alternating -->
+  <text x="225" y="72" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="sans-serif">↔ reverses 50x/second</text>
+  <!-- Wall socket + fan -->
+  <rect x="163" y="85" width="50" height="30" rx="5" fill="#2a1a00" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="188" y="104" fill="#f59e0b" font-size="9" text-anchor="middle" font-family="sans-serif">🔌 230V AC</text>
+  <rect x="217" y="85" width="70" height="30" rx="5" fill="#2a1a00" stroke="#f59e0b" stroke-width="1"/>
+  <text x="252" y="101" fill="#f59e0b" font-size="8" text-anchor="middle" font-family="sans-serif">🌀 Fan / Fridge</text>
+  <text x="252" y="111" fill="#9ba3c8" font-size="7" text-anchor="middle" font-family="sans-serif">needs AC</text>
+  <!-- Key insight box -->
+  <rect x="15" y="130" width="270" height="46" rx="6" fill="rgba(255,140,0,0.06)" stroke="rgba(255,140,0,0.2)" stroke-width="1"/>
+  <text x="150" y="148" fill="#ff8c00" font-size="9" font-weight="bold" text-anchor="middle" font-family="sans-serif">Your phone CHARGER = AC → DC converter</text>
+  <text x="150" y="162" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Wall gives 230V AC → charger converts → 5V DC for phone</text>
+  <text x="150" y="174" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">That's why the charger gets warm — it's doing real work!</text>
+</svg>`
           },
           {
             type: 'learn',
             icon: '🔌',
-            en: { title: 'AC — Alternating Current', body: 'AC means electrons constantly reverse direction — back and forth, 50 times per second in India. This is what comes from your wall socket.', list: ['Reverses direction 50 times/second (50 Hz)', 'Used in: fans, TVs, fridges, washing machines', '230V in India — can be dangerous, respect it!', 'Easier to transmit over long distances'] },
-            hi: { title: 'AC — प्रत्यावर्ती धारा', body: 'AC का मतलब है electrons लगातार दिशा बदलते हैं — आगे-पीछे, भारत में 1 सेकंड में 50 बार।', list: ['50 बार/सेकंड दिशा बदलती है (50 Hz)', 'उपयोग: पंखे, TV, फ्रिज, वॉशिंग मशीन', 'भारत में 230V — सावधान रहें!', 'लंबी दूरी भेजना आसान'] }
+            en: { title: 'AC — Alternating Current', body: 'AC means electrons constantly reverse direction — back and forth, 50 times per second in India. This is what comes from your wall socket. It travels long distances efficiently.', list: ['Reverses direction 50 times/second (50 Hz in India)', 'Used in: fans, TVs, fridges, washing machines, geysers', '230V in India — powerful, can be dangerous. Always respect it!', 'Power stations transmit AC because it loses less energy over distance'] },
+            hi: { title: 'AC — प्रत्यावर्ती धारा', body: 'AC का मतलब है electrons लगातार दिशा बदलते हैं — भारत में 1 सेकंड में 50 बार। Wall socket से यही आती है।', list: ['50 बार/सेकंड दिशा बदलती है (50 Hz)', 'उपयोग: पंखे, TV, फ्रिज, वॉशिंग मशीन, गीजर', 'भारत में 230V — शक्तिशाली, खतरनाक हो सकती है। सम्मान करें!', 'Power stations AC भेजते हैं क्योंकि लंबी दूरी में कम energy खोती है'] },
+            rw: ['🌀 Ceiling fan: 230V AC', '📺 TV: 230V AC → internal DC converter', '🧊 Fridge: 230V AC compressor motor', '💡 Old bulb: 230V AC (new LEDs convert to DC inside)']
           },
           {
             type: 'fact',
@@ -332,8 +481,9 @@ const MODULES = [
           {
             type: 'learn',
             icon: '🛑',
-            en: { title: 'What does a resistor do?', body: 'A resistor resists (opposes) the flow of current. Think of it as a speed bump on a road — it slows down the traffic (current) without stopping it completely.', list: ['Controls how much current flows', 'Protects other components from too much current', 'Converts electrical energy into heat', 'Measured in Ohms (Ω)'] },
-            hi: { title: 'Resistor क्या करता है?', body: 'एक resistor current के प्रवाह को रोकता है। इसे सड़क पर speed bump की तरह सोचो — यातायात (current) को धीमा करता है, रोकता नहीं।', list: ['Current की मात्रा नियंत्रित करता है', 'दूसरे पुर्जों को ज्यादा current से बचाता है', 'बिजली को गर्मी में बदलता है', 'Ohms (Ω) में मापा जाता है'] }
+            en: { title: 'What does a resistor do?', body: 'A resistor resists (opposes) the flow of current. Think of it as a speed bump on a road — it slows down the traffic (current) without stopping it completely.', list: ['Controls how much current flows through a component', 'Protects sensitive parts (like LEDs) from burning out', 'Converts excess electrical energy into heat (your laptop bottom gets warm)', 'Measured in Ohms (Ω) — values from 1Ω to millions of Ω'] },
+            hi: { title: 'Resistor क्या करता है?', body: 'Resistor current के प्रवाह को रोकता है। सड़क पर speed bump की तरह — यातायात (current) धीमा करता है, रोकता नहीं।', list: ['Components से कितना current जाए — control करता है', 'Sensitive parts (जैसे LEDs) को जलने से बचाता है', 'अतिरिक्त बिजली को गर्मी में बदलता है (laptop का गर्म होना)', 'Ohms (Ω) में मापा जाता है — 1Ω से लाखों Ω तक'] },
+            rw: ['💡 LED circuit: 330Ω stops LED from burning', '🔊 Speaker volume: variable resistor (potentiometer)', '🌡️ Heater element: high resistance → lots of heat', '📻 Radio tuner: resistors set frequency']
           },
           {
             type: 'diagram',

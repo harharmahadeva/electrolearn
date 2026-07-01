@@ -1,5 +1,21 @@
 # ElectroLearn Changelog
 
+## v2.0.0 — 2026-07-01
+
+### Major curriculum redesign — practical focus with animations
+
+- Expanded from 7 to 10 modules: added Safety First, Transistors & ICs, Reading Schematics
+- All modules unlocked (no prerequisite locking)
+- New "What is Electronics?" lesson with animated SVG showing phone/LED/TV/Arduino connections
+- Animated electron-flow circuit diagram in electricity lesson (battery → resistor → LED loop)
+- Animated AC sine wave diagram in DC/AC lesson
+- Real-world ("IN REAL LIFE") callout boxes on learn cards — practical examples (resistors, LEDs, phones, cars)
+- Distinct visual design per card type: learn (orange border), fact (green border), diagram (dark bg + stripes), tryit (orange top), complete (glow + trophy)
+- Card icon pop-in animation on each step
+- KITT scanner fix: animation only runs when visible (not at startup)
+- Glossary expanded to 28 terms (ESD, schematic, transistor, IC, 555, anode, cathode)
+- SW cache bumped to electrolearn-v5
+
 ## v1.1.0 — 2026-06-30
 
 ### UI aligned to Work Ready (Chhaya's app) — all changelog improvements applied
