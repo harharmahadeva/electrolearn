@@ -1,4 +1,4 @@
-const APP_VERSION = '2.0.0';
+const APP_VERSION = '2.1.0';
 
 const T = {
   en: {
@@ -1458,31 +1458,228 @@ const MODULES = [
 ];
 
 const GLOSSARY = [
-  { en: 'Resistor', hi: 'प्रतिरोधक', symbol: 'R', unit: 'Ω', desc_en: 'Limits current flow. Higher resistance = less current.', desc_hi: 'Current सीमित करता है।' },
-  { en: 'Capacitor', hi: 'संधारित्र', symbol: 'C', unit: 'F / µF', desc_en: 'Stores and releases charge quickly.', desc_hi: 'Charge संग्रहीत और तेजी से छोड़ता है।' },
-  { en: 'LED', hi: 'प्रकाश उत्सर्जक डायोड', symbol: 'D', unit: 'V / mA', desc_en: 'Light Emitting Diode — converts electricity to light.', desc_hi: 'बिजली को प्रकाश में बदलता है।' },
-  { en: 'Transistor', hi: 'ट्रांजिस्टर', symbol: 'Q', unit: 'gain (β)', desc_en: 'Amplifies or switches electrical signals.', desc_hi: 'Signal amplify या switch करता है।' },
-  { en: 'Diode', hi: 'डायोड', symbol: 'D', unit: 'V (forward)', desc_en: 'Allows current in one direction only.', desc_hi: 'एक दिशा में ही current जाने देता है।' },
-  { en: 'Inductor', hi: 'प्रेरक', symbol: 'L', unit: 'H (Henry)', desc_en: 'Stores energy in magnetic field. Resists current change.', desc_hi: 'Magnetic field में energy संग्रहीत करता है।' },
-  { en: 'Voltage', hi: 'वोल्टेज / विभव', symbol: 'V', unit: 'V (Volts)', desc_en: 'The electrical pressure / push. Measured in Volts.', desc_hi: 'बिजली का दबाव। Volts में मापा जाता है।' },
-  { en: 'Current', hi: 'धारा', symbol: 'I', unit: 'A (Amperes)', desc_en: 'The flow of electrons. Measured in Amperes.', desc_hi: 'Electrons का प्रवाह। Amperes में मापा जाता है।' },
-  { en: 'Resistance', hi: 'प्रतिरोध', symbol: 'R', unit: 'Ω (Ohms)', desc_en: 'Opposition to current flow. Measured in Ohms.', desc_hi: 'Current के प्रवाह का विरोध। Ohms में मापा जाता है।' },
-  { en: 'Ohm\'s Law', hi: 'ओम का नियम', symbol: 'V=IR', unit: '-', desc_en: 'V = I × R. The fundamental equation of electronics.', desc_hi: 'V = I × R। इलेक्ट्रॉनिक्स का बुनियादी समीकरण।' },
-  { en: 'Breadboard', hi: 'ब्रेडबोर्ड', symbol: '-', unit: '-', desc_en: 'Prototyping board — no soldering needed.', desc_hi: 'Prototyping board — soldering नहीं चाहिए।' },
-  { en: 'PCB', hi: 'मुद्रित परिपथ बोर्ड', symbol: '-', unit: '-', desc_en: 'Printed Circuit Board — permanent circuit base.', desc_hi: 'स्थायी circuit का आधार।' },
-  { en: 'Multimeter', hi: 'मल्टीमीटर', symbol: '-', unit: 'V/A/Ω', desc_en: 'Measures voltage, current, resistance, continuity.', desc_hi: 'Voltage, current, resistance, continuity मापता है।' },
-  { en: 'DC', hi: 'सीधी धारा', symbol: 'DC', unit: '-', desc_en: 'Direct Current — flows in one direction. From batteries.', desc_hi: 'एक दिशा में बहती है। Batteries से।' },
-  { en: 'AC', hi: 'प्रत्यावर्ती धारा', symbol: 'AC', unit: '50Hz', desc_en: 'Alternating Current — reverses direction. From wall sockets.', desc_hi: 'दिशा बदलती रहती है। Wall socket से।' },
-  { en: 'Ground', hi: 'भूमि / ग्राउंड', symbol: 'GND / −', unit: '0V', desc_en: 'The reference point — 0 Volts. Always connect black probe here.', desc_hi: 'Reference point — 0 Volts।' },
-  { en: 'Short circuit', hi: 'शॉर्ट सर्किट', symbol: '-', unit: '-', desc_en: 'Direct unintended connection between + and −. Can cause fire!', desc_hi: 'सीधा अनचाहा + और − का connection। आग लग सकती है!' },
-  { en: 'Open circuit', hi: 'खुला सर्किट', symbol: '-', unit: '-', desc_en: 'A break in the circuit — current cannot flow.', desc_hi: 'Circuit में टूटन — current नहीं बह सकती।' },
-  { en: 'Soldering', hi: 'टांका लगाना', symbol: '-', unit: '-', desc_en: 'Permanently joining components to PCB using molten metal.', desc_hi: 'पिघली धातु से components को PCB पर स्थायी जोड़ना।' },
-  { en: 'Arduino', hi: 'अरदुइनो', symbol: '-', unit: '-', desc_en: 'Beginner-friendly microcontroller board for making projects.', desc_hi: 'Projects बनाने के लिए beginner-friendly microcontroller board।' },
-  { en: 'Transistor (NPN)', hi: 'ट्रांजिस्टर NPN', symbol: 'Q', unit: 'β (gain)', desc_en: 'Base controls Collector-Emitter current. Small signal controls large current.', desc_hi: 'Base, Collector-Emitter current को control करता है।' },
-  { en: 'IC (Integrated Circuit)', hi: 'एकीकृत परिपथ', symbol: 'U / IC', unit: '-', desc_en: 'Many transistors/resistors/capacitors on one silicon chip.', desc_hi: 'एक silicon chip पर कई transistors और resistors।' },
-  { en: '555 Timer', hi: '555 टाइमर', symbol: 'U1', unit: '-', desc_en: 'The most used IC ever. Creates timing pulses, oscillations.', desc_hi: 'सबसे ज्यादा use होने वाली IC। Timing pulses बनाती है।' },
-  { en: 'ESD', hi: 'स्थैतिक विद्युत निर्वहन', symbol: '-', unit: '-', desc_en: 'Electrostatic Discharge — static electricity that can destroy ICs.', desc_hi: 'Static electricity जो ICs को नष्ट कर सकती है।' },
-  { en: 'Schematic', hi: 'सर्किट आरेख', symbol: '-', unit: '-', desc_en: 'Diagram showing electrical connections using standard symbols.', desc_hi: 'Standard symbols से electrical connections दिखाने वाला diagram।' },
-  { en: 'Anode', hi: 'एनोड', symbol: '+', unit: '-', desc_en: 'Positive terminal of a diode/LED. Current enters here.', desc_hi: 'Diode/LED का positive terminal। Current यहाँ enter करती है।' },
-  { en: 'Cathode', hi: 'कैथोड', symbol: '−', unit: '-', desc_en: 'Negative terminal of a diode/LED. Current exits here.', desc_hi: 'Diode/LED का negative terminal। Current यहाँ से exit होती है।' }
+  {
+    en: 'Resistor', hi: 'रेसिस्टर', symbol: 'R', unit: 'Ω (Ohm)',
+    desc_en: 'Limits current flow. Higher resistance = less current through the circuit.',
+    desc_hi: 'Current को कम करता है। जितना ज़्यादा resistance, उतनी कम current।',
+    explain_en: 'Think of a resistor like a narrow section in a water pipe — it slows the flow. In real life: if you connect an LED directly to a battery without a resistor, it burns out instantly. A 330Ω resistor in series protects the LED perfectly.',
+    explain_hi: 'Resistor एक तरह की रुकावट है — जैसे पानी की pipe में कोई तंग मोड़ हो। असली ज़िंदगी में: अगर LED को सीधे battery से लगा दो बिना resistor के, तो LED तुरंत जल जाएगी। इसीलिए 330 Ohm का resistor लगाते हैं — current को कम करता है, LED सुरक्षित रहती है।'
+  },
+  {
+    en: 'Capacitor', hi: 'कैपेसिटर', symbol: 'C', unit: 'µF / pF',
+    desc_en: 'Stores electrical charge and releases it quickly when needed.',
+    desc_hi: 'Charge जमा करता है और ज़रूरत पड़ने पर एकदम से छोड़ता है।',
+    explain_en: 'A capacitor is like a small rechargeable tank — it fills with charge and releases it in a burst. Real life: your phone camera flash uses a capacitor to give that sudden bright flash. Also used in phone chargers to smooth out the voltage.',
+    explain_hi: 'Capacitor एक छोटी tank की तरह है जो charge भरती है और एक झटके में दे देती है। असली ज़िंदगी में: phone की camera flash capacitor की वजह से इतनी तेज़ रोशनी देती है। Charger के अंदर capacitor होता है जो voltage को smooth रखता है।'
+  },
+  {
+    en: 'LED', hi: 'एल.ई.डी.', symbol: 'D', unit: 'V / mA',
+    desc_en: 'Light Emitting Diode — a component that produces light when current flows through it.',
+    desc_hi: 'एक component जो current मिलने पर रोशनी देता है।',
+    explain_en: 'LED stands for Light Emitting Diode. It only works in one direction — connect it backwards and it will not light up. Always use a resistor with it. Real life: phone charging indicator, TV remote\'s red dot, keyboard backlight — all are LEDs.',
+    explain_hi: 'LED का मतलब है Light Emitting Diode — यानी वो component जो current से रोशनी बनाए। इसे हमेशा सही दिशा में लगाओ — उल्टा लगाने पर नहीं जलेगी। साथ में resistor ज़रूरी है। असली ज़िंदगी में: phone की charging light, TV remote की लाल बत्ती, keyboard की backlight — ये सब LED हैं।'
+  },
+  {
+    en: 'Transistor', hi: 'ट्रांजिस्टर', symbol: 'Q', unit: 'gain (β)',
+    desc_en: 'Acts as an electronic switch or amplifier. A tiny signal at the Base controls a larger current.',
+    desc_hi: 'Electronic switch या amplifier की तरह काम करता है। Base पर छोटा signal, बड़ा current control।',
+    explain_en: 'A transistor is like a gate that opens or closes based on a small electrical signal. Real life: your phone processor has billions of transistors — all on a chip smaller than your fingernail. A single transistor can switch on a motor, a relay, or an LED using just a tiny signal from a microcontroller.',
+    explain_hi: 'Transistor एक दरवाज़े की तरह है जो एक छोटे signal से खुलता या बंद होता है। असली ज़िंदगी में: आपके phone के processor में अरबों transistors हैं — नाखून से छोटी chip में। एक transistor से आप motor, relay या LED को control कर सकते हो सिर्फ एक छोटे signal से।'
+  },
+  {
+    en: 'Diode', hi: 'डायोड', symbol: 'D', unit: 'V (forward)',
+    desc_en: 'One-way valve for electricity — current flows in only one direction.',
+    desc_hi: 'बिजली का एकतरफा दरवाज़ा — current सिर्फ एक ही दिशा में जाती है।',
+    explain_en: 'A diode is like a one-way valve — electricity goes in only one direction. Real life: inside every phone charger is a diode that converts AC from the wall socket into DC for your phone. Without it your phone would be destroyed.',
+    explain_hi: 'Diode एकतरफा रास्ते की तरह है — current सिर्फ एक तरफ जाती है। असली ज़िंदगी में: हर phone charger के अंदर diode होता है जो wall socket की AC current को DC में बदलता है। इसके बिना phone जल जाए।'
+  },
+  {
+    en: 'Voltage', hi: 'वोल्टेज', symbol: 'V', unit: 'Volts (V)',
+    desc_en: 'The electrical pressure or push that drives current through a circuit.',
+    desc_hi: 'वह "धक्का" जो current को circuit में चलाता है।',
+    explain_en: 'Voltage is like water pressure — without pressure water does not flow, without voltage current does not flow. Real life: a phone battery gives 3.7V, a household socket gives 220V AC, a USB charger gives 5V DC. Always check voltage before connecting anything.',
+    explain_hi: 'Voltage वह pressure है जो current को circuit में धकेलता है — जैसे पानी को pipe में धकेलने के लिए pressure चाहिए। असली ज़िंदगी में: phone की battery 3.7V देती है, घर का socket 220V देता है, USB charger 5V देता है। कोई भी device connect करने से पहले voltage ज़रूर check करो।'
+  },
+  {
+    en: 'Current', hi: 'करंट', symbol: 'I', unit: 'Amperes (A)',
+    desc_en: 'The actual flow of electrons through a conductor. Measured in Amperes.',
+    desc_hi: 'Electrons का बहना। जितने ज़्यादा electrons, उतनी ज़्यादा current।',
+    explain_en: 'Current is the actual movement of electrons — like water flowing through a pipe. Real life: a phone charger marked "2A" charges faster than a "1A" charger because twice the current flows. Too much current through a component will burn it out.',
+    explain_hi: 'Current मतलब electrons का बहना — जैसे pipe में पानी बहता है। असली ज़िंदगी में: जिस charger पर "2A" लिखा हो वो "1A" charger से दोगुना तेज़ charge करता है क्योंकि दोगुनी current बहती है। किसी component में ज़रूरत से ज़्यादा current जाए तो वो जल जाता है।'
+  },
+  {
+    en: 'Resistance', hi: 'रेसिस्टेंस', symbol: 'R', unit: 'Ohms (Ω)',
+    desc_en: 'The opposition to current flow. Measured in Ohms (Ω).',
+    desc_hi: 'Current के बहने में रुकावट। Ohms में मापते हैं।',
+    explain_en: 'Resistance is how much a material fights against current flowing through it. Real life: thin wire has high resistance, thick copper wire has low resistance. A broken circuit wire shows infinite resistance (OL) on a multimeter — that is how you find a fault.',
+    explain_hi: 'Resistance मतलब कितना रुकावट है current के रास्ते में। पतली तार में ज़्यादा resistance, मोटी copper wire में कम। Multimeter पर "OL" आए तो मतलब resistance infinite है — यानी वहाँ wire टूटी हुई है।'
+  },
+  {
+    en: "Ohm's Law", hi: "ओम का नियम", symbol: 'V = I × R', unit: '-',
+    desc_en: 'V = I × R — the most important formula in electronics. Voltage equals Current times Resistance.',
+    desc_hi: 'V = I × R — electronics की सबसे ज़रूरी formula।',
+    explain_en: 'This one formula solves most problems. If you know any two values, you can find the third. Real life: want to protect an LED with 5V supply? LED needs 2V and 20mA. Resistor = (5−2) ÷ 0.02 = 150 Ohms. Done.',
+    explain_hi: 'यह एक formula ही ज़्यादातर problems solve करती है। तीन में से दो values पता हो तो तीसरी निकाल सकते हो। असली ज़िंदगी में: 5V supply से LED जलानी है, LED चाहिए 2V और 20mA — तो resistor = (5 घटा 2) भाग 0.02 = 150 Ohm। बस।'
+  },
+  {
+    en: 'Breadboard', hi: 'ब्रेडबोर्ड', symbol: '-', unit: '-',
+    desc_en: 'A practice board for building circuits without soldering. Components plug in and out.',
+    desc_hi: 'Practice के लिए board — बिना टांका लगाए circuit बनाओ, बदलो, सीखो।',
+    explain_en: 'A breadboard has hundreds of tiny holes connected in rows. You push components and wires into the holes — no soldering, no glue. Real life: every electronics student or technician uses a breadboard to test a circuit before making it permanent on PCB.',
+    explain_hi: 'Breadboard में सैकड़ों छोटे छेद होते हैं जो अंदर से जुड़े हैं। Components और wire डालो — कोई टांका नहीं, कोई गोंद नहीं। असली ज़िंदगी में: हर electronics student और technician पहले breadboard पर circuit test करता है, फिर PCB पर permanent बनाता है।'
+  },
+  {
+    en: 'PCB', hi: 'पी.सी.बी.', symbol: '-', unit: '-',
+    desc_en: 'Printed Circuit Board — the green board inside every electronic device with components soldered on it.',
+    desc_hi: 'हर electronic device के अंदर का हरा board जिस पर components जुड़े होते हैं।',
+    explain_en: 'A PCB is a board made of fiberglass with copper tracks printed on it — like roads for electricity. Components are soldered onto it permanently. Real life: open any phone, TV remote, washing machine — the green board inside is a PCB.',
+    explain_hi: 'PCB एक fiberglass board है जिस पर copper के रास्ते बने होते हैं — current के लिए roads की तरह। Components इस पर टांके से permanently जुड़े होते हैं। असली ज़िंदगी में: phone, TV remote, washing machine — किसी भी device को खोलो, अंदर जो हरा board दिखेगा वो PCB है।'
+  },
+  {
+    en: 'Multimeter', hi: 'मल्टीमीटर', symbol: '-', unit: 'V / A / Ω',
+    desc_en: 'A technician\'s most important tool — measures voltage, current, resistance, and continuity.',
+    desc_hi: 'Technician का सबसे ज़रूरी tool — voltage, current, resistance, और continuity मापता है।',
+    explain_en: 'A multimeter is the stethoscope of electronics — it tells you what is happening inside a circuit. Real life: battery dead or not? Put multimeter in DC voltage mode, touch probes to battery terminals. 12V = good, below 10V = dead. Continuity mode beeps if a wire is connected properly.',
+    explain_hi: 'Multimeter electronics का stethoscope है — circuit के अंदर क्या हो रहा है बताता है। असली ज़िंदगी में: battery dead है या नहीं? Multimeter को DC voltage पर रखो, probes battery पर लगाओ। 12V आए तो ठीक है, 10V से कम हो तो battery खराब। Continuity mode में beep आए तो wire सही से जुड़ी है।'
+  },
+  {
+    en: 'DC', hi: 'डी.सी. (Direct Current)', symbol: 'DC', unit: '-',
+    desc_en: 'Direct Current — flows in one fixed direction. From batteries and phone chargers.',
+    desc_hi: 'सीधी धारा — हमेशा एक ही दिशा में बहती है। Battery और charger से मिलती है।',
+    explain_en: 'DC is steady — always flows in the same direction, from + to −. All modern electronics (phones, laptops, LEDs) run on DC. Real life: your phone battery gives 3.7V DC, your power bank gives 5V DC through USB.',
+    explain_hi: 'DC हमेशा एक ही दिशा में बहती है — plus से minus की तरफ। सभी modern electronics phone, laptop, LED DC पर चलते हैं। असली ज़िंदगी में: phone की battery 3.7V DC देती है, power bank का USB 5V DC देता है।'
+  },
+  {
+    en: 'AC', hi: 'ए.सी. (Alternating Current)', symbol: 'AC', unit: '220V / 50Hz',
+    desc_en: 'Alternating Current — reverses direction 50 times per second. This is what comes from wall sockets.',
+    desc_hi: 'प्रत्यावर्ती धारा — एक सेकंड में 50 बार दिशा बदलती है। घर के socket से यही आती है।',
+    explain_en: 'AC flips direction 50 times per second (50Hz in India). It is dangerous — 220V AC from a wall socket can kill. Never touch live AC wires. Your phone charger converts 220V AC to 5V DC inside the adapter.',
+    explain_hi: 'AC एक सेकंड में 50 बार दिशा बदलती है — इसे 50 Hertz कहते हैं। यह खतरनाक है — घर का 220V AC जानलेवा हो सकता है। कभी live AC wire मत छुओ। Phone charger के अंदर का circuit 220V AC को 5V DC में बदलता है।'
+  },
+  {
+    en: 'Ground', hi: 'ग्राउंड / अर्थ', symbol: 'GND / −', unit: '0V',
+    desc_en: 'The reference point of a circuit — always 0 Volts. Black probe of multimeter connects here.',
+    desc_hi: 'Circuit का reference point — हमेशा 0 Volt। Multimeter का black probe यहाँ लगता है।',
+    explain_en: 'Ground is the baseline everything is measured from — like sea level for height. Real life: when you use a multimeter, always clip the black wire to GND first. The negative terminal of a battery is ground. On PCBs it is usually marked GND or the minus symbol.',
+    explain_hi: 'Ground circuit का base है — जैसे समुद्र तल से ऊँचाई नापते हैं, वैसे ground से voltage नापते हैं। असली ज़िंदगी में: multimeter use करते वक्त पहले black wire ground पर लगाओ। Battery का negative terminal ही ground है। PCB पर GND या minus का निशान होता है।'
+  },
+  {
+    en: 'Short Circuit', hi: 'शॉर्ट सर्किट', symbol: '-', unit: '-',
+    desc_en: 'When + and − connect directly without any load. Causes extreme heat, sparks, or fire.',
+    desc_hi: 'जब + और − सीधे मिल जाते हैं। बहुत गर्मी, चिंगारी, या आग लग सकती है।',
+    explain_en: 'A short circuit creates a path with almost zero resistance, so massive current flows instantly. Real life: touching a screwdriver across a charged capacitor will spark. A short in a phone battery causes overheating and potential explosion. Always discharge capacitors before working.',
+    explain_hi: 'Short circuit में लगभग zero resistance होता है तो एक झटके में बहुत ज़्यादा current बह जाती है। असली ज़िंदगी में: charged capacitor पर screwdriver लगा दो — चिंगारी निकलेगी। Phone battery में short हो तो overheating और explosion हो सकता है। काम शुरू करने से पहले capacitor discharge ज़रूर करो।'
+  },
+  {
+    en: 'Open Circuit', hi: 'ओपन सर्किट', symbol: '-', unit: '-',
+    desc_en: 'A break in the circuit — current cannot flow. Like a broken wire or lifted component.',
+    desc_hi: 'Circuit में कहीं टूटन — current नहीं बह सकती। जैसे टूटी हुई तार।',
+    explain_en: 'An open circuit is like a broken road — the car (current) cannot pass. Real life: if your LED is not lighting up, it might be an open circuit — check with multimeter continuity mode. A lifted solder joint on a PCB also causes an open circuit.',
+    explain_hi: 'Open circuit टूटे हुए रास्ते की तरह है — current आगे नहीं जा सकती। असली ज़िंदगी में: अगर LED नहीं जल रही, multimeter की continuity mode से check करो — कहाँ तार टूटी है मिल जाएगी। PCB पर उठा हुआ टांका भी open circuit करता है।'
+  },
+  {
+    en: 'Soldering', hi: 'सोल्डरिंग (टांका लगाना)', symbol: '-', unit: '-',
+    desc_en: 'Permanently joining components to a PCB by melting metal solder with a hot iron.',
+    desc_hi: 'गर्म iron से metal पिघलाकर components को PCB पर permanently जोड़ना।',
+    explain_en: 'Soldering is like welding but for small electronics. You heat the iron to 350°C, touch solder wire to the joint — it melts and bonds the component to the board. Real life: every phone repair involves re-soldering a lifted component. A cold solder joint (dull, grey) causes intermittent faults.',
+    explain_hi: 'Soldering छोटे electronics के लिए welding की तरह है। Iron को 350 degree तक गर्म करो, solder wire joint पर लगाओ — पिघलेगा और component board पर जुड़ जाएगा। असली ज़िंदगी में: phone repair में अक्सर उठे हुए component को फिर से solder करना पड़ता है। फीका और धूसर टांका "cold joint" होता है और intermittent fault देता है।'
+  },
+  {
+    en: 'Fuse', hi: 'फ्यूज़', symbol: 'F', unit: 'A (Amperes)',
+    desc_en: 'A safety component that breaks the circuit if too much current flows — protecting everything else.',
+    desc_hi: 'Safety component — ज़्यादा current बहे तो circuit तोड़ देता है।',
+    explain_en: 'A fuse is the sacrifice piece — if something goes wrong and too much current flows, the fuse wire melts and breaks the circuit before anything expensive gets damaged. Real life: your home has main fuses. Electronics have tiny glass or SMD fuses on PCBs. Always replace a fuse with the same rating.',
+    explain_hi: 'Fuse वो component है जो खुद जलकर बाकी सब बचाता है। अगर circuit में कोई गड़बड़ हो और ज़्यादा current बहे, fuse की wire पिघल जाती है और circuit टूट जाता है। असली ज़िंदगी में: घर में main fuse होता है। Electronics में PCB पर छोटे glass या SMD fuse होते हैं। हमेशा same rating का fuse ही लगाओ।'
+  },
+  {
+    en: 'Relay', hi: 'रिले', symbol: 'K', unit: '-',
+    desc_en: 'An electrically-controlled switch — a small signal switches a large current on or off.',
+    desc_hi: 'बिजली से चलने वाला switch — छोटा signal बड़ी current को on/off करता है।',
+    explain_en: 'A relay uses an electromagnet to physically move a switch. When you send 5V to a relay coil, it clicks and switches on 220V AC for a motor or heater. Real life: home automation, automatic water pumps, car central locking — all use relays. Safe way to control high-voltage loads from a microcontroller.',
+    explain_hi: 'Relay में एक electromagnet होता है जो एक switch को physically हिलाता है। 5V देने पर relay click करती है और 220V का motor या heater on हो जाता है। असली ज़िंदगी में: home automation, automatic water pump, car central locking — सब में relay होती है। Microcontroller से safely high voltage control करने का यही तरीका है।'
+  },
+  {
+    en: 'Voltage Regulator', hi: 'वोल्टेज रेगुलेटर', symbol: 'VR', unit: 'V',
+    desc_en: 'Keeps voltage steady and constant regardless of load or input fluctuations.',
+    desc_hi: 'Voltage को stable रखता है — चाहे load कुछ भी हो।',
+    explain_en: 'A voltage regulator is like a pressure valve — even if input voltage changes, output stays fixed. Real life: 7805 is a common IC that always outputs exactly 5V, even if input is 9V or 12V. Used to protect sensitive circuits from voltage spikes in cheap power supplies.',
+    explain_hi: 'Voltage regulator एक pressure valve की तरह है — input voltage बदले तो भी output fixed रहती है। असली ज़िंदगी में: 7805 एक famous IC है जो हमेशा exactly 5V देती है, चाहे input 9V हो या 12V। Sensitive circuits को voltage spikes से बचाने के लिए use होता है।'
+  },
+  {
+    en: 'IC (Integrated Circuit)', hi: 'आई.सी. (Integrated Circuit)', symbol: 'U', unit: '-',
+    desc_en: 'A tiny chip containing thousands of transistors, resistors, and capacitors all on one piece of silicon.',
+    desc_hi: 'एक छोटी chip जिसमें हज़ारों components एक साथ हैं।',
+    explain_en: 'An IC packs an entire circuit onto a chip smaller than your thumbnail. Real life: the processor inside your phone is an IC with billions of transistors. A simple 555 timer IC has only 25 components inside but does the job of a full circuit board of discrete components.',
+    explain_hi: 'IC एक छोटी chip में पूरा circuit समेट देती है। असली ज़िंदगी में: phone का processor एक IC है जिसमें अरबों transistors हैं। एक simple 555 timer IC में सिर्फ 25 components हैं लेकिन वो काम करती है जो पूरा circuit board करता था।'
+  },
+  {
+    en: '555 Timer IC', hi: '555 टाइमर आई.सी.', symbol: 'U1', unit: '-',
+    desc_en: 'The most popular IC ever made. Creates timing signals, blinking effects, and oscillations.',
+    desc_hi: 'सबसे ज़्यादा बिकने वाली IC। Blinking, timing, और oscillation के लिए।',
+    explain_en: 'The 555 timer is the first IC every electronics student learns. It has 8 pins and can be wired in two modes: Monostable (one pulse) or Astable (continuous blinking). Real life: build a blinking LED alarm, a metronome, a door buzzer — all with just a 555 timer, a capacitor, and two resistors.',
+    explain_hi: '555 timer वो पहली IC है जो हर electronics student सीखता है। इसके 8 pins हैं और दो तरीके से काम करती है: एक pulse देना, या लगातार blink करना। असली ज़िंदगी में: blinking LED alarm, door buzzer, metronome — सब 555 timer, एक capacitor और दो resistor से बन जाते हैं।'
+  },
+  {
+    en: 'Transistor (NPN)', hi: 'NPN ट्रांजिस्टर', symbol: 'Q', unit: 'β (gain)',
+    desc_en: 'A 3-pin transistor: Base, Collector, Emitter. Small Base current switches large Collector current.',
+    desc_hi: '3 legs वाला transistor। Base पर थोड़ा signal दो — बड़ी current on/off।',
+    explain_en: 'NPN transistor has three legs: Base (B), Collector (C), Emitter (E). Apply a small signal to the Base and a large current flows from Collector to Emitter. Real life: BC547 is a common NPN — plug it into a breadboard, connect a small signal to Base, and it can switch on an LED, a motor, or a buzzer.',
+    explain_hi: 'NPN transistor की तीन legs होती हैं: Base, Collector, Emitter। Base पर थोड़ा signal दो — Collector से Emitter तक बड़ी current बहती है। असली ज़िंदगी में: BC547 एक common NPN है — breadboard पर लगाओ, Base पर signal दो, LED या motor on हो जाएगी।'
+  },
+  {
+    en: 'ESD', hi: 'ई.एस.डी. (Static Electricity)', symbol: '-', unit: '-',
+    desc_en: 'Electrostatic Discharge — the hidden zap of static electricity that can silently destroy ICs.',
+    desc_hi: 'Static electricity का झटका — ICs को बिना बताए damage कर सकता है।',
+    explain_en: 'ESD is the invisible enemy of electronics. Even touching an IC can transfer static from your body and damage it permanently — without any visible spark or burn. Real life: always wear an anti-static wrist band when repairing phones or handling bare PCBs. Touch a grounded metal surface before picking up any IC.',
+    explain_hi: 'ESD electronics का अदृश्य दुश्मन है। आपके शरीर की static electricity IC को touch करते ही permanently damage कर सकती है — बिना कोई चिंगारी या जलन दिखे। असली ज़िंदगी में: phone repair करते वक्त हमेशा anti-static wrist band पहनो। कोई भी IC उठाने से पहले grounded metal surface छुओ।'
+  },
+  {
+    en: 'Schematic', hi: 'स्कीमैटिक (सर्किट डायग्राम)', symbol: '-', unit: '-',
+    desc_en: 'A map of a circuit using standard symbols — shows how every component is connected.',
+    desc_hi: 'Circuit का नक्शा — standard symbols से दिखाता है कि क्या किससे जुड़ा है।',
+    explain_en: 'A schematic is the blueprint of a circuit. Every component has a standard symbol. Real life: when a technician repairs a TV or phone, they look at the service schematic to trace the fault. Learning to read a schematic is like learning to read a map — once you know the symbols, any circuit becomes clear.',
+    explain_hi: 'Schematic circuit का blueprint है। हर component का एक standard symbol होता है। असली ज़िंदगी में: TV या phone repair करते वक्त technician service schematic देखकर fault ढूंढता है। Schematic पढ़ना सीखना नक्शा पढ़ना सीखने जैसा है — symbols पता हों तो कोई भी circuit समझ में आ जाए।'
+  },
+  {
+    en: 'Anode', hi: 'एनोड (+)', symbol: '+', unit: '-',
+    desc_en: 'The positive terminal of a diode or LED. Current enters here. Longer leg on an LED.',
+    desc_hi: 'Diode या LED का plus (+) वाला सिरा। Current यहाँ से अंदर जाती है। LED की लंबी leg।',
+    explain_en: 'Anode is the positive side — connect it to the + supply. Real life: when inserting an LED, the longer leg is the Anode (positive). If your LED is not lighting up, you may have it backwards — swap the legs.',
+    explain_hi: 'Anode plus वाला हिस्सा है — इसे + supply से जोड़ो। असली ज़िंदगी में: LED लगाते वक्त लंबी leg Anode होती है जो + से जुड़ती है। LED नहीं जल रही? शायद उल्टी लगी है — legs बदलकर लगाओ।'
+  },
+  {
+    en: 'Cathode', hi: 'कैथोड (−)', symbol: '−', unit: '-',
+    desc_en: 'The negative terminal of a diode or LED. Current exits here. Shorter leg on an LED.',
+    desc_hi: 'Diode या LED का minus (−) वाला सिरा। Current यहाँ से बाहर जाती है। LED की छोटी leg।',
+    explain_en: 'Cathode is the negative side — connect it to GND. Real life: the shorter leg of an LED is the Cathode. Also, the flat side on the bottom rim of an LED body marks the Cathode.',
+    explain_hi: 'Cathode minus वाला हिस्सा है — इसे GND से जोड़ो। असली ज़िंदगी में: LED की छोटी leg Cathode है। LED की body पर नीचे एक flat cut होती है — वो Cathode side है।'
+  },
+  {
+    en: 'Watt (Power)', hi: 'वाट (पावर)', symbol: 'P', unit: 'Watts (W)',
+    desc_en: 'Electrical power = Voltage × Current. How much energy a device uses per second.',
+    desc_hi: 'बिजली की ताकत = Voltage × Current। Device एक second में कितनी energy use करता है।',
+    explain_en: 'Watts = Volts × Amps. Real life: a 5W phone charger puts out 5V at 1A. A fast charger is 18W (9V × 2A). A 100W light bulb uses much more power than a 10W LED bulb that gives the same brightness. Lower watts = less electricity bill.',
+    explain_hi: 'Watts = Volts गुणा Amps। असली ज़िंदगी में: 5W charger मतलब 5V पर 1A। Fast charger 18W होता है मतलब 9V पर 2A। 100W bulb और 10W LED bulb बराबर रोशनी देते हैं — लेकिन LED का बिजली बिल 10 गुना कम आता है।'
+  },
+  {
+    en: 'Frequency', hi: 'फ्रीक्वेंसी (आवृत्ति)', symbol: 'f', unit: 'Hz (Hertz)',
+    desc_en: 'How many times a signal repeats per second. AC in India = 50Hz.',
+    desc_hi: 'Signal एक second में कितनी बार repeat होता है। भारत में AC = 50Hz।',
+    explain_en: 'Frequency tells you how fast a signal cycles. Real life: India\'s AC power is 50Hz — it flips direction 50 times every second. Phone processors run at 2-3 GHz = 2-3 billion cycles per second. Radio stations broadcast at specific MHz frequencies.',
+    explain_hi: 'Frequency बताती है signal एक second में कितनी बार बदलता है। असली ज़िंदगी में: India की AC power 50Hz है — एक second में 50 बार दिशा बदलती है। Phone processor 2-3 GHz पर चलता है मतलब एक second में 2-3 अरब cycles। Radio stations specific MHz frequency पर broadcast करते हैं।'
+  },
+  {
+    en: 'Inductor', hi: 'इंडक्टर (कॉइल)', symbol: 'L', unit: 'Henry (H)',
+    desc_en: 'A coil of wire that stores energy in a magnetic field. Resists sudden changes in current.',
+    desc_hi: 'Wire की coil जो magnetic field में energy जमा करती है।',
+    explain_en: 'An inductor is just a coil of wire, but it creates a magnetic field when current flows. It resists sudden changes in current. Real life: phone charger adapters and power supplies use inductors to smooth out ripples in DC output. Also used in filters to block high-frequency noise.',
+    explain_hi: 'Inductor बस wire की एक coil है लेकिन जब current बहती है तो magnetic field बनाती है। Current अचानक बदलने पर resist करती है। असली ज़िंदगी में: phone charger और power supply में inductor होता है जो DC output को smooth रखता है। High-frequency noise को filter करने में भी use होता है।'
+  },
+  {
+    en: 'Arduino', hi: 'अरदुइनो', symbol: '-', unit: '-',
+    desc_en: 'A beginner-friendly microcontroller board that you can program to control LEDs, motors, sensors.',
+    desc_hi: 'एक programmable board जिससे LEDs, motors, sensors सब control कर सकते हो।',
+    explain_en: 'Arduino is like a small computer you can program. Write simple code, upload it, and the board does what you programmed — blink an LED, read a sensor, control a motor. Real life: traffic light projects, automatic plant watering, door alarm, line-following robot — all can be made with Arduino as a beginner.',
+    explain_hi: 'Arduino एक छोटा computer है जिसे आप program कर सकते हो। Simple code लिखो, upload करो — board वही करेगा जो tune किया। असली ज़िंदगी में: traffic light project, automatic pani wali machine, door alarm, line following robot — beginner भी Arduino से ये सब बना सकता है।'
+  }
 ];

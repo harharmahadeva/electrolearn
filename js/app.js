@@ -569,25 +569,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const filtered = GLOSSARY.filter(g =>
       g.en.toLowerCase().includes(search) ||
       g.hi.includes(search) ||
-      g.desc_en.toLowerCase().includes(search)
+      g.desc_en.toLowerCase().includes(search) ||
+      (g.explain_en && g.explain_en.toLowerCase().includes(search))
     );
     if (!filtered.length) {
       list.innerHTML = `<div style="color:var(--text2);text-align:center;padding:24px">${lang === 'hi' ? 'कोई परिणाम नहीं' : 'No results'}</div>`;
       return;
     }
-    filtered.forEach(g => {
+    filtered.forEach((g, idx) => {
       const item = document.createElement('div');
       item.className = 'glossary-item';
+      const isHindi = lang === 'hi';
+      const desc = isHindi ? g.desc_hi : g.desc_en;
+      const explain = isHindi ? g.explain_hi : g.explain_en;
+      const speakText = isHindi
+        ? `${g.hi}। ${g.desc_hi}। ${g.explain_hi || ''}`
+        : `${g.en}. ${g.desc_en}. ${g.explain_en || ''}`;
+
       item.innerHTML = `
         <div class="gi-head">
           <div class="gi-en">${g.en}</div>
-          <div class="gi-symbol">${g.symbol}</div>
+          <div class="gi-head-right">
+            ${g.symbol !== '-' ? `<div class="gi-symbol">${g.symbol}</div>` : ''}
+            <button class="gi-audio-btn" data-idx="${idx}" title="Listen">🔊</button>
+          </div>
         </div>
         <div class="gi-hi">${g.hi}</div>
-        <div class="gi-unit">${g.unit}</div>
-        <div class="gi-desc">${lang === 'hi' ? g.desc_hi : g.desc_en}</div>
+        ${g.unit !== '-' ? `<div class="gi-unit">Unit: ${g.unit}</div>` : ''}
+        <div class="gi-desc">${desc}</div>
+        ${explain ? `
+        <div class="gi-expand-toggle" data-idx="${idx}">
+          <span class="gi-toggle-label">${isHindi ? '📖 सरल भाषा में समझो' : '📖 Simple explanation'}</span>
+          <span class="gi-toggle-arrow">▾</span>
+        </div>
+        <div class="gi-explain hidden" id="gi-explain-${idx}">${explain}</div>
+        ` : ''}
       `;
       list.appendChild(item);
+
+      // audio button
+      item.querySelector('.gi-audio-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        TTS.speak(speakText, { lang: isHindi ? 'hi-IN' : 'en-US' });
+      });
+
+      // expand toggle
+      const toggle = item.querySelector('.gi-expand-toggle');
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const exp = document.getElementById(`gi-explain-${idx}`);
+          const arrow = toggle.querySelector('.gi-toggle-arrow');
+          exp.classList.toggle('hidden');
+          arrow.textContent = exp.classList.contains('hidden') ? '▾' : '▴';
+        });
+      }
     });
   }
 

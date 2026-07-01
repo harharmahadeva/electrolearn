@@ -54,10 +54,10 @@ const TTS = (() => {
     const utter = new SpeechSynthesisUtterance(text);
     utter.lang = utterLang;
 
-    // Soft, warm settings — slower rate, slightly lower pitch, gentle volume
-    utter.rate   = options.rate   ?? (isHindi ? 0.82 : 0.86);
-    utter.pitch  = options.pitch  ?? (isHindi ? 0.94 : 0.90);
-    utter.volume = options.volume ?? 0.90;
+    // Clear, calm settings — slow enough for non-native / lower-literacy listeners
+    utter.rate   = options.rate   ?? (isHindi ? 0.78 : 0.82);
+    utter.pitch  = options.pitch  ?? (isHindi ? 0.92 : 0.88);
+    utter.volume = options.volume ?? 0.88;
 
     // Voice selection — try immediately, then retry after voiceschanged if empty
     const trySetVoice = () => {

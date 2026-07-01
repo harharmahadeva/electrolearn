@@ -1,5 +1,17 @@
 # ElectroLearn Changelog
 
+## v2.1.0 — 2026-07-01
+
+### Accessible glossary — audio + Hindi trainer explanations
+
+- 🔊 Audio button on every glossary item — reads term + full explanation aloud
+- "Simple explanation" expandable panel on every item (English & Hindi)
+- Hindi explanations rewritten as proper trainer-style Hindi (not literal translation) — the way a mobile repair instructor would explain to apprentices, mixing common English tech words naturally
+- Glossary expanded from 27 to 32 terms — added Fuse, Relay, Voltage Regulator, Watt/Power, Frequency
+- Search now also matches explanation text
+- TTS rate slowed (Hindi 0.78, English 0.82) and pitch softened for lower-literacy listeners
+- SW cache bumped to electrolearn-v6
+
 ## v2.0.0 — 2026-07-01
 
 ### Major curriculum redesign — practical focus with animations

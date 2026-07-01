@@ -1,4 +1,4 @@
-const CACHE = 'electrolearn-v5';
+const CACHE = 'electrolearn-v6';
 const ASSETS = ['/', '/index.html', '/css/style.css', '/js/app.js', '/js/lessons.js', '/js/storage.js', '/js/tts.js', '/data/users.json', '/manifest.json'];
 
 self.addEventListener('install', e => {
