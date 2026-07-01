@@ -1,4 +1,4 @@
-const APP_VERSION = '2.1.0';
+const APP_VERSION = '2.2.0';
 
 const T = {
   en: {
@@ -12,7 +12,7 @@ const T = {
     xpLabel: 'XP',
     streakLabel: 'day streak',
     lessonsLabel: 'lessons done',
-    next: 'Next →', back: '‹ Back', finish: 'Finish Lesson',
+    next: 'Next', back: 'Back', finish: 'Finish Lesson',
     tryAgain: 'Try Again', gotIt: 'Got it!',
     correct: '✓ Correct!', wrong: '✗ Not quite',
     quizLabel: 'Quick Check',
@@ -40,7 +40,7 @@ const T = {
     xpLabel: 'XP',
     streakLabel: 'दिन की लकीर',
     lessonsLabel: 'पाठ पूरे',
-    next: 'आगे →', back: '‹ वापस', finish: 'पाठ पूरा करें',
+    next: 'आगे', back: 'वापस', finish: 'पाठ पूरा करें',
     tryAgain: 'फिर कोशिश करें', gotIt: 'समझ गया!',
     correct: '✓ सही!', wrong: '✗ फिर सोचो',
     quizLabel: 'जल्दी जाँच',

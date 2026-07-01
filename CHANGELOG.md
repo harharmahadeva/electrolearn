@@ -1,5 +1,22 @@
 # ElectroLearn Changelog
 
+## v2.2.0 — 2026-07-01
+
+### Full UI redesign — cards, module grid, lesson nav
+
+- Lesson header now centered (3-column grid: back btn | centered title | spacer), larger fonts
+- All step cards redesigned: orange gradient top band, centered icon in a circle, centered title — no more flat left-border look
+- Spark card: top band + header row with avatar and "SPARK" label
+- Fact card: green top band, cleaned inner layout
+- Diagram card: top band variant
+- Tryit card: orange top band, centered title
+- "Hear again" button centered on all card types
+- Module home cards: centered icon in colored circle, vertical layout, color-matched icon background
+- Back/Next buttons: removed "‹" and "→" symbols, clean text only
+- Back/Next nav now fixed above bottom-nav (no more overlap), proper spacing
+- KITT scanner moved higher so it never overlaps lesson nav buttons
+- Lesson body bottom padding adjusted for fixed nav layers
+
 ## v2.1.0 — 2026-07-01
 
 ### Accessible glossary — audio + Hindi trainer explanations

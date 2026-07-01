@@ -214,18 +214,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const card = document.createElement('div');
       card.className = 'module-card';
-      card.style.borderTop = `3px solid ${mod.color}`;
+      card.style.borderTop = `4px solid ${mod.color}`;
       card.innerHTML = `
-        <div class="mc-row1">
-          <div class="mc-icon">${mod.icon}</div>
-          <div class="mc-info">
-            <div class="mc-name">${name}</div>
-            <div class="mc-phase">${phase}</div>
-          </div>
+        <div class="mc-body">
+          <div class="mc-icon-wrap" style="background:${mod.color}1a;border-color:${mod.color}44">${mod.icon}</div>
+          <div class="mc-name">${name}</div>
+          <div class="mc-phase">${phase}</div>
         </div>
-        <div class="mc-bottom">
-          <div class="mc-count">${done}/${total}</div>
-          <div class="mc-bar"><div class="mc-fill" style="width:${pct*100}%;background:${mod.color}"></div></div>
+        <div class="mc-footer">
+          <div class="mc-bottom">
+            <div class="mc-count">${done}/${total}</div>
+            <div class="mc-bar"><div class="mc-fill" style="width:${pct*100}%;background:${mod.color}"></div></div>
+          </div>
         </div>
         ${allDone ? '<div class="mc-done-badge">✓ Done</div>' : ''}
       `;
@@ -366,11 +366,17 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'spark': {
         wrap.innerHTML = `
           <div class="spark-card">
-            <div class="spark-msg-avatar">⚡</div>
-            <div class="spark-msg-body">
-              <div class="spark-name">Spark</div>
-              <p>${s.text}</p>
-              ${stepText ? `<button class="play-btn" data-text="${escAttr(stepText)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button>` : ''}
+            <div class="spark-card-inner">
+              <div class="spark-msg-header">
+                <div class="spark-msg-avatar">⚡</div>
+                <div class="spark-msg-body">
+                  <div class="spark-name">Spark</div>
+                </div>
+              </div>
+              <div class="spark-msg-body">
+                <p>${s.text}</p>
+              </div>
+              ${stepText ? `<div class="play-btn-wrap"><button class="play-btn" data-text="${escAttr(stepText)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button></div>` : ''}
             </div>
           </div>`;
         break;
@@ -387,12 +393,14 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>` : '';
         wrap.innerHTML = `
           <div class="card">
-            <span class="card-icon">${step.icon || '📖'}</span>
-            <h3>${s.title}</h3>
-            <p>${s.body}</p>
-            ${listHtml}
-            ${rwHtml}
-            <button class="play-btn mt-8" data-text="${escAttr(fullText)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button>
+            <div class="card-inner">
+              <div class="card-icon-wrap"><span class="card-icon">${step.icon || '📖'}</span></div>
+              <h3>${s.title}</h3>
+              <p>${s.body}</p>
+              ${listHtml}
+              ${rwHtml}
+              <div class="play-btn-wrap" style="margin-top:14px"><button class="play-btn" data-text="${escAttr(fullText)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button></div>
+            </div>
           </div>`;
         break;
       }
@@ -400,8 +408,10 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'diagram': {
         wrap.innerHTML = `
           <div class="diagram-card">
-            <div class="diagram-label">${step.label || t('diagramLabel')}</div>
-            <div class="diagram-svg">${step.svg}</div>
+            <div class="diagram-inner">
+              <div class="diagram-label">${step.label || t('diagramLabel')}</div>
+              <div class="diagram-svg">${step.svg}</div>
+            </div>
           </div>`;
         break;
       }
@@ -424,9 +434,11 @@ document.addEventListener('DOMContentLoaded', () => {
       case 'fact': {
         wrap.innerHTML = `
           <div class="fact-card">
-            <div class="fact-label">💡 ${t('factLabel')}</div>
-            <div class="fact-text">${s.text}</div>
-            <button class="play-btn" style="margin-top:10px" data-text="${escAttr(s.text)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button>
+            <div class="fact-inner">
+              <div class="fact-label">💡 ${t('factLabel')}</div>
+              <div class="fact-text">${s.text}</div>
+              <div class="play-btn-wrap" style="margin-top:12px"><button class="play-btn" data-text="${escAttr(s.text)}">🔊 ${lang === 'hi' ? 'फिर सुनें' : 'Hear again'}</button></div>
+            </div>
           </div>`;
         break;
       }
@@ -468,9 +480,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const steps = s.steps || step.en?.steps || [];
         wrap.innerHTML = `
           <div class="tryit-card">
-            <div class="tryit-label">🔧 ${t('tryitLabel')}</div>
-            <div class="tryit-title">${s.title}</div>
-            ${steps.map((st, i) => `<div class="tryit-step"><span class="tryit-num">${i+1}</span>${st}</div>`).join('')}
+            <div class="tryit-inner">
+              <div class="tryit-label">🔧 ${t('tryitLabel')}</div>
+              <div class="tryit-title">${s.title}</div>
+              ${steps.map((st, i) => `<div class="tryit-step"><span class="tryit-num">${i+1}</span>${st}</div>`).join('')}
+            </div>
           </div>`;
         break;
       }
@@ -519,7 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (currentLessonIdx < currentMod.lessons.length - 1) {
         const nextBtn = document.createElement('button');
         nextBtn.className = 'btn btn-green';
-        nextBtn.textContent = lang === 'hi' ? 'अगला पाठ →' : 'Next lesson →';
+        nextBtn.textContent = lang === 'hi' ? 'अगला पाठ' : 'Next Lesson';
         nextBtn.onclick = () => {
           Storage.setLessonDone(currentMod.id, currentLessonIdx);
           Storage.addXP(step.xp || 0);
