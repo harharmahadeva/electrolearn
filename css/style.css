@@ -49,7 +49,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sa
 .spark-speaking.show { opacity: 1; }
 .kitt-wrap { display: flex; align-items: center; justify-content: center; }
 .kitt-track { height: 14px; border-radius: 8px; background: #1a0000; border: 1px solid #3d0000; position: relative; overflow: hidden; width: 160px; }
-.kitt-eye { position: absolute; top: 0; left: 0; width: 36px; height: 100%; background: radial-gradient(ellipse at center, #ff6666 0%, #cc0000 45%, transparent 80%); animation: kitt-scan 0.9s cubic-bezier(0.45,0,0.55,1) infinite alternate; }
+.kitt-eye { position: absolute; top: 0; left: 0; width: 36px; height: 100%; background: radial-gradient(ellipse at center, #ff6666 0%, #cc0000 45%, transparent 80%); animation: none; }
+.spark-speaking.show .kitt-eye { animation: kitt-scan 0.9s cubic-bezier(0.45,0,0.55,1) infinite alternate; }
 @keyframes kitt-scan { from { left: 0; } to { left: calc(100% - 36px); } }
 
 /* ══════════════ LOGIN ══════════════ */

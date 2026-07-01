@@ -1,4 +1,4 @@
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '2.0.0';
 
 const T = {
   en: {
@@ -31,7 +31,7 @@ const T = {
   },
   hi: {
     appName: 'ElectroLearn',
-    tagline: 'बिजली सीखो, शुरू से',
+    tagline: 'इलेक्ट्रॉनिक्स सीखो, शुरू से',
     pinLabel: 'अपना PIN डालें',
     pinError: 'गलत PIN — दोबारा कोशिश करें',
     home: 'होम', spark: 'स्पार्क', glossary: 'शब्दकोश',
@@ -227,7 +227,91 @@ const MODULES = [
   },
 
   // ══════════════════════════════════════════════════════
-  //  2. ESSENTIAL COMPONENTS
+  //  2. SAFETY FIRST
+  // ══════════════════════════════════════════════════════
+  {
+    id: 'safety',
+    icon: '⚠️',
+    color: '#ef4444',
+    en: { name: 'Safety First', phase: 'Foundation' },
+    hi: { name: 'पहले सुरक्षा', phase: 'बुनियाद' },
+    lessons: [
+      {
+        en: { title: 'Electrical safety — what can hurt you', time: '5 min' },
+        hi: { title: 'बिजली की सुरक्षा — क्या नुकसान कर सकता है', time: '5 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Before we touch anything, we need to talk about safety. Electronics is a very safe hobby — if you follow the rules. The rules are simple. Ignore them and electricity can seriously hurt you. Let me teach you the rules." },
+            hi: { text: "कुछ भी छूने से पहले, हमें सुरक्षा के बारे में बात करनी है। Electronics एक बहुत सुरक्षित शौक है — अगर आप नियमों का पालन करें। नियम सरल हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'What actually hurts you', body: 'It is not voltage that kills — it is CURRENT through your body. Your heart muscle runs on tiny electrical signals, and external current can disrupt it.', list: ['1mA = just noticeable tingle', '10mA = painful, can\'t let go', '100mA = potentially fatal (less than a phone charger draws!)', 'Household AC (230V) is very dangerous — never experiment with it', 'DC below 50V is generally safe for electronics hobbyists'] },
+            hi: { title: 'असल में क्या नुकसान करता है', body: 'आपको voltage नहीं मारता — शरीर से गुजरने वाला CURRENT मारता है। आपका दिल छोटे electrical signals से चलता है, बाहरी current उसे बिगाड़ सकता है।', list: ['1mA = हल्की सनसनी', '10mA = दर्दनाक, हाथ नहीं छूट पाता', '100mA = जानलेवा हो सकता है', 'घर का AC (230V) — बहुत खतरनाक, कभी experiment न करें', '50V से कम DC — hobbyists के लिए generally सुरक्षित'] }
+          },
+          {
+            type: 'learn',
+            icon: '🔒',
+            en: { title: 'The golden safety rules', body: 'Follow these always — no exceptions.', list: ['NEVER work on live AC circuits (wall socket power)', 'Always work with batteries or low-voltage DC (under 50V)', 'One hand in pocket when near any live circuit — breaks the path through your heart', 'Discharge capacitors before touching — they can hold charge even when unplugged', 'Never bypass fuses — they exist to protect you'] },
+            hi: { title: 'सुरक्षा के सुनहरे नियम', body: 'इन्हें हमेशा follow करें — कोई अपवाद नहीं।', list: ['AC circuits पर कभी काम न करें (wall socket power)', 'हमेशा batteries या low-voltage DC से काम करें (50V से कम)', 'किसी भी live circuit के पास एक हाथ जेब में — दिल से रास्ता तोड़ता है', 'Capacitors को छूने से पहले discharge करें', 'Fuses को कभी bypass न करें'] }
+          },
+          {
+            type: 'fact',
+            en: { text: "A 9V battery can push enough current to cause a painful shock if you short it across wet skin. The same 9V powering your LED project is perfectly safe when used correctly. Context matters!" },
+            hi: { text: "9V battery गीली त्वचा पर short होने पर दर्दनाक shock दे सकती है। वही 9V आपके LED project में बिल्कुल सुरक्षित है। संदर्भ मायने रखता है!" }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'What is the dangerous thing about electricity — voltage or current?', options: ['Voltage alone kills', 'Current through the body is what causes injury', 'Both are equally dangerous always', 'Neither is dangerous under 100V'], correct: 1, feedback: 'Current through your body causes injury. Even low voltages can drive lethal current if resistance is low (wet hands, skin breaks). That\'s why 230V AC is so dangerous.' },
+            hi: { question: 'बिजली में खतरनाक क्या है — voltage या current?', options: ['Voltage अकेले मारता है', 'शरीर से गुजरने वाला current नुकसान करता है', 'दोनों हमेशा समान रूप से खतरनाक हैं', '100V से कम कुछ भी खतरनाक नहीं'], correct: 1, feedback: 'शरीर से गुजरने वाला current नुकसान करता है। कम voltage भी जानलेवा current drive कर सकता है अगर resistance कम हो।' }
+          },
+          {
+            type: 'complete', xp: 20,
+            en: { msg: "Safety covered! The rules are simple: stay below 50V DC, never touch AC mains, one hand in pocket near live circuits. With these habits, electronics is completely safe and endlessly fun." },
+            hi: { msg: "सुरक्षा cover हो गई! नियम सरल हैं: 50V DC से नीचे रहें, AC mains को कभी न छुएं। इन आदतों के साथ electronics पूरी तरह सुरक्षित है।" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Static electricity — the invisible enemy', time: '4 min' },
+        hi: { title: 'Static electricity — अदृश्य दुश्मन', time: '4 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "You've felt static — the little zap when you touch a door handle after walking on carpet. That tiny zap? It can destroy a microchip instantly. One touch and a chip worth hundreds of rupees becomes worthless. Let me show you how to prevent this." },
+            hi: { text: "आपने static feel किया है — carpet पर चलने के बाद door handle छूने पर छोटी सी zap। वो छोटी सी zap? एक microchip को तुरंत बर्बाद कर सकती है।" }
+          },
+          {
+            type: 'learn',
+            icon: '⚡',
+            en: { title: 'ESD — Electrostatic Discharge', body: 'When you walk around, your body builds up static charge. Touching a sensitive component discharges it through the chip — often destroying it silently.', list: ['You can\'t feel static below 3,000V — but chips die at 100V!', 'Symptoms: component works at first, fails later (latent damage)', 'Worst conditions: low humidity, synthetic clothing, carpet floors', 'Microcontrollers, ICs, MOSFETs — all very ESD-sensitive'] },
+            hi: { title: 'ESD — Electrostatic Discharge', body: 'चलते समय शरीर पर static charge बनता है। Sensitive component छूने पर वो chip से discharge होता है — अक्सर खामोशी से नष्ट करता है।', list: ['3,000V से कम static feel नहीं होता — पर chips 100V पर मर जाते हैं!', 'Symptoms: पहले काम करता है, बाद में fail', 'खराब conditions: कम humidity, synthetic कपड़े, carpet', 'Microcontrollers, ICs, MOSFETs — ESD के प्रति बहुत sensitive'] }
+          },
+          {
+            type: 'learn',
+            icon: '🛡️',
+            en: { title: 'How to prevent ESD damage', body: 'Simple habits protect your components completely.', list: ['Touch a metal object (or grounded surface) before handling ICs', 'Work on a wooden or anti-static mat — not carpet', 'Store ICs in the anti-static foam they come with', 'Anti-static wristband costs ₹50 and is worth it', 'Pick up components by the body, not the pins'] },
+            hi: { title: 'ESD नुकसान कैसे रोकें', body: 'सरल आदतें आपके components को पूरी तरह बचाती हैं।', list: ['ICs handle करने से पहले metal छुएं', 'Wooden या anti-static mat पर काम करें — carpet नहीं', 'ICs को उनके anti-static foam में store करें', 'Anti-static wristband ₹50 में मिलता है — worth it', 'Components को body से उठाएं, pins से नहीं'] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'At what voltage does static electricity start killing microchips?', options: ['Only above 10,000V', 'Around 100V — which you cannot even feel', 'Exactly at 3,000V', 'Static cannot damage chips'], correct: 1, feedback: 'Chips can be damaged by as little as 100V of static — but you can\'t feel static below 3,000V. This means you can silently destroy a chip without knowing it!' },
+            hi: { question: 'Static electricity किस voltage पर microchips को नुकसान पहुँचाना शुरू करती है?', options: ['केवल 10,000V से ऊपर', 'लगभग 100V — जो आप feel भी नहीं कर सकते', 'ठीक 3,000V पर', 'Static chips को damage नहीं कर सकती'], correct: 1, feedback: 'Chips 100V जितनी कम static से damage हो सकती हैं — लेकिन आप 3,000V से कम static feel नहीं कर सकते। यानी आप chip बर्बाद कर सकते हैं बिना जाने!' }
+          },
+          {
+            type: 'complete', xp: 20,
+            en: { msg: "ESD awareness unlocked! Touch metal before handling ICs, avoid carpet, use anti-static storage. These habits will save you from expensive, mysterious component failures. You're now a safe electronics hobbyist." },
+            hi: { msg: "ESD awareness मिल गई! ICs handle करने से पहले metal छुएं, carpet से बचें। ये आदतें महंगी और रहस्यमय component failures से बचाएंगी।" }
+          }
+        ]
+      }
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════
+  //  3. ESSENTIAL COMPONENTS (was 2)
   // ══════════════════════════════════════════════════════
   {
     id: 'components',
@@ -460,7 +544,174 @@ const MODULES = [
   },
 
   // ══════════════════════════════════════════════════════
-  //  3. OHM'S LAW
+  //  4. TRANSISTORS & ICs
+  // ══════════════════════════════════════════════════════
+  {
+    id: 'transistors',
+    icon: '🔲',
+    color: '#8b5cf6',
+    en: { name: 'Transistors & ICs', phase: 'Components' },
+    hi: { name: 'Transistors और ICs', phase: 'पुर्जे' },
+    lessons: [
+      {
+        en: { title: 'Transistor — the switch that changed the world', time: '6 min' },
+        hi: { title: 'Transistor — जिसने दुनिया बदल दी', time: '6 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "The transistor is the most important invention in human history. Not a joke. Your phone has about 15 billion transistors in it. They're the reason computers exist. And they work on a simple principle — a small current controls a large current." },
+            hi: { text: "Transistor मानव इतिहास का सबसे महत्वपूर्ण आविष्कार है। मजाक नहीं। आपके फोन में लगभग 15 अरब transistors हैं। एक सरल सिद्धांत: छोटा current बड़े current को नियंत्रित करता है।" }
+          },
+          {
+            type: 'learn',
+            icon: '🎛️',
+            en: { title: 'What does a transistor do?', body: 'A transistor has 3 legs: Base, Collector, Emitter. A tiny current into the Base controls a much larger current between Collector and Emitter.', list: ['Acts as a switch — Base on → current flows through C-E', 'Acts as an amplifier — tiny signal in, big signal out', 'NPN type: most common. Current flows when Base gets +voltage', 'The BC547 is the classic beginner NPN transistor (₹2 each!)', 'Used in: radios, amplifiers, motor drivers, microcontrollers'] },
+            hi: { title: 'Transistor क्या करता है?', body: 'Transistor के 3 पैर होते हैं: Base, Collector, Emitter। Base में छोटा current, C-E के बीच बड़े current को नियंत्रित करता है।', list: ['Switch की तरह — Base on → C-E से current बहती है', 'Amplifier की तरह — छोटा signal in, बड़ा signal out', 'NPN type: सबसे आम। Base को +voltage मिले तो on', 'BC547 = classic beginner NPN transistor (₹2 प्रत्येक!)', 'Radio, amplifier, motor driver में उपयोग'] }
+          },
+          {
+            type: 'diagram',
+            label: 'NPN Transistor — Symbol & Switch',
+            svg: `<svg viewBox="0 0 300 170" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="170" fill="#1a1d35" rx="12"/>
+  <!-- Real BC547 -->
+  <text x="60" y="18" fill="#9ba3c8" font-size="10" text-anchor="middle" font-family="sans-serif">BC547 (real)</text>
+  <rect x="35" y="28" width="50" height="80" rx="8" fill="#1c1c1e" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="60" y="72" fill="#c4b5fd" font-size="8" text-anchor="middle" font-family="sans-serif">BC547</text>
+  <!-- 3 legs -->
+  <line x1="60" y1="108" x2="45" y2="130" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="60" y1="108" x2="60" y2="130" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="60" y1="108" x2="75" y2="130" stroke="#f59e0b" stroke-width="2"/>
+  <text x="42" y="145" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">C</text>
+  <text x="60" y="145" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">B</text>
+  <text x="78" y="145" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">E</text>
+  <text x="42" y="157" fill="#ef4444" font-size="7" text-anchor="middle" font-family="sans-serif">Col</text>
+  <text x="60" y="157" fill="#10b981" font-size="7" text-anchor="middle" font-family="sans-serif">Base</text>
+  <text x="78" y="157" fill="#60a5fa" font-size="7" text-anchor="middle" font-family="sans-serif">Em</text>
+  <!-- divider -->
+  <line x1="130" y1="10" x2="130" y2="165" stroke="#2e3260" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- Symbol -->
+  <text x="210" y="18" fill="#9ba3c8" font-size="10" text-anchor="middle" font-family="sans-serif">NPN Symbol</text>
+  <!-- collector line -->
+  <line x1="210" y1="30" x2="210" y2="65" stroke="#ef4444" stroke-width="2"/>
+  <!-- base line -->
+  <line x1="155" y1="85" x2="185" y2="85" stroke="#10b981" stroke-width="2"/>
+  <!-- vertical bar -->
+  <line x1="185" y1="60" x2="185" y2="110" stroke="#c4b5fd" stroke-width="3"/>
+  <!-- emitter diagonal with arrow -->
+  <line x1="185" y1="100" x2="210" y2="128" stroke="#60a5fa" stroke-width="2"/>
+  <polygon points="210,128 200,120 216,120" fill="#60a5fa"/>
+  <!-- emitter line down -->
+  <line x1="210" y1="128" x2="210" y2="150" stroke="#60a5fa" stroke-width="2"/>
+  <!-- collector connect -->
+  <line x1="185" y1="65" x2="210" y2="65" stroke="#ef4444" stroke-width="2"/>
+  <!-- labels -->
+  <text x="220" y="50" fill="#ef4444" font-size="9" font-family="sans-serif">C</text>
+  <text x="145" y="90" fill="#10b981" font-size="9" font-family="sans-serif">B</text>
+  <text x="220" y="145" fill="#60a5fa" font-size="9" font-family="sans-serif">E</text>
+</svg>`
+          },
+          {
+            type: 'fact',
+            en: { text: "Intel's latest chips contain over 100 billion transistors on a piece of silicon smaller than your fingernail. Each transistor is just a few nanometers wide — about 50,000 times thinner than a human hair!" },
+            hi: { text: "Intel के latest chips में आपके नाखून से छोटे silicon पर 100 अरब से ज्यादा transistors हैं। हर transistor मात्र कुछ nanometers चौड़ा है — human hair से 50,000 गुना पतला!" }
+          },
+          {
+            type: 'hindi',
+            en: { title: 'Key words' },
+            hi: { title: 'मुख्य शब्द' },
+            pairs: [
+              { en: 'Transistor', hi: 'ट्रांजिस्टर — switch/amplifier' },
+              { en: 'Base', hi: 'आधार — control pin' },
+              { en: 'Collector', hi: 'संग्राहक — main current in' },
+              { en: 'Emitter', hi: 'उत्सर्जक — main current out' },
+              { en: 'NPN', hi: 'NPN — most common type' }
+            ]
+          },
+          {
+            type: 'quiz',
+            en: { question: 'In an NPN transistor, which pin controls the others?', options: ['Collector', 'Emitter', 'Base', 'All three equally'], correct: 2, feedback: 'The Base is the control pin. A small current into the Base allows a much larger current to flow from Collector to Emitter. That\'s how it works as both a switch and an amplifier.' },
+            hi: { question: 'NPN transistor में कौन सा pin दूसरों को control करता है?', options: ['Collector', 'Emitter', 'Base', 'तीनों समान रूप से'], correct: 2, feedback: 'Base control pin है। Base में छोटा current → Collector से Emitter तक बड़ा current। यही switch और amplifier दोनों की तरह काम करता है।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: "You understand transistors! This is the component that powers all modern electronics — from the radio in your parents' time to the phone in your pocket. Everything runs on the same principle you just learned." },
+            hi: { msg: "आप transistors समझते हैं! यही वो पुर्जा है जो सभी modern electronics चलाता है। आपके माता-पिता के समय के radio से लेकर आपके phone तक — सब उसी सिद्धांत पर।" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Integrated Circuits — many components in one', time: '5 min' },
+        hi: { title: 'Integrated Circuits — एक में कई पुर्जे', time: '5 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "An Integrated Circuit — IC — is a complete circuit packed into a tiny chip. Instead of building 20 components on a breadboard, an IC puts them all inside one package the size of your thumbnail. Let's understand what's inside." },
+            hi: { text: "Integrated Circuit — IC — एक complete circuit है जो छोटी chip में पैक है। Breadboard पर 20 components बनाने की जगह, IC उन्हें अपने नाखून के आकार के package में रखती है।" }
+          },
+          {
+            type: 'learn',
+            icon: '🔲',
+            en: { title: 'What is an IC?', body: 'An IC (or chip) contains transistors, resistors, capacitors and more — all etched onto a tiny slice of silicon. The black plastic package just protects what\'s inside.', list: ['The 555 Timer IC — the world\'s most used IC ever', 'Op-Amp (741) — amplifies signals', 'Logic gates (AND, OR, NOT) — for digital decisions', 'Microcontrollers (Arduino) — programmable ICs', 'Each pin has a specific purpose — always check the datasheet!'] },
+            hi: { title: 'IC क्या है?', body: 'IC (या chip) में transistors, resistors, capacitors — सब silicon के टुकड़े पर etched। काला plastic package सिर्फ अंदर की चीजों की रक्षा करता है।', list: ['555 Timer IC — दुनिया की सबसे ज्यादा use होने वाली IC', 'Op-Amp (741) — signals amplify करती है', 'Logic gates (AND, OR, NOT) — digital decisions के लिए', 'Microcontrollers (Arduino) — programmable ICs', 'हर pin का specific purpose — datasheet जरूर देखें!'] }
+          },
+          {
+            type: 'diagram',
+            label: '555 Timer IC — Pin Layout',
+            svg: `<svg viewBox="0 0 300 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="180" fill="#1a1d35" rx="12"/>
+  <!-- IC body -->
+  <rect x="100" y="40" width="100" height="100" rx="6" fill="#1c1c1e" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="150" y="88" fill="#c4b5fd" font-size="14" font-weight="bold" text-anchor="middle" font-family="monospace">555</text>
+  <text x="150" y="104" fill="#9ba3c8" font-size="9" text-anchor="middle" font-family="monospace">TIMER</text>
+  <!-- notch -->
+  <path d="M130,40 Q150,30 170,40" fill="#1a1d35" stroke="#8b5cf6" stroke-width="1.5"/>
+  <!-- Left pins 1-4 -->
+  <line x1="70" y1="55" x2="100" y2="55" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="70" y1="73" x2="100" y2="73" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="70" y1="91" x2="100" y2="91" stroke="#f59e0b" stroke-width="2"/>
+  <line x1="70" y1="109" x2="100" y2="109" stroke="#f59e0b" stroke-width="2"/>
+  <!-- Right pins 5-8 -->
+  <line x1="200" y1="55" x2="230" y2="55" stroke="#10b981" stroke-width="2"/>
+  <line x1="200" y1="73" x2="230" y2="73" stroke="#10b981" stroke-width="2"/>
+  <line x1="200" y1="91" x2="230" y2="91" stroke="#10b981" stroke-width="2"/>
+  <line x1="200" y1="109" x2="230" y2="109" stroke="#10b981" stroke-width="2"/>
+  <!-- Pin labels left -->
+  <text x="60" y="59" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">1 GND</text>
+  <text x="60" y="77" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">2 TRIG</text>
+  <text x="60" y="95" fill="#ef4444" font-size="8" text-anchor="end" font-family="sans-serif">3 OUT</text>
+  <text x="60" y="113" fill="#9ba3c8" font-size="8" text-anchor="end" font-family="sans-serif">4 RST</text>
+  <!-- Pin labels right -->
+  <text x="240" y="59" fill="#9ba3c8" font-size="8" font-family="sans-serif">VCC 8</text>
+  <text x="240" y="77" fill="#9ba3c8" font-size="8" font-family="sans-serif">DIS 7</text>
+  <text x="240" y="95" fill="#9ba3c8" font-size="8" font-family="sans-serif">THR 6</text>
+  <text x="240" y="113" fill="#9ba3c8" font-size="8" font-family="sans-serif">CTL 5</text>
+  <!-- labels -->
+  <text x="150" y="160" fill="#8b5cf6" font-size="9" text-anchor="middle" font-family="sans-serif">8 pins — 25+ transistors inside</text>
+  <text x="150" y="173" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">makes timers, oscillators, pulse generators</text>
+</svg>`
+          },
+          {
+            type: 'fact',
+            en: { text: "The 555 Timer IC was invented in 1972 and has never stopped being used. Over 1 billion are still made every year. It can blink an LED, make sound, control a motor, or generate pulses — all for about ₹5!" },
+            hi: { text: "555 Timer IC 1972 में बना था और आज भी use हो रहा है। हर साल 1 अरब से ज्यादा बनते हैं। LED blink करना, आवाज बनाना, motor control करना — सब ₹5 में!" }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'What makes an IC different from individual components on a breadboard?', options: ['ICs only work with AC power', 'An IC contains many components integrated into one tiny chip', 'ICs cannot be used by beginners', 'ICs only contain resistors'], correct: 1, feedback: 'Integrated Circuit = many components (transistors, resistors, etc.) integrated into one small chip. Much smaller, more reliable, and cheaper than building the same circuit from individual parts.' },
+            hi: { question: 'IC को breadboard के individual components से अलग क्या बनाता है?', options: ['ICs केवल AC power से काम करते हैं', 'IC में कई components एक छोटी chip में integrated होते हैं', 'ICs beginners के लिए नहीं हैं', 'ICs में केवल resistors होते हैं'], correct: 1, feedback: 'Integrated Circuit = कई components (transistors, resistors आदि) एक छोटी chip में। बहुत छोटा, ज्यादा reliable, और individual parts से सस्ता।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: "Transistors and ICs — done! You now understand the building blocks that make all modern electronics possible. Next: the mathematical law that ties everything together." },
+            hi: { msg: "Transistors और ICs — पूरे! आप अब उन building blocks को समझते हैं जो सभी modern electronics को possible बनाते हैं। अगला: वो mathematical law जो सब कुछ जोड़ती है।" }
+          }
+        ]
+      }
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════
+  //  5. OHM'S LAW
   // ══════════════════════════════════════════════════════
   {
     id: 'ohmslaw',
@@ -535,7 +786,189 @@ const MODULES = [
   },
 
   // ══════════════════════════════════════════════════════
-  //  4. MEASUREMENT & TOOLS
+  //  6. READING SCHEMATICS
+  // ══════════════════════════════════════════════════════
+  {
+    id: 'schematics',
+    icon: '📐',
+    color: '#0ea5e9',
+    en: { name: 'Reading Schematics', phase: 'Theory' },
+    hi: { name: 'Schematics पढ़ना', phase: 'सिद्धांत' },
+    lessons: [
+      {
+        en: { title: 'What is a schematic?', time: '5 min' },
+        hi: { title: 'Schematic क्या होता है?', time: '5 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Every electronics project comes with a schematic — a map of the circuit. Without reading schematics, you can only copy circuits blindly. With this skill, you can understand ANY circuit ever designed. It's the language of electronics." },
+            hi: { text: "हर electronics project के साथ schematic आता है — circuit का नक्शा। Schematics पढ़े बिना, आप circuits blindly copy कर सकते हैं। इस skill से आप कोई भी circuit समझ सकते हैं।" }
+          },
+          {
+            type: 'learn',
+            icon: '🗺️',
+            en: { title: 'What a schematic is (and is not)', body: 'A schematic shows HOW components are connected electrically. It does NOT show where they physically sit on the board.', list: ['Lines = wires connecting components', 'Symbols = standardized pictures for each component', 'Labels = values (R1=330Ω, C1=100µF, etc.)', 'Dots at line junctions = wires ARE connected', 'Lines crossing WITHOUT dot = wires are NOT connected'] },
+            hi: { title: 'Schematic क्या है (और क्या नहीं)', body: 'Schematic दिखाता है components electrically कैसे जुड़े हैं। यह नहीं दिखाता वो board पर physically कहाँ हैं।', list: ['Lines = components जोड़ने वाले wires', 'Symbols = हर component के standardized pictures', 'Labels = values (R1=330Ω, C1=100µF आदि)', 'Junction पर dots = wires जुड़े हैं', 'Dot बिना crossing lines = wires जुड़े नहीं'] }
+          },
+          {
+            type: 'diagram',
+            label: 'Common Schematic Symbols',
+            svg: `<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+  <rect width="300" height="200" fill="#1a1d35" rx="12"/>
+  <!-- Resistor -->
+  <text x="40" y="22" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Resistor</text>
+  <line x1="10" y1="35" x2="22" y2="35" stroke="#f59e0b" stroke-width="1.5"/>
+  <rect x="22" y="28" width="36" height="14" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <line x1="58" y1="35" x2="70" y2="35" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Capacitor -->
+  <text x="120" y="22" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Capacitor</text>
+  <line x1="90" y1="35" x2="112" y2="35" stroke="#10b981" stroke-width="1.5"/>
+  <line x1="112" y1="26" x2="112" y2="44" stroke="#10b981" stroke-width="2.5"/>
+  <line x1="118" y1="26" x2="118" y2="44" stroke="#10b981" stroke-width="2.5"/>
+  <line x1="118" y1="35" x2="140" y2="35" stroke="#10b981" stroke-width="1.5"/>
+  <!-- LED/Diode -->
+  <text x="200" y="22" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">LED/Diode</text>
+  <line x1="168" y1="35" x2="183" y2="35" stroke="#a78bfa" stroke-width="1.5"/>
+  <polygon points="183,26 183,44 200,35" fill="#a78bfa" stroke="#a78bfa" stroke-width="1"/>
+  <line x1="200" y1="26" x2="200" y2="44" stroke="#a78bfa" stroke-width="2"/>
+  <line x1="200" y1="35" x2="220" y2="35" stroke="#a78bfa" stroke-width="1.5"/>
+  <line x1="203" y1="24" x2="210" y2="17" stroke="#fbbf24" stroke-width="1" stroke-linecap="round"/>
+  <line x1="207" y1="29" x2="214" y2="22" stroke="#fbbf24" stroke-width="1" stroke-linecap="round"/>
+  <!-- Battery -->
+  <text x="40" y="75" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Battery</text>
+  <line x1="10" y1="88" x2="25" y2="88" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="25" y1="80" x2="25" y2="96" stroke="#60a5fa" stroke-width="2.5"/>
+  <line x1="30" y1="84" x2="30" y2="92" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="30" y1="88" x2="45" y2="88" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="45" y1="80" x2="45" y2="96" stroke="#60a5fa" stroke-width="2.5"/>
+  <line x1="50" y1="84" x2="50" y2="92" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="50" y1="88" x2="70" y2="88" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="27" y="78" fill="#10b981" font-size="9" font-family="sans-serif">+</text>
+  <text x="47" y="78" fill="#ef4444" font-size="9" font-family="sans-serif">−</text>
+  <!-- Ground -->
+  <text x="120" y="75" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Ground</text>
+  <line x1="120" y1="80" x2="120" y2="96" stroke="#9ba3c8" stroke-width="1.5"/>
+  <line x1="108" y1="96" x2="132" y2="96" stroke="#9ba3c8" stroke-width="2"/>
+  <line x1="112" y1="101" x2="128" y2="101" stroke="#9ba3c8" stroke-width="1.5"/>
+  <line x1="116" y1="106" x2="124" y2="106" stroke="#9ba3c8" stroke-width="1"/>
+  <!-- Switch -->
+  <text x="210" y="75" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Switch (open)</text>
+  <line x1="175" y1="88" x2="192" y2="88" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="192" cy="88" r="2.5" fill="#f59e0b"/>
+  <line x1="192" y1="88" x2="215" y2="76" stroke="#f59e0b" stroke-width="1.5"/>
+  <circle cx="215" cy="88" r="2.5" fill="#f59e0b"/>
+  <line x1="215" y1="88" x2="235" y2="88" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Junction vs crossover -->
+  <text x="80" y="140" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Connected</text>
+  <line x1="50" y1="152" x2="110" y2="152" stroke="#10b981" stroke-width="1.5"/>
+  <line x1="80" y1="135" x2="80" y2="170" stroke="#10b981" stroke-width="1.5"/>
+  <circle cx="80" cy="152" r="4" fill="#10b981"/>
+  <text x="200" y="140" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">NOT connected</text>
+  <line x1="165" y1="152" x2="235" y2="152" stroke="#ef4444" stroke-width="1.5"/>
+  <line x1="200" y1="135" x2="200" y2="170" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="194" y="146" width="12" height="12" fill="#1a1d35"/>
+  <line x1="196" y1="152" x2="204" y2="152" stroke="#1a1d35" stroke-width="6"/>
+  <line x1="200" y1="135" x2="200" y2="170" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="80" y="185" fill="#10b981" font-size="8" text-anchor="middle" font-family="sans-serif">• dot = junction</text>
+  <text x="200" y="185" fill="#ef4444" font-size="8" text-anchor="middle" font-family="sans-serif">no dot = crossover</text>
+</svg>`
+          },
+          {
+            type: 'quiz',
+            en: { question: 'Two lines cross on a schematic with NO dot at the crossing. What does this mean?', options: ['The wires are connected at that point', 'The wires are NOT connected — they just cross visually', 'This is an error in the schematic', 'The wires are connected only sometimes'], correct: 1, feedback: 'No dot = no connection. The lines just cross visually but are on different layers/paths. Always look for the dot to confirm a connection.' },
+            hi: { question: 'Schematic पर दो lines बिना dot के cross करती हैं। इसका मतलब क्या है?', options: ['Wires उस point पर connected हैं', 'Wires connected नहीं हैं — वो बस visually cross करते हैं', 'Schematic में error है', 'Wires कभी-कभी connected हैं'], correct: 1, feedback: 'No dot = no connection। Lines बस visually cross करती हैं लेकिन अलग paths पर हैं। Connection confirm करने के लिए हमेशा dot देखें।' }
+          },
+          {
+            type: 'complete', xp: 25,
+            en: { msg: "Schematic symbols — learned! You can now recognize resistors, capacitors, LEDs, batteries, ground, and switches in any circuit diagram. Next lesson: read a complete real circuit." },
+            hi: { msg: "Schematic symbols — सीख लिए! अब आप किसी भी circuit diagram में resistors, capacitors, LEDs, batteries, ground और switches पहचान सकते हैं।" }
+          }
+        ]
+      },
+      {
+        en: { title: 'Read your first complete schematic', time: '5 min' },
+        hi: { title: 'पहला complete schematic पढ़ें', time: '5 मिनट' },
+        steps: [
+          {
+            type: 'spark',
+            en: { text: "Time to read a real circuit! We'll look at the classic LED circuit schematic — the same one you'll build in projects. By the end, you'll be able to trace the path of electricity through a schematic and understand what every part does." },
+            hi: { text: "अब एक real circuit पढ़ते हैं! हम classic LED circuit schematic देखेंगे। अंत तक आप schematic में electricity का रास्ता trace कर पाएंगे।" }
+          },
+          {
+            type: 'learn',
+            icon: '👁️',
+            en: { title: 'How to read any schematic — 4 steps', body: 'Use this method on every schematic you see and it will always make sense.', list: ['1. Find the power supply (battery, VCC) — top of diagram', '2. Find ground — bottom/bottom-right. Current flows top to bottom', '3. Trace the path from + to − — follow the line', '4. Identify each component along the path and its job'] },
+            hi: { title: 'कोई भी schematic पढ़ें — 4 steps', body: 'हर schematic पर यह method use करें — हमेशा समझ आएगा।', list: ['1. Power supply ढूंढें (battery, VCC) — diagram का ऊपर', '2. Ground ढूंढें — नीचे/नीचे-दाएं। Current ऊपर से नीचे बहती है', '3. + से − तक path trace करें — line follow करें', '4. रास्ते में हर component और उसका काम पहचानें'] }
+          },
+          {
+            type: 'diagram',
+            label: 'LED Circuit — Complete Schematic',
+            svg: `<svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:280px">
+  <rect width="280" height="200" fill="#1a1d35" rx="12"/>
+  <!-- 9V Battery -->
+  <line x1="30" y1="40" x2="30" y2="90" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="22" y1="90" x2="38" y2="90" stroke="#60a5fa" stroke-width="2.5"/>
+  <line x1="18" y1="96" x2="42" y2="96" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="22" y1="102" x2="38" y2="102" stroke="#60a5fa" stroke-width="2.5"/>
+  <line x1="18" y1="108" x2="42" y2="108" stroke="#60a5fa" stroke-width="1.5"/>
+  <line x1="30" y1="108" x2="30" y2="160" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="10" y="88" fill="#10b981" font-size="10" font-family="sans-serif">+</text>
+  <text x="10" y="112" fill="#ef4444" font-size="10" font-family="sans-serif">−</text>
+  <text x="50" y="100" fill="#60a5fa" font-size="9" font-family="sans-serif">9V</text>
+  <!-- Top wire + → right -->
+  <line x1="30" y1="40" x2="240" y2="40" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- Resistor 330Ω on top wire -->
+  <rect x="90" y="32" width="50" height="16" rx="3" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="115" y="44" fill="#f59e0b" font-size="8" text-anchor="middle" font-family="sans-serif">R1 330Ω</text>
+  <!-- Right side down to LED -->
+  <line x1="240" y1="40" x2="240" y2="70" stroke="#f59e0b" stroke-width="1.5"/>
+  <!-- LED symbol -->
+  <polygon points="226,70 254,70 240,95" fill="#10b981" stroke="#10b981" stroke-width="1"/>
+  <line x1="226" y1="95" x2="254" y2="95" stroke="#10b981" stroke-width="2"/>
+  <!-- LED light rays -->
+  <line x1="252" y1="68" x2="262" y2="58" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="257" y1="76" x2="267" y2="70" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="240" y="115" fill="#10b981" font-size="8" text-anchor="middle" font-family="sans-serif">D1 LED</text>
+  <!-- LED to ground wire -->
+  <line x1="240" y1="95" x2="240" y2="160" stroke="#9ba3c8" stroke-width="1.5"/>
+  <!-- Bottom wire back to battery -->
+  <line x1="30" y1="160" x2="240" y2="160" stroke="#9ba3c8" stroke-width="1.5"/>
+  <!-- Ground symbol -->
+  <line x1="136" y1="160" x2="136" y2="168" stroke="#9ba3c8" stroke-width="1.5"/>
+  <line x1="124" y1="168" x2="148" y2="168" stroke="#9ba3c8" stroke-width="2"/>
+  <line x1="128" y1="173" x2="144" y2="173" stroke="#9ba3c8" stroke-width="1.5"/>
+  <line x1="132" y1="178" x2="140" y2="178" stroke="#9ba3c8" stroke-width="1"/>
+  <text x="160" y="175" fill="#9ba3c8" font-size="8" font-family="sans-serif">GND</text>
+  <!-- flow arrows -->
+  <text x="136" y="35" fill="#fbbf24" font-size="10" font-family="sans-serif">→</text>
+  <text x="246" y="135" fill="#fbbf24" font-size="10" font-family="sans-serif">↓</text>
+  <text x="80" y="175" fill="#fbbf24" font-size="10" font-family="sans-serif">←</text>
+  <!-- labels -->
+  <text x="140" y="190" fill="#9ba3c8" font-size="8" text-anchor="middle" font-family="sans-serif">Current: + → R1 → D1 → GND</text>
+</svg>`
+          },
+          {
+            type: 'tryit',
+            en: { title: 'Trace this schematic yourself', steps: ['Find the + terminal of the battery (top-left)', 'Follow the wire right — you hit resistor R1 (330Ω)', 'After R1 the wire reaches LED D1', 'After LED current goes down to the bottom wire', 'The bottom wire returns to the − of the battery (GND)', 'That\'s one complete loop — that\'s a circuit!'] },
+            hi: { title: 'खुद इस schematic को trace करें', steps: ['Battery का + terminal ढूंढें (ऊपर-बाएं)', 'Wire दाईं तरफ follow करें — resistor R1 (330Ω) मिलेगा', 'R1 के बाद wire LED D1 तक पहुँचती है', 'LED के बाद current नीचे bottom wire पर जाती है', 'Bottom wire battery के − पर वापस जाती है (GND)', 'यही एक complete loop है — यही circuit है!'] }
+          },
+          {
+            type: 'quiz',
+            en: { question: 'In a schematic, which direction does current conventionally flow?', options: ['From − to + (negative to positive)', 'From + to − (positive to negative)', 'It depends on the component', 'Current has no direction in schematics'], correct: 1, feedback: 'Conventional current flows from + to − (positive to negative terminal). In the LED circuit: + battery → resistor → LED → back to − battery.' },
+            hi: { question: 'Schematic में current conventionally किस दिशा में बहती है?', options: ['− से + की तरफ', '+ से − की तरफ', 'Component पर depend करता है', 'Schematics में current की कोई दिशा नहीं'], correct: 1, feedback: 'Conventional current + से − की तरफ बहती है। LED circuit में: + battery → resistor → LED → − battery।' }
+          },
+          {
+            type: 'complete', xp: 30,
+            en: { msg: "You can read a schematic! This is a huge milestone. From now on, when you find a circuit online or in a book — you can understand it, not just copy it. The world of electronics just opened up for you." },
+            hi: { msg: "आप schematic पढ़ सकते हैं! यह एक बड़ा milestone है। अब जब आप online या किसी किताब में circuit देखेंगे — आप उसे समझेंगे, सिर्फ copy नहीं करेंगे।" }
+          }
+        ]
+      }
+    ]
+  },
+
+  // ══════════════════════════════════════════════════════
+  //  7. MEASUREMENT & TOOLS
   // ══════════════════════════════════════════════════════
   {
     id: 'tools',
@@ -894,5 +1327,12 @@ const GLOSSARY = [
   { en: 'Short circuit', hi: 'शॉर्ट सर्किट', symbol: '-', unit: '-', desc_en: 'Direct unintended connection between + and −. Can cause fire!', desc_hi: 'सीधा अनचाहा + और − का connection। आग लग सकती है!' },
   { en: 'Open circuit', hi: 'खुला सर्किट', symbol: '-', unit: '-', desc_en: 'A break in the circuit — current cannot flow.', desc_hi: 'Circuit में टूटन — current नहीं बह सकती।' },
   { en: 'Soldering', hi: 'टांका लगाना', symbol: '-', unit: '-', desc_en: 'Permanently joining components to PCB using molten metal.', desc_hi: 'पिघली धातु से components को PCB पर स्थायी जोड़ना।' },
-  { en: 'Arduino', hi: 'अरदुइनो', symbol: '-', unit: '-', desc_en: 'Beginner-friendly microcontroller board for making projects.', desc_hi: 'Projects बनाने के लिए beginner-friendly microcontroller board।' }
+  { en: 'Arduino', hi: 'अरदुइनो', symbol: '-', unit: '-', desc_en: 'Beginner-friendly microcontroller board for making projects.', desc_hi: 'Projects बनाने के लिए beginner-friendly microcontroller board।' },
+  { en: 'Transistor (NPN)', hi: 'ट्रांजिस्टर NPN', symbol: 'Q', unit: 'β (gain)', desc_en: 'Base controls Collector-Emitter current. Small signal controls large current.', desc_hi: 'Base, Collector-Emitter current को control करता है।' },
+  { en: 'IC (Integrated Circuit)', hi: 'एकीकृत परिपथ', symbol: 'U / IC', unit: '-', desc_en: 'Many transistors/resistors/capacitors on one silicon chip.', desc_hi: 'एक silicon chip पर कई transistors और resistors।' },
+  { en: '555 Timer', hi: '555 टाइमर', symbol: 'U1', unit: '-', desc_en: 'The most used IC ever. Creates timing pulses, oscillations.', desc_hi: 'सबसे ज्यादा use होने वाली IC। Timing pulses बनाती है।' },
+  { en: 'ESD', hi: 'स्थैतिक विद्युत निर्वहन', symbol: '-', unit: '-', desc_en: 'Electrostatic Discharge — static electricity that can destroy ICs.', desc_hi: 'Static electricity जो ICs को नष्ट कर सकती है।' },
+  { en: 'Schematic', hi: 'सर्किट आरेख', symbol: '-', unit: '-', desc_en: 'Diagram showing electrical connections using standard symbols.', desc_hi: 'Standard symbols से electrical connections दिखाने वाला diagram।' },
+  { en: 'Anode', hi: 'एनोड', symbol: '+', unit: '-', desc_en: 'Positive terminal of a diode/LED. Current enters here.', desc_hi: 'Diode/LED का positive terminal। Current यहाँ enter करती है।' },
+  { en: 'Cathode', hi: 'कैथोड', symbol: '−', unit: '-', desc_en: 'Negative terminal of a diode/LED. Current exits here.', desc_hi: 'Diode/LED का negative terminal। Current यहाँ से exit होती है।' }
 ];
